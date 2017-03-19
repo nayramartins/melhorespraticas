@@ -1,0 +1,105 @@
+html {
+    font-size: 10px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+
+.container {
+    width: 86.5%;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+        display: inline;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a {
+    margin: 0;
+    color: $black;
+    font-size: 1.2rem;
+    font-weight: normal;
+}
+
+.cta {
+    width: 14rem;
+    padding: 2rem 0;
+    transition: 0.5s;
+    background-color: $red;
+    color: $white;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+
+    &:hover {
+        background-color: $redDark;
+    }
+}
+
+.box-title {
+    font-family: 'Lora';
+    font-size: 3.5rem;
+}
+
+.subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    letter-spacing: $kerning;
+    text-transform: uppercase;
+}
+
+.lora-title {
+    margin-bottom: 0.5rem;
+    color: $black;
+    font-family: 'Lora', serif;
+    font-size: 1.8rem;
+}
+
+.color-red {
+    color: $red;
+}
+
+.color-grey {
+    color: $grey;
+}
+
+.color-white {
+    color: $white;
+}
+
+.title {
+    color: $black;
+    font-size: 1.5rem;
+}
+
+.text-content {
+    color: $greyDark;
+    font-family: 'Lora', serif;
+    font-size: 1.4rem;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

@@ -1,0 +1,96 @@
+.header {
+    letter-spacing: $kerning;
+
+    &_background {
+        background: $greyLight;
+    }
+
+    &_top {
+        display: flex;
+        align-items: center;
+        height: 5.5rem;
+        text-transform: uppercase;
+
+        a {
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        &-social {
+            li {
+                margin-right: 1rem;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+
+        &-menu {
+            a {
+                margin-right: 4rem;
+                color: $red;
+            }
+
+            li {
+                &:last-child {
+                    a {
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+
+        &-message {
+            color: $grey;
+            font-family: 'Lora';
+            font-size: 1.1rem;
+            text-transform: none;
+        }
+
+        &-login {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            li {
+                margin-right: 2.5rem;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+
+    &_content {
+        display: flex;
+        align-items: center;
+        height: 16rem;
+
+        &-box {
+            display: flex;
+
+            &.box-1,
+            &.box-3 {
+                justify-content: flex-end;
+            }
+
+            &.box-2 {
+                justify-content: center;
+
+                li {
+                    margin: 1.25rem;
+                }
+
+                a {
+                    @include hover;
+                    position: relative;
+                    color: $grey;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+}
