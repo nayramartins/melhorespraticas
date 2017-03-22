@@ -8,10 +8,10 @@ get_header(); ?>
 
 <div class="container">
 	<div class="top_content">
-		<section class="top_content-left col-8">
+		<section class="top_content-left">
 			<div class="top_content-left--header">
-				<h2 class="box-title col-4">Escolha do Editor</h2>
-				<select class="select-option col-2" name="select">
+				<h2 class="box-title">Escolha do Editor</h2>
+				<select class="select-option" name="select">
 					<option value="value1" selected disabled>Buscar por assunto</option>
 					<option value="value2">Valor 2</option>
 					<option value="value3">Valor 3</option>
@@ -19,10 +19,10 @@ get_header(); ?>
 				<a href="#" class="see-more">Ver todos</a>
 			</div>
 			<div class="top_content--news">
-				<div class="box-image col-3">
+				<div class="box-image">
 					<img src="" width="50" height="50" alt="" class="image" />
 				</div>
-				<div class="box-content col-4">
+				<div class="box-content">
 					<a href="#" class="subtitle color-red">Assistência</a>
 					<a href="#" class="title">Idoso bem cuidado</a>
 					<p class="text-content">Conheça o novo programa da ANS para a atenção integrada</p>
@@ -30,9 +30,9 @@ get_header(); ?>
 				</div>
 			</div>
 		</section>
-		<section class="top_content-right col-4">
+		<section class="top_content-right">
 			<div class="top_content-right--header">
-				<h2 class="box-title col-3">Entrevistas</h2>
+				<h2 class="box-title">Entrevistas</h2>
 				<a href="#" class="see-more color-grey">Ver todos</a>
 			</div>
 			<div class="top_content-right--content">

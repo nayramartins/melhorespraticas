@@ -19,9 +19,9 @@ Text Domain: rmp
 
 @import '_general';
 
-@import '_grid';
-
 @import '_header';
+
+@import '_header.mobile.scss';
 
 @import '_slider';
 
