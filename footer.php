@@ -5,7 +5,7 @@
  <?php wp_footer(); ?>
     <footer class="footer">
         <?php dynamic_sidebar('footer'); ?>
-        <div class="col-12 container">
+        <div class="container">
             <div class="footer_image"></div>
             <div class="footer_contact">
                 <p class="color-red subtitle">fale com a gente</p>

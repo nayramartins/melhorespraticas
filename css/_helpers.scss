@@ -1,10 +1,9 @@
 // MIXINS =====================================================================
 
-// Set values from 1 to 12.
-//$colWidth: 1 = 100px
-@mixin col($colWidth: 1) {
-    width: calc(100% / 12 * #{$colWidth});
-    box-sizing: border-box;
+@mixin display-flex ($align: center, $justify: space-between) {
+    display: flex;
+    align-items: $align;
+    justify-content: $justify;
 }
 
 // HOVER ======================================================================

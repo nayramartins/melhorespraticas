@@ -6,8 +6,7 @@
     }
 
     &_top {
-        display: flex;
-        align-items: center;
+        @include display-flex($justify: space-between);
         height: 5.5rem;
         text-transform: uppercase;
 
@@ -17,25 +16,28 @@
         }
 
         &-social {
+            min-width: 5.3rem;
+
             li {
                 margin-right: 1rem;
-
-                &:last-child {
-                    margin-right: 0;
-                }
             }
         }
 
         &-menu {
             a {
-                margin-right: 4rem;
-                color: $red;
+                color: $black;
             }
 
             li {
+                margin-right: 3rem;
+
                 &:last-child {
                     a {
                         margin-right: 0;
+
+                        &:last-child {
+                            color: $red;
+                        }
                     }
                 }
             }
@@ -49,9 +51,7 @@
         }
 
         &-login {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
+            @include display-flex($justify: flex-end);
 
             li {
                 margin-right: 2.5rem;
@@ -64,8 +64,7 @@
     }
 
     &_content {
-        display: flex;
-        align-items: center;
+        @include display-flex($justify: space-between);
         height: 16rem;
 
         &-box {
