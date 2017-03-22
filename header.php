@@ -8,7 +8,6 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
-	<link rel="stylesheet" href="wp-content/themes/melhorespraticas/style.css">
 	<title><?php bloginfo('name'); ?> | <?php bloginfo('description'); ?></title>
 </head>
 <?php wp_head(); ?>
@@ -24,6 +23,7 @@
 								<li><a href="#" id="linkedin"><img src="" width="13" height="13" alt=""></a></li>
 							</ul>
 
+							<?php wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); ?>
 							<ul class="header_top-menu col-5">
 								<li><a href="#">Nossa Empresa</a></li>
 								<li><a href="#">Contato</a></li>
