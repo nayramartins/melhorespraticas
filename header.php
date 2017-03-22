@@ -11,6 +11,8 @@
 	<title><?php bloginfo('name'); ?> | <?php bloginfo('description'); ?></title>
 </head>
 <?php wp_head(); ?>
+<?php $facebook_url = get_theme_mod('url_facebook'); ?>
+<?php $linkedin_url = get_theme_mod('url_linkedin'); ?>
 <body <?php body_class(); ?>>
 	<div class="main">
 		<header class="header">
@@ -18,21 +20,29 @@
 				<div class="container">
 					<div class="header_top">
 						<ul class="header_top-social col">
-							<li><a href="#" id="facebook"><img src="wp-content/themes/melhorespraticas/images/melhores_praticas-facebook.png" width="15" height="15" alt=""></a></li>
-							<li><a href="#" id="linkedin"><img src="wp-content/themes/melhorespraticas/images/melhores_praticas-linkedin.png" width="15" height="15" alt=""></a></li>
+							<li>
+								<a href="<?php echo $facebook_url; ?>" id="facebook">
+									<img src="wp-content/themes/melhorespraticas/images/melhores_praticas-facebook.png" width="15" height="15" alt="">
+								</a>
+							</li>
+							<li>
+								<a href="<?php echo $linkedin_url; ?>" id="linkedin">
+									<img src="wp-content/themes/melhorespraticas/images/melhores_praticas-linkedin.png" width="15" height="15" alt="">
+								</a>
+							</li>
 						</ul>
 
-						<?php //wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); ?>
-						<ul class="header_top-menu">
+						<?php if (function_exists(main_menu())) main_menu(); ?>
+						<!--<ul class="header_top-menu">
 							<li><a href="#">Nossa Empresa</a></li>
 							<li><a href="#">Contato</a></li>
 							<li><a href="#">A Revista de benchmarking em saúde</a></li>
-						</ul>
+						</ul>-->
 
-						<p class="header_top-message">Casos e práticas embasados nas metodologias de acreditação</p>
+						<p class="header_top-message"> <?php bloginfo('description'); ?></p>
 
 						<ul class="header_top-login">
-							<li><a href="#">login</li>
+							<li><a href="<?php echo esc_url( get_permalink( get_page_by_title('Login')));?>">login</li>
 							<li><a href="#"><img src="wp-content/themes/melhorespraticas/images/melhores_praticas-cart.png" width="23" height="20" alt=""></a></li>
 							<li><a href="#"><img src="wp-content/themes/melhorespraticas/images/melhores_praticas-search.png" width="23" height="20" alt=""></a></li>
 						</ul>
