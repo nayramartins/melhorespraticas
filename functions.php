@@ -70,8 +70,15 @@ if (!function_exists('melhorespraticas_setup')):
 			wp_list_pages('sort_column=menu_order&title_li=');
 			echo '</ul></nav>';
 		}
+
   }
 endif;
+
+
+add_action( 'after_setup_theme', 'woocommerce_support' );
+  function woocommerce_support() {
+    add_theme_support( 'woocommerce' );
+}
 
 add_action('after_setup_theme', 'melhorespraticas_setup');
 
@@ -187,7 +194,6 @@ add_filter( 'mce_external_plugins', 'add_the_table_plugin' );
 function get_theme_mod_img($mod_name){
      return str_replace(array('http:', 'https:'), '', get_theme_mod($mod_name));
 }
-
 
 /**************** Customize html structure ****************/
 
