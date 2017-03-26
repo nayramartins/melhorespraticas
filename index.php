@@ -3,7 +3,9 @@
 get_header(); ?>
 
 <section class="slider">
-	<div class="container"></div>
+	<?php
+    echo do_shortcode("[metaslider id=29]");
+?>
 </section>
 
 <div class="container">
