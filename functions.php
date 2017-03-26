@@ -35,11 +35,12 @@ if (!function_exists('melhorespraticas_setup')):
     }
     add_action('init', 'register_main_menu');
 
-    // Category menu
-    function register_category_menu() {
-      register_nav_menu('category-menu',__('Category Menu'));
+    // Navigation menu
+    function register_navigation_menu() {
+      register_nav_menu('navigation-menu',__('Nav Menu'));
     }
-    add_action('init', 'register_main_menu');
+    add_action('init', 'register_navigation_menu');
+
 
     // Feature image
     add_theme_support('post-thumbnails');
@@ -198,7 +199,7 @@ function get_theme_mod_img($mod_name){
 /**************** Customize html structure ****************/
 
 function main_menu() {
-	$menu_name = 'main-menu'; // specify custom menu slug
+	$menu_name = 'main-menu';
 	if (($locations = get_nav_menu_locations()) && isset($locations[$menu_name])) {
 		$menu = wp_get_nav_menu_object($locations[$menu_name]);
 		$menu_items = wp_get_nav_menu_items($menu->term_id);
@@ -213,7 +214,26 @@ function main_menu() {
 		$menu_list .= "\t\t\t\t". '</ul>' ."\n";
 		$menu_list .= "\t\t\t". '</nav>' ."\n";
 	} else {
-		// $menu_list = '<!-- no list defined -->';
+	}
+	echo $menu_list;
+}
+
+function navigation_menu() {
+	$menu_name = 'navigation-menu';
+	if (($locations = get_nav_menu_locations()) && isset($locations[$menu_name])) {
+		$menu = wp_get_nav_menu_object($locations[$menu_name]);
+		$menu_items = wp_get_nav_menu_items($menu->term_id);
+
+		$menu_list = '<nav>' ."\n";
+		$menu_list .= "\t\t\t\t". '<ul class="header_content-box box-2">' ."\n";
+		foreach ((array) $menu_items as $key => $menu_item) {
+			$title = $menu_item->title;
+			$url = $menu_item->url;
+			$menu_list .= "\t\t\t\t\t". '<li><a href="'. $url .'">'. $title .'</a></li>' ."\n";
+		}
+		$menu_list .= "\t\t\t\t". '</ul>' ."\n";
+		$menu_list .= "\t\t\t". '</nav>' ."\n";
+	} else {
 	}
 	echo $menu_list;
 }

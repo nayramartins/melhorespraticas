@@ -13,6 +13,7 @@
 <?php wp_head(); ?>
 <?php $facebook_url = get_theme_mod('url_facebook'); ?>
 <?php $linkedin_url = get_theme_mod('url_linkedin'); ?>
+<?php $logo = get_theme_mod('melhorespraticas_logo'); ?>
 <body <?php body_class(); ?>>
 	<div class="main">
 		<header class="header">
@@ -52,9 +53,11 @@
 			<div class="container">
 				<div class="header_content">
 					<div class="header_content-box box-1">
-						<img src="wp-content/themes/melhorespraticas/images/melhores_praticas_logo.png" alt="" class="image">
+						<!--<img src="wp-content/themes/melhorespraticas/images/melhores_praticas_logo.png" alt="" class="image">-->
+						<a class="header_content-box-brand" href="<?php bloginfo('url'); ?>"><img src="<?php echo $logo; ?>" alt="" class="image"></a>
 					</div>
-					<ul class="header_content-box box-2">
+					<?php if (function_exists(navigation_menu())) navigation_menu(); ?>
+					<!--<ul class="header_content-box box-2">
 						<li><a href="#">item menu</a></li>
 						<li><a href="#">item menu</a></li>
 						<li><a href="#">item menu</a></li>
@@ -62,7 +65,7 @@
 						<li><a href="#">item menu</a></li>
 						<li><a href="#">item menu</a></li>
 						<li><a href="#">item menu</a></li>
-					</ul>
+					</ul>-->
 					<div class="header_content-box box-3">
 						<a href="#" class="cta">Assine</a>
 					</div>

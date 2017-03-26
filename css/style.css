@@ -214,6 +214,9 @@ a {
     height: 16rem; }
     .header_content-box {
       display: flex; }
+      .header_content-box-brand {
+        width: 100%;
+        height: 100%; }
       .header_content-box.box-1, .header_content-box.box-3 {
         justify-content: flex-end; }
       .header_content-box.box-2 {
