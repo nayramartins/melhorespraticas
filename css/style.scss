@@ -21,10 +21,12 @@ Text Domain: rmp
 
 @import '_header';
 
-@import '_header.mobile.scss';
+@import '_header.mobile';
 
 @import '_slider';
 
 @import '_index';
+
+@import '_index.mobile';
 
 @import '_footer';

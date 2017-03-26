@@ -20,7 +20,7 @@ get_header(); ?>
 			</div>
 			<div class="top_content--news">
 				<div class="box-image">
-					<img src="" width="50" height="50" alt="" class="image" />
+					<img src="wp-content/themes/melhorespraticas/images/index_full-banner.jpg" width="50" height="50" alt="" class="image" />
 				</div>
 				<div class="box-content">
 					<a href="#" class="subtitle color-red">Assistência</a>
@@ -38,7 +38,7 @@ get_header(); ?>
 			<div class="top_content-right--content">
 				<div class="box-title">
 					<div class="image-box">
-						<img src="" alt="" width="60" height="60" class="image"/>
+						<img src="wp-content/themes/melhorespraticas/images/tester.jpg" alt="" width="60" height="60" class="image"/>
 					</div>
 					<div class="text-box">
 						<a href="#"  class="lora-title">Nome Autor</a>

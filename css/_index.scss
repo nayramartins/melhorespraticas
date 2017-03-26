@@ -1,6 +1,7 @@
 .see-more {
     @include hover;
     position: relative;
+    min-width: 8rem;
     color: $grey;
     letter-spacing: $kerning;
     text-transform: uppercase;
@@ -10,18 +11,18 @@
     display: flex;
 
     &-left {
+        width: 100%;
         padding: 8rem 3rem 0 0;
-        box-sizing: border-box;
 
         &--header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            @include display-flex;
             height: 5rem;
             margin: 0 0 6rem;
 
             .select-option {
+                width: 27.5rem;
                 height: 5rem;
+                margin-right: 2rem;
                 padding: 1rem;
                 box-sizing: border-box;
             }
@@ -35,17 +36,19 @@
         margin-bottom: 2.5rem;
 
         .box-image {
+            width: 35rem;
+            min-width: 25rem;
             height: 100%;
             padding: 0;
             background: $red;
         }
 
         .box-content {
-            display: flex;
+            @include display-flex($align: flex-start);
             flex-direction: column;
             flex-grow: 1;
-            justify-content: space-between;
             height: 100%;
+            padding: 4.5rem 3rem;
             background: $greyLight;
             box-sizing: border-box;
         }
@@ -56,24 +59,24 @@
         box-sizing: border-box;
 
         &--header {
-            display: flex;
-            align-items: center;
+            @include display-flex;
             height: 5rem;
             margin: 0 0 6rem;
             box-sizing: border-box;
         }
 
         &--content {
-            @include display-flex;
+            @include display-flex($align: flex-start);
+            flex-direction: column;
             width: 100%;
             height: 21.1rem;
+            padding: 3rem;
             border: 0.1rem solid $greyLight;
             box-sizing: border-box;
         }
 
         .box-title {
-            display: flex;
-            align-items: center;
+            @include display-flex($justify: flex-start);
 
             .image-box {
                 width: 8rem;
@@ -94,11 +97,10 @@
 }
 
 .merchandising_1 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include display-flex($justify: center);
     width: 100%;
     height: 12rem;
+    margin-top: 9rem;
     background: $grey;
 
     .subtitle {
@@ -116,10 +118,8 @@
     background-position: center center;
 
     .container {
-        display: flex;
+        @include display-flex($justify: center);
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
         width: 100%;
         height: 40rem;
     }

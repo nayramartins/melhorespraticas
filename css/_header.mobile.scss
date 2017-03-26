@@ -1,8 +1,9 @@
 @media screen and (max-width: $tablet) {
-
     .header {
         &_top {
             &-menu {
+                margin-bottom: 0.5rem;
+
                 li {
                     &:nth-child(1),
                     &:nth-child(2) {
@@ -11,10 +12,20 @@
                 }
             }
 
-            &-login {
+            &-login,
+            &-social {
                 display: none;
             }
         }
     }
+}
 
+@media screen and (max-width: $mobile) {
+    .header {
+        &_top {
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+    }
 }
