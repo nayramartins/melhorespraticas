@@ -3,7 +3,7 @@
 get_header(); ?>
 
 <section class="slider">
-	<?php
+<?php
     echo do_shortcode("[metaslider id=29]");
 ?>
 </section>

@@ -1,4 +1,13 @@
 .slider {
     height: 37.4rem;
     background: $grey;
+
+    .metaslider {
+        .slides {
+            img {
+                height: 37.4rem;
+                object-fit: cover;
+            }
+        }
+    }
 }

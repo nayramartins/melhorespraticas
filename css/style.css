@@ -257,6 +257,9 @@ a {
 .slider {
   height: 37.4rem;
   background: #999999; }
+  .slider .metaslider .slides img {
+    height: 37.4rem;
+    object-fit: cover; }
 
 .see-more {
   position: relative;
