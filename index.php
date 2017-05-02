@@ -60,7 +60,15 @@ get_header(); ?>
 <section class="edition_carroussel">
 	<div class="container">
 		<h2 class="box-title edition_carroussel--title">Últimas Edições</h2>
-
+		<div class="owl-carousel owl-theme">
+			<div> Your Content </div>
+			<div> Your Content </div>
+			<div> Your Content </div>
+			<div> Your Content </div>
+			<div> Your Content </div>
+			<div> Your Content </div>
+			<div> Your Content </div>
+		</div>
 	</div>
 </section>
 

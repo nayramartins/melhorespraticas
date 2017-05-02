@@ -8,9 +8,19 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
-	<link rel="stylesheet" href="wp-content/themes/melhorespraticas/owlcarousel/owl.carousel.min.css">
-	<link rel="stylesheet" href="wp-content/themes/melhorespraticas/owlcarousel/owl.theme.default.min.css">
-	<script src="wp-content/themes/melhorespraticas/js/jquery.min.js"></script>
+	<link rel="stylesheet" href="wp-content/themes/melhorespraticas/js/owlcarousel/assets/owl.carousel.min.css">
+	<link rel="stylesheet" href="wp-content/themes/melhorespraticas/js/owlcarousel/assets/owl.theme.default.min.css">
+	<script src="wp-content/themes/melhorespraticas/js/jquery-3.2.0.min.js"></script>
+	<script src="wp-content/themes/melhorespraticas/js/owlcarousel/owl.carousel.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$(".owl-carousel").owlCarousel({
+				loop:true,
+				margin:10,
+				nav:true
+			});
+		});
+	</script>
 	<title><?php bloginfo('name'); ?> | <?php bloginfo('description'); ?></title>
 </head>
 <?php wp_head(); ?>

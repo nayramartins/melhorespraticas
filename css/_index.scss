@@ -112,6 +112,18 @@
     &--title {
         margin: 8rem 0 5.5rem;
     }
+
+    .owl-carousel {
+        .slide-content {
+            display: flex;
+            flex-direction: column;
+
+            &_image {
+                width: 17.5rem;
+                height: 23rem;
+            }
+        }
+    }
 }
 
 .full_banner {
