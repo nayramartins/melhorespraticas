@@ -13,6 +13,9 @@ get_header(); ?>
 		<section class="top_content-left">
 			<div class="top_content-left--header">
 				<h2 class="box-title">Escolha do Editor</h2>
+				<?php 
+				
+				?>
 				<select class="select-option" name="select">
 					<option value="value1" selected disabled>Buscar por assunto</option>
 					<option value="value2">Valor 2</option>
@@ -20,17 +23,37 @@ get_header(); ?>
 				</select>
 				<a href="#" class="see-more">Ver todos</a>
 			</div>
-			<div class="top_content--news">
-				<div class="box-image">
-					<img src="wp-content/themes/melhorespraticas/images/index_full-banner.jpg" width="50" height="50" alt="" class="image" />
-				</div>
-				<div class="box-content">
-					<a href="#" class="subtitle color-red">Assistência</a>
-					<a href="#" class="title">Idoso bem cuidado</a>
-					<p class="text-content">Conheça o novo programa da ANS para a atenção integrada</p>
-					<a href="#" class="color-grey subtitle">por: felipe césar</a>
-				</div>
-			</div>
+
+			<?php $args = array('posts_per_page' => 3, 'cat' => 28);
+			$posts_query = new WP_Query( $args ); 
+			if ($posts_query->have_posts()):
+				while($posts_query->have_posts()) : $posts_query->the_post(); 
+					$categories = get_the_category(); 
+					if ( ! empty( $categories ) ):
+						foreach( $categories as $category ) {
+							if($category->slug != 'escolha-do-editor'):
+								$cat_slug = $category->slug;
+								$cat = $category->name;
+							endif;
+						}
+					endif;
+					?>
+					<div class="top_content--news">
+						<div class="box-image">
+							<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' ); ?>
+							<img src="<?php echo $image[0]; ?>" width="50" height="50" alt="" class="image" />
+						</div>
+						<div class="box-content">
+							<a href="<?php bloginfo('url'); ?>/categoria/<?php echo $cat_slug ?>" class="subtitle color-red"><?php echo $cat; ?></a>
+							<a href="<?php the_permalink(); ?>" class="title"><?php the_title(); ?></a>
+							<p class="text-content"><?php echo the_field("call")?></p>
+							<a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>" class="color-grey subtitle">por: <?php the_author(); ?></a>
+						</div>
+					</div>
+				<?php endwhile;
+			endif;
+			wp_reset_postdata(); ?>
+
 		</section>
 		<section class="top_content-right">
 			<div class="top_content-right--header">

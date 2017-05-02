@@ -12,8 +12,7 @@ var gulp = require('gulp'),
 
 gulp.task('clean-old-files', function() {
     return del([
-        './style.css',
-        jsFolder + '/*.min.js'
+        './style.css'
     ]);
 });
 
