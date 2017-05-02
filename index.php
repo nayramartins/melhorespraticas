@@ -60,6 +60,7 @@ get_header(); ?>
 <section class="edition_carroussel">
 	<div class="container">
 		<h2 class="box-title edition_carroussel--title">Últimas Edições</h2>
+
 	</div>
 </section>
 
