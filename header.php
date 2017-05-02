@@ -10,8 +10,8 @@
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 	<link rel="stylesheet" href="wp-content/themes/melhorespraticas/js/owlcarousel/assets/owl.carousel.min.css">
 	<link rel="stylesheet" href="wp-content/themes/melhorespraticas/js/owlcarousel/assets/owl.theme.default.min.css">
-	<script src="wp-content/themes/melhorespraticas/js/jquery-3.2.0.min.js"></script>
-	<script src="wp-content/themes/melhorespraticas/js/owlcarousel/owl.carousel.min.js"></script>
+	<script src="<?php bloginfo('url'); ?>/wp-content/themes/melhorespraticas/js/jquery-3.2.1.min.js"></script>
+	<script src="<?php bloginfo('url'); ?>/wp-content/themes/melhorespraticas/js/owlcarousel/owl.carousel.min.js"></script>
 	<script>
 		$(document).ready(function(){
 			$(".owl-carousel").owlCarousel({

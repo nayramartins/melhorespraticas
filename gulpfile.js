@@ -54,21 +54,14 @@ gulp.task('buildcss', function() {
 
 // JS
 gulp.task('scriptMin', function() {
-  return gulp.src([jsFolder + '/main.js', jsFolder + '/jquery.load-posts.js'])
-    .pipe(concat('smero-main.min.js'))
-    .pipe(uglify({preserveComments: 'some'}))
-    .pipe(gulp.dest(jsFolder));
-} );
-
-gulp.task( 'scriptSingleMin', function() {
-  return gulp.src([jsFolder + '/gallery.js', jsFolder + '/share.js', jsFolder + '/main.js', jsFolder + '/jquery.recaptcha.js'])
-    .pipe(concat('smero-single.min.js'))
+  return gulp.src([jsFolder + '/main.js'])
+    .pipe(concat('main.min.js'))
     .pipe(uglify({preserveComments: 'some'}))
     .pipe(gulp.dest(jsFolder));
 } );
 
 gulp.task('buildjs', function() {
-    runSequence('scriptMin', 'scriptSingleMin', function() {
+    runSequence('scriptMin', function() {
         console.log('========================== JS completed ==========================');
     });
 });
@@ -84,6 +77,6 @@ gulp.task('theme:dev', function() {
     watch(cssFolder + '/*.scss', watchOptions, gulpTasks.styles);
 });
 
-gulp.task('default', ['clean-old-files', 'buildcss', 'scriptMin', 'scriptSingleMin']);
+gulp.task('default', ['clean-old-files', 'buildcss', 'scriptMin']);
 gulp.task('localdev', ['default', 'theme:dev']);
 gulp.task('qa', ['default']);
