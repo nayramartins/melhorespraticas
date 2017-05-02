@@ -10,4 +10,46 @@
             }
         }
     }
+
+    .caption {
+        width: 50%;
+        margin: 5% 10%;
+
+        span {
+            font-size: 1rem;
+            letter-spacing: 0.1rem;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            margin: 2rem 0;
+            color: $white;
+            font-size: 3rem;
+            line-height: 4rem;
+        }
+
+        .saiba-mais {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 14rem;
+            height: 6rem;
+            background: $red;
+            text-transform: uppercase;
+
+            a {
+                color: $white;
+            }
+        }
+    }
+
+    .flex-direction-nav {
+        .flex-prev {
+            margin-left: 5%;
+        }
+
+        .flex-next {
+            margin-right: 5%;
+        }
+    }
 }

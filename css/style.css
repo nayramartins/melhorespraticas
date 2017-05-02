@@ -260,6 +260,32 @@ a {
   .slider .metaslider .slides img {
     height: 37.4rem;
     object-fit: cover; }
+  .slider .caption {
+    width: 50%;
+    margin: 5% 10%; }
+    .slider .caption span {
+      font-size: 1rem;
+      letter-spacing: 0.1rem;
+      text-transform: uppercase; }
+    .slider .caption h2 {
+      margin: 2rem 0;
+      color: #FFFFFF;
+      font-size: 3rem;
+      line-height: 4rem; }
+    .slider .caption .saiba-mais {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 14rem;
+      height: 6rem;
+      background: #FA3F35;
+      text-transform: uppercase; }
+      .slider .caption .saiba-mais a {
+        color: #FFFFFF; }
+  .slider .flex-direction-nav .flex-prev {
+    margin-left: 5%; }
+  .slider .flex-direction-nav .flex-next {
+    margin-right: 5%; }
 
 .see-more {
   position: relative;
@@ -295,6 +321,13 @@ a {
         height: 5rem;
         margin-right: 2rem;
         padding: 1rem;
+        border: 1px solid #ebebeb;
+        background: transparent;
+        color: #525552;
+        font-family: 'Montserrat';
+        font-size: 1.1rem;
+        font-weight: 400;
+        text-transform: uppercase;
         box-sizing: border-box; }
   .top_content--news {
     display: flex;
