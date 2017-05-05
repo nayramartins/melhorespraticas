@@ -131,43 +131,6 @@ function new_post_queries($query) {
 add_action( 'pre_get_posts', 'new_post_queries' );
 
 
-// Format button to tiny editor
-
-// 'styleselect' into the $buttons array
-function new_mce_buttons_2( $buttons ) {
-	array_unshift( $buttons, 'styleselect' );
-	return $buttons;
-}
-add_filter( 'mce_buttons_2', 'new_mce_buttons_2' );
-
-function new_mce_before_init_insert_formats( $init_array ) {
-
-	$style_formats = array(
-		// Each array child is a format with it's own settings
-		array(
-			'title' => 'Image left',
-			'block' => 'div',
-			'classes' => 'img-left',
-			'wrapper' => true,
-
-		),
-		array(
-			'title' => 'Image center',
-			'block' => 'div',
-			'classes' => 'img-center',
-			'wrapper' => true,
-		),
-	);
-	// Insert the array, JSON ENCODED, into 'style_formats'
-	$init_array['style_formats'] = json_encode( $style_formats );
-
-	return $init_array;
-
-}
-
-// Attach callback to 'tiny_mce_before_init'
-add_filter( 'tiny_mce_before_init', 'new_mce_before_init_insert_formats' );
-
 //SVG suport
 function cc_mime_types($mimes) {
   $mimes['svg'] = 'image/svg+xml';
@@ -175,20 +138,6 @@ function cc_mime_types($mimes) {
 }
 add_filter('upload_mimes', 'cc_mime_types');
 
-
-//Insert table function to tiny editor
-
-function add_the_table_button( $buttons ) {
-   array_push( $buttons, 'separator', 'table' );
-   return $buttons;
-}
-add_filter( 'mce_buttons', 'add_the_table_button' );
-
-function add_the_table_plugin( $plugins ) {
-    $plugins['table'] = content_url() . '/plugins/tinymceplugins/table/plugin.min.js';
-    return $plugins;
-}
-add_filter( 'mce_external_plugins', 'add_the_table_plugin' );
 
 //Resolve mixed content over SSL
 
@@ -243,3 +192,40 @@ function navigation_menu() {
 
 // Customizer additions
 require get_template_directory() . '/includes/customize.php';
+
+
+add_action('init', 'type_post_entrevistas');
+ 
+    function type_post_entrevistas() { 
+        $labels = array(
+            'name' => _x('Entrevistas', 'post type general name'),
+            'singular_name' => _x('Entrevista', 'post type singular name'),
+            'add_new' => _x('Adicionar Novo', 'Novo item'),
+            'add_new_item' => __('Novo Item'),
+            'edit_item' => __('Editar Item'),
+            'new_item' => __('Novo Item'),
+            'view_item' => __('Ver Item'),
+            'search_items' => __('Procurar Itens'),
+            'not_found' =>  __('Nenhum registro encontrado'),
+            'not_found_in_trash' => __('Nenhum registro encontrado na lixeira'),
+            'parent_item_colon' => '',
+            'menu_name' => 'Entrevistas'
+        );
+
+        $args = array(
+            'labels' => $labels,
+            'public' => true,
+            'public_queryable' => true,
+            'show_ui' => true,           
+            'query_var' => true,
+            'rewrite' => true,
+            'capability_type' => 'post',
+            'has_archive' => true,
+            'hierarchical' => false,
+            'menu_position' => null,     
+            'supports' => array('title','editor','thumbnail','comments', 'excerpt', 'custom-fields', 'revisions', 'trackbacks')
+          );
+ 
+register_post_type( 'entrevistas' , $args );
+flush_rewrite_rules();
+}

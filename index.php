@@ -13,46 +13,53 @@ get_header(); ?>
 		<section class="top_content-left">
 			<div class="top_content-left--header">
 				<h2 class="box-title">Escolha do Editor</h2>
-				<?php 
-				
-				?>
-				<select class="select-option" name="select">
-					<option value="value1" selected disabled>Buscar por assunto</option>
-					<option value="value2">Valor 2</option>
-					<option value="value3">Valor 3</option>
-				</select>
+				<?php $assuntos = get_categories('orderby=name&child_of=23&order=desc');?>
+				<form action="" method="post">
+					<select class="select-option" name="select" onchange="selectChange(this.value)">
+						<option value="28" selected>Buscar por assunto</option>
+						<?php foreach ($assuntos as $assunto): ?>
+							<option value="<?php echo $assunto->cat_ID?>"><?php echo $assunto->cat_name; ?></option>
+						<?php endforeach; ?>
+					</select>
+				</form>
 				<a href="#" class="see-more">Ver todos</a>
 			</div>
-
-			<?php $args = array('posts_per_page' => 3, 'cat' => 28);
-			$posts_query = new WP_Query( $args ); 
-			if ($posts_query->have_posts()):
-				while($posts_query->have_posts()) : $posts_query->the_post(); 
-					$categories = get_the_category(); 
-					if ( ! empty( $categories ) ):
-						foreach( $categories as $category ) {
-							if($category->slug != 'escolha-do-editor'):
-								$cat_slug = $category->slug;
-								$cat = $category->name;
-							endif;
-						}
-					endif;
-					?>
-					<div class="top_content--news">
-						<div class="box-image">
-							<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' ); ?>
-							<img src="<?php echo $image[0]; ?>" width="50" height="50" alt="" class="image" />
+			
+			<?php 
+			foreach ($assuntos as $assunto):
+				$args = array('posts_per_page' => 3, 'cat' => $assunto->cat_ID);
+				$posts_query = new WP_Query( $args ); ?>
+				<div class="<?php echo $assunto->cat_ID != '28' ? newsHide: 'newsActive'; ?>" id="<?php echo $assunto->cat_ID?>">
+				<?php if ($posts_query->have_posts()):
+					while($posts_query->have_posts()) : $posts_query->the_post(); 
+						$categories = get_the_category(); 
+						if ( ! empty( $categories ) ):
+							foreach( $categories as $category ):
+								if($category->slug != 'escolha-do-editor'):
+									$cat_slug = $category->slug;
+									$cat = $category->name;
+								endif;
+							endforeach;
+						endif;
+						?>
+						<div class="top_content--news" >
+							<div class="box-image">
+								<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' ); ?>
+								<img src="<?php echo $image[0]; ?>" width="50" height="50" alt="" class="image" />
+							</div>
+							<div class="box-content">
+								<a href="<?php bloginfo('url'); ?>/categoria/<?php echo $cat_slug ?>" class="subtitle color-red"><?php echo $cat; ?></a>
+								<a href="<?php the_permalink(); ?>" class="title"><?php the_title(); ?></a>
+								<p class="text-content"><?php echo the_field("call")?></p>
+								<a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>" class="color-grey subtitle">por: <?php the_author(); ?></a>
+							</div>
 						</div>
-						<div class="box-content">
-							<a href="<?php bloginfo('url'); ?>/categoria/<?php echo $cat_slug ?>" class="subtitle color-red"><?php echo $cat; ?></a>
-							<a href="<?php the_permalink(); ?>" class="title"><?php the_title(); ?></a>
-							<p class="text-content"><?php echo the_field("call")?></p>
-							<a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>" class="color-grey subtitle">por: <?php the_author(); ?></a>
-						</div>
-					</div>
-				<?php endwhile;
-			endif;
-			wp_reset_postdata(); ?>
+					<?php endwhile;
+				endif; ?>
+				</div>
+				<?php wp_reset_postdata(); 
+			endforeach;
+			?>
 
 		</section>
 		<section class="top_content-right">
@@ -60,19 +67,26 @@ get_header(); ?>
 				<h2 class="box-title">Entrevistas</h2>
 				<a href="#" class="see-more color-grey">Ver todos</a>
 			</div>
+			<?php $args = array( 'post_type' => 'entrevistas', 'posts_per_page' => 3 );
+				$loop = new WP_Query( $args );
+				while ( $loop->have_posts() ) : $loop->the_post();
+			?>
 			<div class="top_content-right--content">
 				<div class="box-title">
 					<div class="image-box">
-						<img src="wp-content/themes/melhorespraticas/images/tester.jpg" alt="" width="60" height="60" class="image"/>
+						<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' ); ?>
+						<img src="<?php echo $image[0]; ?>" width="60" height="60" alt="" class="image" />
 					</div>
 					<div class="text-box">
-						<a href="#"  class="lora-title">Nome Autor</a>
-						<p class="color-grey subtitle">Vice-presidente executiva da ABIMIP</p>
+						<a href="#"  class="lora-title"><?php echo the_field('entrevistado'); ?></a>
+						<p class="color-grey subtitle"><?php echo the_field('subtitulo_entrevistado'); ?></p>
 					</div>
 				</div>
-				<a href="#"  class="title">Automedicação: Como a educação em saúde pode contribuir para essa prática?</a>
-				<a href="#" class="color-red subtitle">22 Jan 2017</a>
+				<a href="#"  class="title"><?php the_title(); ?></a>
+				<a href="#" class="color-red subtitle"><?php the_date(); ?></a>
 			</div>
+		<?php endwhile; 
+		wp_reset_postdata(); ?>
 		</div>
 	</section>
 	<section class="merchandising_1 container">
@@ -131,4 +145,15 @@ get_header(); ?>
 		<a href="#" class="cta">cadastrar</a>
 	</div>
 </section>
+
+<script>
+var selectChange = function(value) {
+	var selected = document.getElementById(value);
+	var active = document.getElementsByClassName('newsActive')[0];
+	selected.classList.remove('newsHide');
+	selected.classList.add('newsActive');
+	active.classList.remove('newsActive');
+	active.classList.add('newsHide');
+}
+</script>
 <?php get_footer(); ?>
