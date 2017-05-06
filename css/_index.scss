@@ -61,6 +61,11 @@
             background: $greyLight;
             box-sizing: border-box;
         }
+
+    }
+
+    .newsHide {
+        display: none;
     }
 
     &-right {
@@ -79,6 +84,7 @@
             flex-direction: column;
             width: 100%;
             height: 21.1rem;
+            margin-bottom: 2.5rem;
             padding: 3rem;
             border: 0.1rem solid $greyLight;
             box-sizing: border-box;

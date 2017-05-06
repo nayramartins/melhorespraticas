@@ -8,8 +8,8 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
-	<link rel="stylesheet" href="wp-content/themes/melhorespraticas/js/owlcarousel/assets/owl.carousel.min.css">
-	<link rel="stylesheet" href="wp-content/themes/melhorespraticas/js/owlcarousel/assets/owl.theme.default.min.css">
+	<link rel="stylesheet" href="<?php bloginfo('url'); ?>/wp-content/themes/melhorespraticas/js/owlcarousel/assets/owl.carousel.min.css">
+	<link rel="stylesheet" href="<?php bloginfo('url'); ?>/wp-content/themes/melhorespraticas/js/owlcarousel/assets/owl.theme.default.min.css">
 	<script src="<?php bloginfo('url'); ?>/wp-content/themes/melhorespraticas/js/jquery-3.2.1.min.js"></script>
 	<script src="<?php bloginfo('url'); ?>/wp-content/themes/melhorespraticas/js/owlcarousel/owl.carousel.min.js"></script>
 	<script>
@@ -58,29 +58,24 @@
 						<ul class="header_top-social col">
 							<li>
 								<a href="<?php echo $facebook_url; ?>" id="facebook">
-									<img src="wp-content/themes/melhorespraticas/images/melhores_praticas-facebook.png" width="15" height="15" alt="">
+									<img src="<?php bloginfo('url'); ?>/wp-content/themes/melhorespraticas/images/melhores_praticas-facebook.png" width="15" height="15" alt="">
 								</a>
 							</li>
 							<li>
 								<a href="<?php echo $linkedin_url; ?>" id="linkedin">
-									<img src="wp-content/themes/melhorespraticas/images/melhores_praticas-linkedin.png" width="15" height="15" alt="">
+									<img src="<?php bloginfo('url'); ?>/wp-content/themes/melhorespraticas/images/melhores_praticas-linkedin.png" width="15" height="15" alt="">
 								</a>
 							</li>
 						</ul>
 
 						<?php if (function_exists(main_menu())) main_menu(); ?>
-						<!--<ul class="header_top-menu">
-							<li><a href="#">Nossa Empresa</a></li>
-							<li><a href="#">Contato</a></li>
-							<li><a href="#">A Revista de benchmarking em saúde</a></li>
-						</ul>-->
 
 						<p class="header_top-message"> <?php bloginfo('description'); ?></p>
 
 						<ul class="header_top-login">
 							<li><a href="<?php echo esc_url( get_permalink( get_page_by_title('Login')));?>">login</li>
-							<li><a href="#"><img src="wp-content/themes/melhorespraticas/images/melhores_praticas-cart.png" width="23" height="20" alt=""></a></li>
-							<li><a href="#"><img src="wp-content/themes/melhorespraticas/images/melhores_praticas-search.png" width="23" height="20" alt=""></a></li>
+							<li><a href="#"><img src="<?php bloginfo('url'); ?>/wp-content/themes/melhorespraticas/images/melhores_praticas-cart.png" width="23" height="20" alt=""></a></li>
+							<li><a href="#" onclick="handleSearch()"><img src="<?php bloginfo('url'); ?>/wp-content/themes/melhorespraticas/images/melhores_praticas-search.png" width="23" height="20" alt=""></a></li>
 						</ul>
 					</div>
 				</div>
@@ -88,22 +83,27 @@
 			<div class="container">
 				<div class="header_content">
 					<div class="header_content-box box-1">
-						<!--<img src="wp-content/themes/melhorespraticas/images/melhores_praticas_logo.png" alt="" class="image">-->
 						<a class="header_content-box-brand" href="<?php bloginfo('url'); ?>"><img src="<?php echo $logo; ?>" alt="" class="image"></a>
 					</div>
 					<?php if (function_exists(navigation_menu())) navigation_menu(); ?>
-					<!--<ul class="header_content-box box-2">
-						<li><a href="#">item menu</a></li>
-						<li><a href="#">item menu</a></li>
-						<li><a href="#">item menu</a></li>
-						<li><a href="#">item menu</a></li>
-						<li><a href="#">item menu</a></li>
-						<li><a href="#">item menu</a></li>
-						<li><a href="#">item menu</a></li>
-					</ul>-->
 					<div class="header_content-box box-3">
 						<a href="#" class="cta">Assine</a>
 					</div>
 				</div>
 			</div>
 		</header>
+		<div class="search">
+			<div class="search--content">
+				<label for="search">Busca por palavra-chave</label>
+				<input type="text"/>
+				<img src="<?php bloginfo('url'); ?>/wp-content/themes/melhorespraticas/images/melhores_praticas-search.png" width="23" height="20" alt="">
+			</div>
+		</div>
+
+		<script>
+			var handleSearch = function() {
+				var search = document.getElementsByClassName('search')[0];
+				console.log(search);
+				search.classList.toggle('active');
+			}
+		</script>
