@@ -42,7 +42,7 @@ rules:
   id-name-format: 0
   mixin-name-format: 0
   placeholder-name-format: 0
-  variable-name-format: 
+  variable-name-format:
     - 2
     -
       convention: camelcase
@@ -58,7 +58,7 @@ rules:
       convention: 'none'
   clean-import-paths: 0
   empty-args: 2
-  hex-length: 
+  hex-length:
     - 1
     -
       style: long

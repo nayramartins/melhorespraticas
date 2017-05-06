@@ -1,4 +1,5 @@
 .header {
+    border-bottom: 0.1rem solid $greyBorder;
     letter-spacing: $kerning;
 
     &_background {
@@ -111,18 +112,5 @@
 
     &.active {
         display: block;
-    }
-}
-
-.featured_news {
-    &.search_result {
-        .featured_news--content {
-            flex-wrap: wrap;
-            justify-content: space-between;
-
-            li {
-                margin: 3rem;
-            }
-        }
     }
 }
