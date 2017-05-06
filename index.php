@@ -105,9 +105,9 @@ get_header(); ?>
 	</section>
 </div>
 </div>
-<section class="edition_carroussel">
+<section class="edition_carousel">
 	<div class="container">
-		<h2 class="box-title edition_carroussel--title">Últimas Edições</h2>
+		<h2 class="box-title edition_carousel--title">Últimas Edições</h2>
 		<div class="owl-carousel owl-theme">
 			<div class="slide">
 				<div class="slide-content">
@@ -164,7 +164,7 @@ get_header(); ?>
 
 <section class="featured_news">
 	<div class="container">
-		<h2 class="box-title edition_carroussel--title">Radar</h2>
+		<h2 class="box-title edition_carousel--title">Radar</h2>
 
 		<ul class="featured_news--content">
 			<li>
