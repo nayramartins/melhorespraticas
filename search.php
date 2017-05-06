@@ -8,9 +8,11 @@ get_header(); ?>
 	<div class="content-area">
 		<?php if ( have_posts() ) : ?>
             <section class="featured_news search_result">
-                <div class="search_result-title">
+                <div class="screen-title">
                     <div class="container">
-                        <h3>Resultados para: <span>medicina</span></h3>
+                        <div class="title-content">
+                            <h3>Resultados para: <span>medicina</span></h3>
+                        </div>
                     </div>
                 </div>
                 <div class="container">
