@@ -16,7 +16,7 @@ get_header(); ?>
 				<?php $assuntos = get_categories('orderby=name&child_of=23&order=desc');?>
 				<form action="" method="post">
 					<select class="select-option" name="select" onchange="selectChange(this.value)">
-						<option value="28" selected>Buscar por assunto</option>
+						<option value="28" selected disabled>Buscar por assunto</option>
 						<?php foreach ($assuntos as $assunto): ?>
 							<option value="<?php echo $assunto->cat_ID?>"><?php echo $assunto->cat_name; ?></option>
 						<?php endforeach; ?>
@@ -78,12 +78,12 @@ get_header(); ?>
 						<img src="<?php echo $image[0]; ?>" width="60" height="60" alt="" class="image" />
 					</div>
 					<div class="text-box">
-						<a href="#"  class="lora-title"><?php echo the_field('entrevistado'); ?></a>
+						<a href="<?php the_permalink(); ?>"> <div class="lora-title"><?php echo the_field('entrevistado'); ?></div>
 						<p class="color-grey subtitle"><?php echo the_field('subtitulo_entrevistado'); ?></p>
 					</div>
 				</div>
-				<a href="#"  class="title"><?php the_title(); ?></a>
-				<a href="#" class="color-red subtitle"><?php the_date(); ?></a>
+				<div class="title"><?php the_title(); ?></div>
+				<div class="color-red subtitle"><?php the_date(); ?></div></a>
 			</div>
 		<?php endwhile; 
 		wp_reset_postdata(); ?>
@@ -150,10 +150,10 @@ get_header(); ?>
 var selectChange = function(value) {
 	var selected = document.getElementById(value);
 	var active = document.getElementsByClassName('newsActive')[0];
-	selected.classList.remove('newsHide');
-	selected.classList.add('newsActive');
 	active.classList.remove('newsActive');
 	active.classList.add('newsHide');
+	selected.classList.remove('newsHide');
+	selected.classList.add('newsActive');
 }
 </script>
 <?php get_footer(); ?>

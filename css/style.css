@@ -156,6 +156,7 @@ a {
   color: #FFFFFF; }
 
 .title {
+  margin-bottom: 1rem;
   color: #000000;
   font-size: 1.5rem; }
 
@@ -239,6 +240,18 @@ a {
             content: ''; }
           .header_content-box.box-2 a:hover::after {
             width: 100%; }
+
+.search {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.7);
+  z-index: 1; }
+  .search.active {
+    display: block; }
 
 @media screen and (max-width: 1220px) {
   .header_top-menu {
