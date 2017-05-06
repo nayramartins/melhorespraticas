@@ -123,13 +123,30 @@
     }
 
     .owl-carousel {
-        .slide-content {
+        .slide {
             display: flex;
-            flex-direction: column;
+            justify-content: center;
+            width: 17.5rem;
+            margin: 0 auto;
+        }
 
-            &_image {
-                width: 17.5rem;
+        .slide-content {
+            width: 100%;
+
+            &_media {
+                width: 100%;
                 height: 23rem;
+                background: $grey;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: scale-down;
+                }
+            }
+
+            &_text {
+                margin-top: 2rem;
             }
         }
     }

@@ -17,7 +17,29 @@
 			$(".owl-carousel").owlCarousel({
 				loop:true,
 				margin:10,
-				nav:true
+				nav:true,
+				items: 5,
+				margin:10,
+				responsive:{
+					0:{
+						items:1,
+						nav:true
+					},
+					600:{
+						items:3,
+						nav:false
+					},
+					1000:{
+						items:5,
+						nav:true,
+						loop:false
+					},
+					1400:{
+						items:6,
+						nav:true,
+						loop:false
+					}
+				}
 			});
 		});
 	</script>
