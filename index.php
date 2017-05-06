@@ -97,60 +97,37 @@ get_header(); ?>
 				setup_postdata($post);
 				$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
 				if($image): ?>
-					<img src="<?php echo $image[0]; ?>" width="60" height="60" alt="" class="image" />
+					<a href="<?php the_field('link'); ?>"><img src="<?php echo $image[0]; ?>" width="60" height="60" alt="" class="image" /></a>
 				<?php else:  ?>
 					<a href="<?php bloginfo('url'); ?>/anuncie"><p class="subtitle"><?php the_content(); ?></p></a>
 				<?php endif; 
-			endforeach; ?>
+			endforeach; 
+			wp_reset_postdata(); ?>
 	</section>
 </div>
 </div>
 <section class="edition_carousel">
+	<?php  
+		$taxonomy = 'edicoes';
+		$terms = get_terms([
+			'taxonomy' => $taxonomy,
+			'hide_empty' => false,
+			'order' => 'DESC'
+		]);
+	?>
 	<div class="container">
 		<h2 class="box-title edition_carousel--title">Últimas Edições</h2>
 		<div class="owl-carousel owl-theme">
+			<?php foreach ($terms as $term): ?>
 			<div class="slide">
-				<div class="slide-content">
-					<div class="slide-content_media"></div>
-					<p class="slide-content_text color-grey subtitle">Edição #01</p>
-				</div>
+				<a href="<?php bloginfo('url'); ?>/edicoes/<?php echo $term->slug; ?>">
+					<div class="slide-content">
+						<div class="slide-content_media"><img src="<?php the_field('capa', 'edicoes_' . $term->term_id); ?>" /></div>
+						<p class="slide-content_text color-grey subtitle"><?php echo $term->name ?></p>
+					</div>
+				</a>
 			 </div>
-			<div class="slide">
-				<div class="slide-content">
-					<div class="slide-content_media"></div>
-					<p class="slide-content_text color-grey subtitle">Edição #01</p>
-				</div>
-			 </div>
-			<div class="slide">
-				<div class="slide-content">
-					<div class="slide-content_media"></div>
-					<p class="slide-content_text color-grey subtitle">Edição #01</p>
-				</div>
-			 </div>
-			<div class="slide">
-				<div class="slide-content">
-					<div class="slide-content_media"></div>
-					<p class="slide-content_text color-grey subtitle">Edição #01</p>
-				</div>
-			 </div>
-			<div class="slide">
-				<div class="slide-content">
-					<div class="slide-content_media"></div>
-					<p class="slide-content_text color-grey subtitle">Edição #01</p>
-				</div>
-			 </div>
-			<div class="slide">
-				<div class="slide-content">
-					<div class="slide-content_media"></div>
-					<p class="slide-content_text color-grey subtitle">Edição #01</p>
-				</div>
-			 </div>
-			<div class="slide">
-				<div class="slide-content">
-					<div class="slide-content_media"></div>
-					<p class="slide-content_text color-grey subtitle">Edição #01</p>
-				</div>
-			 </div>
+			 <?php endforeach; ?>
 		</div>
 	</div>
 </section>

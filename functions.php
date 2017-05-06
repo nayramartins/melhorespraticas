@@ -194,7 +194,7 @@ function navigation_menu() {
 require get_template_directory() . '/includes/customize.php';
 
 
-// CPTs
+// CUSTOM TAXONOMYS
 
 add_action('init', 'type_post_entrevistas');
  
@@ -266,4 +266,34 @@ add_action('init', 'type_post_anuncios');
  
 register_post_type( 'anuncios' , $args );
 flush_rewrite_rules();
+}
+
+
+// CUSTOM TAXONOMY
+
+add_action( 'init', 'create_edicoes_hierarchical_taxonomy', 0 );
+
+function create_edicoes_hierarchical_taxonomy() {
+
+  $labels = array(
+    'name' => _x( 'Edições', 'taxonomy general name' ),
+    'singular_name' => _x( 'Edição', 'taxonomy singular name' ),
+    'search_items' =>  __( 'Procurar Edição' ),
+    'all_items' => __( 'Todas as Edições' ),
+    'edit_item' => __( 'Editar Edição' ), 
+    'update_item' => __( 'Update Topic' ),
+    'add_new_item' => __( 'Adicionar nova edição' ),
+    'new_item_name' => __( 'Título Edição' ),
+    'menu_name' => __( 'Edições' ),
+  ); 	
+
+  register_taxonomy('edicoes',array('post'), array(
+    'hierarchical' => true,
+    'labels' => $labels,
+    'show_ui' => true,
+    'show_admin_column' => true,
+    'query_var' => true,
+    'rewrite' => array( 'slug' => 'edicoes' ),
+  ));
+
 }
