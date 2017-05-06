@@ -1,9 +1,66 @@
 .footer {
+    height: 32rem;
+    padding: 9rem 0;
+    box-sizing: border-box;
+
     .container {
         display: flex;
     }
 
     &_image {
-        width: 21rem;
+        width: 20rem;
+        margin-right: 5%;
     }
+
+    &_contact {
+        display: flex;
+        flex-direction: column;
+        width: 35rem;
+        height: 100%;
+
+        p {
+            margin: 1rem 0;
+        }
+
+        &--address {
+            &.color-grey {
+                font-family: 'Lato';
+                font-size: 1.4rem;
+            }
+        }
+    }
+
+    &_sitemap {
+        display: flex;
+        justify-content: space-around;
+        width: 30%;
+
+        &--right,
+        &--left {
+            display: flex;
+            flex-direction: column;
+
+            li {
+                margin: 0.4rem;
+            }
+        }
+    }
+
+    .color-red {
+        &.subtitle {
+            margin-bottom: 1.5rem;
+        }
+    }
+}
+
+.footer_sitemap--left {
+    &.out {
+        margin-right: 7%;
+    }
+
+
+}
+
+.space {
+    flex-grow: 1;
 }
