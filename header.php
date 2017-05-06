@@ -99,6 +99,8 @@
 		<script>
 			var handleSearch = function() {
 				var search = document.getElementsByClassName('busca')[0];
+				var input = document.getElementsByClassName('search-form-bottom_text')[0];
 				search.classList.toggle('active');
+				input.focus();
 			}
 		</script>
