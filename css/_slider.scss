@@ -53,3 +53,42 @@
         }
     }
 }
+
+// OWL CAROUSEL ===================================================
+
+.owl-theme {
+    .owl-nav [class*=owl-] {
+        background: none;
+
+        &:hover {
+            background: none;
+        }
+    }
+}
+
+.owl-dots {
+    display: none;
+}
+
+.owl-carousel {
+    position: relative;
+
+    .owl-nav {
+        position: absolute;
+        top: calc(50% - 43px);
+        width: 100%;
+
+        .owl-prev,
+        .owl-next {
+            position: absolute;
+        }
+
+        .owl-prev {
+            left: -6rem;
+        }
+
+        .owl-next {
+            right: -6rem;
+        }
+    }
+}
