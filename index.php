@@ -24,15 +24,15 @@ get_header(); ?>
 				</form>
 				<a href="#" class="see-more">Ver todos</a>
 			</div>
-			
-			<?php 
+
+			<?php
 			foreach ($assuntos as $assunto):
 				$args = array('posts_per_page' => 3, 'cat' => $assunto->cat_ID);
 				$posts_query = new WP_Query( $args ); ?>
 				<div class="<?php echo $assunto->cat_ID != '28' ? newsHide: 'newsActive'; ?>" id="<?php echo $assunto->cat_ID?>">
 				<?php if ($posts_query->have_posts()):
-					while($posts_query->have_posts()) : $posts_query->the_post(); 
-						$categories = get_the_category(); 
+					while($posts_query->have_posts()) : $posts_query->the_post();
+						$categories = get_the_category();
 						if ( ! empty( $categories ) ):
 							foreach( $categories as $category ):
 								if($category->slug != 'escolha-do-editor'):
@@ -57,7 +57,7 @@ get_header(); ?>
 					<?php endwhile;
 				endif; ?>
 				</div>
-				<?php wp_reset_postdata(); 
+				<?php wp_reset_postdata();
 			endforeach;
 			?>
 
@@ -85,7 +85,7 @@ get_header(); ?>
 				<div class="title"><?php the_title(); ?></div>
 				<div class="color-red subtitle"><?php the_date(); ?></div></a>
 			</div>
-		<?php endwhile; 
+		<?php endwhile;
 		wp_reset_postdata(); ?>
 		</div>
 	</section>
@@ -98,13 +98,48 @@ get_header(); ?>
 	<div class="container">
 		<h2 class="box-title edition_carroussel--title">Últimas Edições</h2>
 		<div class="owl-carousel owl-theme">
-			<div> Your Content </div>
-			<div> Your Content </div>
-			<div> Your Content </div>
-			<div> Your Content </div>
-			<div> Your Content </div>
-			<div> Your Content </div>
-			<div> Your Content </div>
+			<div class="slide">
+				<div class="slide-content">
+					<div class="slide-content_media"></div>
+					<p class="slide-content_text color-grey subtitle">Edição #01</p>
+				</div>
+			 </div>
+			<div class="slide">
+				<div class="slide-content">
+					<div class="slide-content_media"></div>
+					<p class="slide-content_text color-grey subtitle">Edição #01</p>
+				</div>
+			 </div>
+			<div class="slide">
+				<div class="slide-content">
+					<div class="slide-content_media"></div>
+					<p class="slide-content_text color-grey subtitle">Edição #01</p>
+				</div>
+			 </div>
+			<div class="slide">
+				<div class="slide-content">
+					<div class="slide-content_media"></div>
+					<p class="slide-content_text color-grey subtitle">Edição #01</p>
+				</div>
+			 </div>
+			<div class="slide">
+				<div class="slide-content">
+					<div class="slide-content_media"></div>
+					<p class="slide-content_text color-grey subtitle">Edição #01</p>
+				</div>
+			 </div>
+			<div class="slide">
+				<div class="slide-content">
+					<div class="slide-content_media"></div>
+					<p class="slide-content_text color-grey subtitle">Edição #01</p>
+				</div>
+			 </div>
+			<div class="slide">
+				<div class="slide-content">
+					<div class="slide-content_media"></div>
+					<p class="slide-content_text color-grey subtitle">Edição #01</p>
+				</div>
+			 </div>
 		</div>
 	</div>
 </section>
