@@ -99,7 +99,7 @@
     }
 }
 
-.search {
+.busca {
     display: none;
     position: fixed;
     top: 0;
@@ -111,5 +111,18 @@
 
     &.active {
         display: block;
+    }
+}
+
+.featured_news {
+    &.search_result {
+        .featured_news--content {
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            li {
+                margin: 3rem;
+            }
+        }
     }
 }

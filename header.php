@@ -92,14 +92,15 @@
 				</div>
 			</div>
 		</header>
-		<div class="search">
+		<div class="busca">
 			<?php get_search_form(); ?>
 		</div>
 
 		<script>
 			var handleSearch = function() {
-				var search = document.getElementsByClassName('search')[0];
-				console.log(search);
+				var search = document.getElementsByClassName('busca')[0];
+				var input = document.getElementsByClassName('search-form-bottom_text')[0];
 				search.classList.toggle('active');
+				input.focus();
 			}
 		</script>
