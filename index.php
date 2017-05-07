@@ -132,7 +132,7 @@ get_header(); ?>
 	</div>
 </section>
 
-<section class="full_banner" style="background-image: url('wp-content/themes/melhorespraticas/images/index_full-banner.jpg')">
+<section class="full_banner" style="background-image: url('<?php bloginfo('url'); ?>/wp-content/themes/melhorespraticas/images/index_full-banner.jpg')">
 	<div class="container">
 		<h3 class="full_banner--text lora-title">Seja um assinante e tenha acesso aos nossos conteúdos exclusivos.</h3>
 		<a href="#" class="cta">assine já</a>

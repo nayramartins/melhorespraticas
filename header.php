@@ -18,8 +18,8 @@
 				loop:true,
 				margin:10,
 				nav:true,
-				navText: ["<img src='wp-content/themes/melhorespraticas/images/arrow_next.png'>",
-					"<img src='wp-content/themes/melhorespraticas/images/arrow_prev.png'>"],
+				navText: ["<img src='<?php bloginfo('url'); ?>/wp-content/themes/melhorespraticas/images/arrow_next.png'>",
+					"<img src='<?php bloginfo('url'); ?>/wp-content/themes/melhorespraticas/images/arrow_prev.png'>"],
 				items: 5,
 				margin:10,
 				responsive:{

@@ -3,7 +3,7 @@
     <div class="search-form-top">
         <p class="search-form-top_title color-grey subtitle">Busca por palavra-chave</p>
         <div class="space"></div>
-        <span class="search-form-close"><img src="wp-content/themes/melhorespraticas/images/fechar_busca.png" alt="" onclick="handleSearch()"></span>
+        <span class="search-form-close"><img src="<?php bloginfo('url'); ?>/wp-content/themes/melhorespraticas/images/fechar_busca.png" alt="" onclick="handleSearch()"></span>
     </div>
     <div class="search-form-bottom">
         <form role="search" id="search-form" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
