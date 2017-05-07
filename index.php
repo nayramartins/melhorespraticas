@@ -48,7 +48,7 @@ get_header(); ?>
 								<img src="<?php echo $image[0]; ?>" width="50" height="50" alt="" class="image" />
 							</div>
 							<div class="box-content">
-								<a href="<?php bloginfo('url'); ?>/categoria/<?php echo $cat_slug ?>" class="subtitle color-red"><?php echo $cat; ?></a>
+								<a href="<?php bloginfo('url'); ?>/categorias/<?php echo $cat_slug ?>" class="subtitle color-red"><?php echo $cat; ?></a>
 								<a href="<?php the_permalink(); ?>" class="title"><?php the_title(); ?></a>
 								<p class="text-content"><?php echo the_field("call")?></p>
 								<a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>" class="color-grey subtitle">por: <?php the_author(); ?></a>

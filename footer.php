@@ -33,26 +33,12 @@
             <div class="space"></div>
             <div class="footer_sitemap">
                 <div class="footer_sitemap--left out">
-                    <p class="footer_sitemap--title color-red subtitle">Title</p>
+                    <p class="footer_sitemap--title color-red subtitle">Institucional</p>
                     <?php if (function_exists(institucional_menu())) institucional_menu(); ?>
-                    <!--<ul class="footer_sitemap--left in">
-                        <li><a href="#" class="color-grey subtitle">Home</a></li>
-                        <li><a href="#" class="color-grey subtitle">Home</a></li>
-                        <li><a href="#" class="color-grey subtitle">Home</a></li>
-                        <li><a href="#" class="color-grey subtitle">Home</a></li>
-                    </ul>-->
                 </div>
                 <div class="footer_sitemap--right out">
                     <p class="footer_sitemap--title color-red subtitle">Conteúdo</p>
                     <?php if (function_exists(conteudo_menu())) conteudo_menu(); ?>
-                    <!--<ul class="footer_sitemap--right in">
-                        <li><a href="#" class="color-grey subtitle">Home</a></li>
-                        <li><a href="#" class="color-grey subtitle">Home</a></li>
-                        <li><a href="#" class="color-grey subtitle">Home</a></li>
-                        <li><a href="#" class="color-grey subtitle">Home</a></li>
-                        <li><a href="#" class="color-grey subtitle">Home</a></li>
-                        <li><a href="#" class="color-grey subtitle">Home</a></li>
-                    </ul>-->
                 </div>
             </div>
         </div>

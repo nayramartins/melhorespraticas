@@ -47,22 +47,14 @@
             margin-right: 3rem;
         }
     }
+}
 
-    .search-right {
-        @include display-flex(center, flex-start);
-        flex-direction: column;
-        flex-grow: 1;
-        margin-top: 5rem;
-        margin-left: 3rem;
-
-        .merchandising_2 {
-            @include display-flex($justify: center);
-            width: 90%;
-            height: 35rem;
-            margin-top: 4rem;
-            background: $grey;
-        }
-    }
+.search-right {
+    @include display-flex(center, flex-start);
+    flex-direction: column;
+    flex-grow: 1;
+    margin-top: 5rem;
+    margin-left: 3rem;
 
     .advanced-search {
         width: 100%;
@@ -99,5 +91,13 @@
                 font-size: 1rem;
             }
         }
+    }
+
+    .merchandising_2 {
+        @include display-flex($justify: center);
+        width: 90%;
+        height: 35rem;
+        margin-top: 4rem;
+        background: $grey;
     }
 }

@@ -1,0 +1,47 @@
+.entrevistas {
+    &--content {
+        @include display-flex($align: flex-start);
+        flex-direction: column;
+        flex-shrink: 0;
+        width: calc(50% - 4rem);
+        height: 21.1rem;
+        margin-right: 2rem;
+        margin-bottom: 2.5rem;
+        padding: 3rem;
+        border: 0.1rem solid $greyLight;
+        box-sizing: border-box;
+    }
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 7rem;
+    }
+
+    .entrevistas__container {
+        display: flex;
+        flex-wrap: wrap;
+        width: 70%;
+        height: 1rem;
+        margin-top: 5rem;
+    }
+
+    .box-title {
+        @include display-flex($justify: flex-start);
+
+        .image-box {
+            width: 8rem;
+            height: 8rem;
+            margin-right: 2rem;
+            border-radius: 100%;
+            background: $red;
+            overflow: hidden;
+        }
+
+        .text-box {
+            display: flex;
+            flex-direction: column;
+            width: 20rem;
+        }
+    }
+}
