@@ -41,6 +41,18 @@ if (!function_exists('melhorespraticas_setup')):
     }
     add_action('init', 'register_navigation_menu');
 
+    // Institucional menu
+    function register_institucional_menu() {
+      register_nav_menu('institucional-menu',__('Menu Institucional'));
+    }
+    add_action('init', 'register_institucional_menu');
+
+    // Conteudo menu
+    function register_conteudo_menu() {
+      register_nav_menu('conteudo-menu',__('Menu Conteudo'));
+    }
+    add_action('init', 'register_conteudo_menu');
+
 
     // Feature image
     add_theme_support('post-thumbnails');
@@ -179,6 +191,46 @@ function navigation_menu() {
 			$title = $menu_item->title;
 			$url = $menu_item->url;
 			$menu_list .= "\t\t\t\t\t". '<li><a href="'. $url .'">'. $title .'</a></li>' ."\n";
+		}
+		$menu_list .= "\t\t\t\t". '</ul>' ."\n";
+		$menu_list .= "\t\t\t". '</nav>' ."\n";
+	} else {
+	}
+	echo $menu_list;
+}
+
+function institucional_menu() {
+	$menu_name = 'institucional-menu';
+	if (($locations = get_nav_menu_locations()) && isset($locations[$menu_name])) {
+		$menu = wp_get_nav_menu_object($locations[$menu_name]);
+		$menu_items = wp_get_nav_menu_items($menu->term_id);
+
+		$menu_list = '<nav>' ."\n";
+		$menu_list .= "\t\t\t\t". '<ul class="footer_sitemap--left in">' ."\n";
+		foreach ((array) $menu_items as $key => $menu_item) {
+			$title = $menu_item->title;
+			$url = $menu_item->url;
+			$menu_list .= "\t\t\t\t\t". '<li><a href="'. $url .'" class="color-grey subtitle">'. $title .'</a></li>' ."\n";
+		}
+		$menu_list .= "\t\t\t\t". '</ul>' ."\n";
+		$menu_list .= "\t\t\t". '</nav>' ."\n";
+	} else {
+	}
+	echo $menu_list;
+}
+
+function conteudo_menu() {
+	$menu_name = 'conteudo-menu';
+	if (($locations = get_nav_menu_locations()) && isset($locations[$menu_name])) {
+		$menu = wp_get_nav_menu_object($locations[$menu_name]);
+		$menu_items = wp_get_nav_menu_items($menu->term_id);
+
+		$menu_list = '<nav>' ."\n";
+		$menu_list .= "\t\t\t\t". '<ul class="footer_sitemap--right in">' ."\n";
+		foreach ((array) $menu_items as $key => $menu_item) {
+			$title = $menu_item->title;
+			$url = $menu_item->url;
+			$menu_list .= "\t\t\t\t\t". '<li><a href="'. $url .'" class="color-grey subtitle">'. $title .'</a></li>' ."\n";
 		}
 		$menu_list .= "\t\t\t\t". '</ul>' ."\n";
 		$menu_list .= "\t\t\t". '</nav>' ."\n";
@@ -340,6 +392,42 @@ register_post_type( 'videos' , $args );
 flush_rewrite_rules();
 }
 
+add_action('init', 'type_post_agenda');
+ 
+    function type_post_agenda() { 
+        $labels = array(
+            'name' => _x('Agenda', 'post type general name'),
+            'singular_name' => _x('Agenda', 'post type singular name'),
+            'add_new' => _x('Adicionar Novo', 'Novo item'),
+            'add_new_item' => __('Novo Item'),
+            'edit_item' => __('Editar Item'),
+            'new_item' => __('Novo Item'),
+            'view_item' => __('Ver Item'),
+            'search_items' => __('Procurar Itens'),
+            'not_found' =>  __('Nenhum registro encontrado'),
+            'not_found_in_trash' => __('Nenhum registro encontrado na lixeira'),
+            'parent_item_colon' => '',
+            'menu_name' => 'Agenda'
+        );
+
+        $args = array(
+            'labels' => $labels,
+            'public' => true,
+            'public_queryable' => true,
+            'show_ui' => true,           
+            'query_var' => true,
+            'rewrite' => true,
+            'capability_type' => 'post',
+            'has_archive' => true,
+            'hierarchical' => false,
+            'menu_position' => null,     
+            'supports' => array('title','editor','thumbnail', 'revisions', 'comments' )
+          );
+ 
+register_post_type( 'agenda' , $args );
+flush_rewrite_rules();
+}
+
 
 // CUSTOM TAXONOMY
 
@@ -365,10 +453,14 @@ function create_edicoes_hierarchical_taxonomy() {
     'show_ui' => true,
     'show_admin_column' => true,
     'query_var' => true,
-    'rewrite' => array( 'slug' => 'edicoes' ),
+    'has_archive' =>  'edicoes',
+    'rewrite' => array( 
+      'slug' => 'edicoes',
+      'with_front' => true ),
   ));
-
+  flush_rewrite_rules();
 }
+
 
 
 function custom_excerpt_length( $length ) {
