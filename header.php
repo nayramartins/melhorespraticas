@@ -94,7 +94,7 @@
 				</div>
 			</div>
 		</header>
-		<div class="busca">
+		<div class="busca" id="searchWord">
 			<?php get_search_form(); ?>
 		</div>
 

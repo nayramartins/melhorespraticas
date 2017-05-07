@@ -1,0 +1,41 @@
+.error-404 {
+    margin-top: 6rem;
+
+    .page-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        h1 {
+            font-size: 4rem;
+        }
+    }
+
+    .page-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 50%;
+        margin: 7rem auto 0;
+        text-align: center;
+
+        .search-form-top {
+            display: none;
+        }
+
+        .search-form-bottom {
+            height: 6rem;
+
+            #search-form {
+                height: 100%;
+            }
+        }
+
+        .search-form-bottom_text {
+            height: 100%;
+            padding: 1rem 1.5rem;
+            border: 0.1rem solid $greyDark;
+            box-sizing: border-box;
+        }
+    }
+}
