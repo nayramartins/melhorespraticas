@@ -237,7 +237,7 @@ add_action('init', 'type_post_anuncios');
     function type_post_anuncios() { 
         $labels = array(
             'name' => _x('Anuncios', 'post type general name'),
-            'singular_name' => _x('Anuncios', 'post type singular name'),
+            'singular_name' => _x('Anuncio', 'post type singular name'),
             'add_new' => _x('Adicionar Novo', 'Novo item'),
             'add_new_item' => __('Novo Item'),
             'edit_item' => __('Editar Item'),
@@ -265,6 +265,42 @@ add_action('init', 'type_post_anuncios');
           );
  
 register_post_type( 'anuncios' , $args );
+flush_rewrite_rules();
+}
+
+add_action('init', 'type_post_noticias');
+ 
+    function type_post_noticias() { 
+        $labels = array(
+            'name' => _x('Notícias', 'post type general name'),
+            'singular_name' => _x('Notícia', 'post type singular name'),
+            'add_new' => _x('Adicionar Novo', 'Novo item'),
+            'add_new_item' => __('Novo Item'),
+            'edit_item' => __('Editar Item'),
+            'new_item' => __('Novo Item'),
+            'view_item' => __('Ver Item'),
+            'search_items' => __('Procurar Itens'),
+            'not_found' =>  __('Nenhum registro encontrado'),
+            'not_found_in_trash' => __('Nenhum registro encontrado na lixeira'),
+            'parent_item_colon' => '',
+            'menu_name' => 'Notícias'
+        );
+
+        $args = array(
+            'labels' => $labels,
+            'public' => true,
+            'public_queryable' => true,
+            'show_ui' => true,           
+            'query_var' => true,
+            'rewrite' => true,
+            'capability_type' => 'post',
+            'has_archive' => true,
+            'hierarchical' => false,
+            'menu_position' => null,     
+            'supports' => array('title','editor','thumbnail', 'revisions', 'comments' )
+          );
+ 
+register_post_type( 'radar' , $args );
 flush_rewrite_rules();
 }
 
@@ -297,3 +333,9 @@ function create_edicoes_hierarchical_taxonomy() {
   ));
 
 }
+
+
+function custom_excerpt_length( $length ) {
+	return 25;
+}
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );

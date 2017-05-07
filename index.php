@@ -142,16 +142,21 @@ get_header(); ?>
 <section class="featured_news">
 	<div class="container">
 		<h2 class="box-title edition_carousel--title">Radar</h2>
-
+		
 		<ul class="featured_news--content">
-			<li>
-				<span class="featured_news--content_image">
-					<img src="" alt="" class="image" />
-				</span>
-				<a href="#" class="color-red subtitle">22 jan 2017</a>
-				<p class="title">Achado pode ajudar a personalizar tratamento do câncer de mama em estágio inicial</p>
-				<p class="text-content">Pesquisadores do A.C. Camargo Câncer Center descreveram um conjunto de 26 genes com potencial para se tornarem biomarcadores de agressividade para um subtipo de câncer de mama</p>
-			</li>
+			<?php $args = array( 'post_type' => 'radar', 'posts_per_page' => 4 );
+				$loop = new WP_Query( $args );
+				while ( $loop->have_posts() ) : $loop->the_post(); 
+				$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' ); ?>
+				<li>
+					<span class="featured_news--content_image">
+						<a href="<?php the_permalink(); ?>"><img src="<?php echo $image[0]; ?>" width="60" height="60" alt="" class="image" /></a>
+					</span>
+					<a href="<?php the_permalink(); ?>" class="color-red subtitle"><?php the_date(); ?></a>
+					<a href="<?php the_permalink(); ?>"<h3 class="title"><?php the_title(); ?></h3></a>
+					<a href="<?php the_permalink(); ?>"<p class="text-content"><?php the_excerpt(); ?></p></a>
+				</li>
+				<?php endwhile; ?>
 		</ul>
 	</div>
 </section>
