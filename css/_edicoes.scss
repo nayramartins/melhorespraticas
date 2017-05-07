@@ -52,7 +52,7 @@
             position: absolute;
             top: calc(50% - 0.3rem);
             left: -5.5rem;
-            width: 6%;
+            width: 4rem;
             height: 0.3rem;
             background: $red;
             content: '';
@@ -128,5 +128,29 @@
         &-image {
             width: 42%;
         }
+    }
+}
+
+
+// TERMS
+
+.edicoes {
+    .container {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 7rem;
+    }
+
+    .edicoes__container {
+        width: 70%;
+        margin-top: 5rem;
+    }
+
+    .cta {
+        margin-top: 1rem;
+    }
+
+    .subtitle {
+        margin-bottom: 1rem;
     }
 }

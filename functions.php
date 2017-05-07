@@ -448,17 +448,15 @@ function create_edicoes_hierarchical_taxonomy() {
   ); 	
 
   register_taxonomy('edicoes',array('post'), array(
-    'hierarchical' => true,
+    'hierarchical' => false,
     'labels' => $labels,
     'show_ui' => true,
     'show_admin_column' => true,
     'query_var' => true,
-    'has_archive' =>  'edicoes',
     'rewrite' => array( 
       'slug' => 'edicoes',
-      'with_front' => true ),
+      'with_front' => false ),
   ));
-  flush_rewrite_rules();
 }
 
 
