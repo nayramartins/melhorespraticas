@@ -1,0 +1,38 @@
+.radar {
+    .container {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 7rem;
+    }
+
+    &__container {
+        width: 70%;
+        margin-top: 5rem;
+    }
+
+    .featured_news--content {
+        flex-wrap: wrap;
+
+        .subtitle {
+            width: 100%;
+        }
+
+        li {
+            flex-direction: row;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        &_text {
+            display: flex;
+            flex: 2;
+            flex-wrap: wrap;
+            margin-left: 2rem;
+        }
+
+        &_image {
+            flex: 1;
+        }
+    }
+}
