@@ -54,5 +54,80 @@ function melhorespraticas_customize_register( $wp_customize ) {
 		'type'		=> 'text',
 		'priority'  => 13
     ) ) );
+
+	$wp_customize->add_section( 'footer' , array(
+        'title'    => __( 'Footer', 'starter' ),
+        'priority' => 300
+    ) );
+
+	$wp_customize->add_setting( 'logo_footer' , array(
+	    'default'   		=> '',
+	    'type'				=> 'theme_mod',
+	    'transport'			=> 'refresh',
+	    'sanitize_callback'	=> 'esc_url_raw'
+    ) );
+
+	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'logofooter', array(
+        'label'    	=> __('Logo Footer', 'melhorespraticas-theme'),
+        'section'  	=> 'footer',
+        'settings' 	=> 'logo_footer',
+		'priority'  => 14
+    ) ) );
+
+	$wp_customize->add_setting( 'endereco1' , array(
+	    'default'   		=> '',
+	    'type'				=> 'theme_mod',
+	    'transport'			=> 'refresh'
+    ) );
+
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'enderecofooter1', array(
+        'label'    	=> __('Endereço Linha 1', 'melhorespraticas-theme'),
+        'section'  	=> 'footer',
+        'settings' 	=> 'endereco1',
+		'type'		=> 'text',
+		'priority'  => 15
+    ) ) );
+
+	$wp_customize->add_setting( 'endereco2' , array(
+	    'default'   		=> '',
+	    'type'				=> 'theme_mod',
+	    'transport'			=> 'refresh'
+    ) );
+
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'enderecofooter2', array(
+        'label'    	=> __('Endereço Linha 2', 'melhorespraticas-theme'),
+        'section'  	=> 'footer',
+        'settings' 	=> 'endereco2',
+		'type'		=> 'text',
+		'priority'  => 16
+    ) ) );
+
+	$wp_customize->add_setting( 'telefone' , array(
+	    'default'   		=> '',
+	    'type'				=> 'theme_mod',
+	    'transport'			=> 'refresh'
+    ) );
+
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'telefonefooter', array(
+        'label'    	=> __('Telefone Footer', 'melhorespraticas-theme'),
+        'section'  	=> 'footer',
+        'settings' 	=> 'telefone',
+		'type'		=> 'text',
+		'priority'  => 17
+    ) ) );
+
+	$wp_customize->add_setting( 'email' , array(
+	    'default'   		=> '',
+	    'type'				=> 'theme_mod',
+	    'transport'			=> 'refresh',
+    ) );
+
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'emailooter', array(
+        'label'    	=> __('Email Footer', 'melhorespraticas-theme'),
+        'section'  	=> 'footer',
+        'settings' 	=> 'email',
+		'type'		=> 'text',
+		'priority'  => 18
+    ) ) );
 }
 add_action( 'customize_register', 'melhorespraticas_customize_register' );

@@ -3,24 +3,31 @@
 ?>
 <?php include_once "banner-footer.php" ?>
 
- <?php wp_footer(); ?>
+ <?php wp_footer(); 
+ $logo = get_theme_mod('logo_footer');
+ $endereco1 = get_theme_mod('endereco1');
+ $endereco2 = get_theme_mod('endereco2');
+ $telefone = get_theme_mod('telefone');
+ $email = get_theme_mod('email');
+ ?>
+ 
     <footer class="footer">
         <?php dynamic_sidebar('footer'); ?>
         <div class="container">
             <div class="footer_image">
-                <img class="image-small" src="wp-content/themes/melhorespraticas/images/logo_footer.jpg" alt="">
+                <img class="image-small" src="<?php echo $logo;?>" alt="">
             </div>
             <div class="footer_contact">
                 <p class="color-red subtitle">fale com a gente</p>
-                <p class="footer_contact--address color-grey">R. Dr. Alceu de Campos Rodrigues, 229, conj. 806 <br>
-                    Vila Nova Conceição, São Paulo - SP</p>
+                <p class="footer_contact--address color-grey"><?php echo $endereco1; ?> <br>
+                    <?php echo $endereco2; ?></p>
                 <p class="footer_contact--telephone">
                     <span class="ico"></span>
-                    (11) 4119-2393
+                    <?php echo $telefone; ?>
                 </p>
                 <p class="footer_contact--email">
                     <span class="ico"></span>
-                    gpes@gpes.com.br
+                    <?php echo $email; ?>
                 </p>
             </div>
             <div class="space"></div>
