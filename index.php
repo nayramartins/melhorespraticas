@@ -91,16 +91,17 @@ get_header(); ?>
 	</section>
 	<section class="merchandising_1 container">
 		<?php
-			$my_query = query_posts('post_id=112&post_type=anuncios'); 
-			global $post;
+			$my_query = query_posts('post_type=anuncios'); 
 			foreach ($my_query as $post):
-				setup_postdata($post);
-				$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
-				if($image): ?>
-					<a href="<?php the_field('link'); ?>"><img src="<?php echo $image[0]; ?>" width="60" height="60" alt="" class="image" /></a>
-				<?php else:  ?>
-					<a href="<?php bloginfo('url'); ?>/anuncie"><p class="subtitle"><?php the_content(); ?></p></a>
-				<?php endif; 
+				if($post->ID == '112'):
+					setup_postdata($post);
+					$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
+					if($image): ?>
+						<a href="<?php the_field('link'); ?>"><img src="<?php echo $image[0]; ?>" width="60" height="60" alt="" class="image" /></a>
+					<?php else:  ?>
+						<a href="<?php bloginfo('url'); ?>/anuncie"><p class="subtitle"><?php the_content(); ?></p></a>
+					<?php endif; 
+				endif;
 			endforeach; 
 			wp_reset_postdata(); ?>
 	</section>
