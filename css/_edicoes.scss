@@ -1,0 +1,132 @@
+.edicoes-featured {
+    padding: 5.5rem 0 11rem;
+    background: $greyLight;
+
+    .container {
+        display: flex;
+    }
+
+    &_left {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-width: 24%;
+        max-width: 24%;
+        padding-right: 4.2%;
+        border-right: 0.1rem solid $greyBorder;
+
+        .cta {
+            width: 100%;
+            margin-top: 5rem;
+        }
+
+        h3 {
+            font-size: 4rem;
+            text-align: center;
+        }
+
+        .edicoes-mes {
+            margin-top: 1.5rem;
+        }
+
+        .edicoes-capa {
+            margin-top: 4rem;
+        }
+    }
+
+    &_right {
+        padding-left: 6rem;
+
+        .subtitle {
+            margin-bottom: 2rem;
+        }
+    }
+
+    .author {
+        position: relative;
+        margin-top: 3.5rem;
+        margin-left: 5.5rem;
+        font-weight: bold;
+
+        &::before {
+            position: absolute;
+            top: calc(50% - 0.3rem);
+            left: -5.5rem;
+            width: 6%;
+            height: 0.3rem;
+            background: $red;
+            content: '';
+        }
+
+        &-field {
+            margin-top: 1rem;
+            margin-left: 5.5rem;
+        }
+    }
+
+    .subtitle {
+        font-size: 1.3rem;
+    }
+}
+
+.edicoes-list {
+    margin-top: 6rem;
+
+    p {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: 6rem;
+
+        .select-option {
+            width: 27.5rem;
+            height: 5rem;
+            padding: 1rem;
+            border: 1px solid $greyLight100;
+            background: transparent;
+            color: $greyDark;
+            font-family: 'Montserrat';
+            font-size: 1.1rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            box-sizing: border-box;
+        }
+    }
+
+    &_container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &_item {
+        display: flex;
+        align-items: flex-start;
+        width: calc((100% - 4rem) / 2);
+        margin-bottom: 6rem;
+        padding: 2.8rem 2.5rem 5.5rem;
+        border: 0.1rem solid $greyBorder;
+        box-sizing: border-box;
+
+        &:nth-child(odd) {
+            margin-right: 4rem;
+        }
+
+        &-content {
+            flex-grow: 1;
+            margin-left: 4.5rem;
+
+            .subtitle {
+                margin: 2.5rem 0;
+            }
+
+            .item-title {
+                margin: 0;
+            }
+        }
+
+        &-image {
+            width: 42%;
+        }
+    }
+}

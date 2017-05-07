@@ -91,7 +91,7 @@ get_header(); ?>
 	</section>
 	<section class="merchandising_1 container">
 		<?php
-			$my_query = query_posts('post_type=anuncios'); 
+			$my_query = query_posts('post_type=anuncios');
 			foreach ($my_query as $post):
 				if($post->ID == '112'):
 					setup_postdata($post);
@@ -100,15 +100,15 @@ get_header(); ?>
 						<a href="<?php the_field('link'); ?>"><img src="<?php echo $image[0]; ?>" width="60" height="60" alt="" class="image" /></a>
 					<?php else:  ?>
 						<a href="<?php bloginfo('url'); ?>/anuncie"><p class="subtitle"><?php the_content(); ?></p></a>
-					<?php endif; 
+					<?php endif;
 				endif;
-			endforeach; 
+			endforeach;
 			wp_reset_postdata(); ?>
 	</section>
 </div>
 </div>
 <section class="edition_carousel">
-	<?php  
+	<?php
 		$taxonomy = 'edicoes';
 		$terms = get_terms([
 			'taxonomy' => $taxonomy,
@@ -143,11 +143,11 @@ get_header(); ?>
 <section class="featured_news">
 	<div class="container">
 		<h2 class="box-title edition_carousel--title">Radar</h2>
-		
+
 		<ul class="featured_news--content">
 			<?php $args = array( 'post_type' => 'radar', 'posts_per_page' => 4 );
 				$loop = new WP_Query( $args );
-				while ( $loop->have_posts() ) : $loop->the_post(); 
+				while ( $loop->have_posts() ) : $loop->the_post();
 				$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' ); ?>
 				<li>
 					<span class="featured_news--content_image">
@@ -167,7 +167,7 @@ get_header(); ?>
 		<div class="materia-capa">
 			<?php $args = array('posts_per_page' => 5, 'cat' => '1');
 				$posts_query = new WP_Query( $args );  ?>
-				<select class="select-capa" name="select" onchange="selectCapa(this.value)">
+				<select class="select-option" name="select" onchange="selectCapa(this.value)">
 					<option value="" selected disabled>Matérias de Capa</option>
 					<?php while($posts_query->have_posts()) : $posts_query->the_post(); ?>
 						<option value="<?php echo $post->ID?>"><?php the_title(); ?></option>
@@ -177,7 +177,7 @@ get_header(); ?>
 				<?php $args = array('posts_per_page' => 5, 'cat' => '1');
 					$posts_query = new WP_Query( $args );
 					$i = 0;
-					while($posts_query->have_posts()) : $posts_query->the_post(); 
+					while($posts_query->have_posts()) : $posts_query->the_post();
 					$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' ); ?>
 					<div class="container-capa <?php echo $i == 0 ? 'capaActive' : 'capaHide'?>" id="<?php echo $post->ID; ?>">
 						<img src="<?php echo $image[0]; ?>" width="60" height="60" alt="" class="image" />
@@ -186,21 +186,25 @@ get_header(); ?>
 							<p><?php the_excerpt(); ?></p>
 						</div>
 					</div>
-					<?php 
+					<?php
 					$i++;
 					endwhile; ?>
 					<?php wp_reset_postdata(); ?>
 		</div>
 		<div class="videos-home">
-			<h3>Vídeos</h3>
-			<?php $args = array( 'post_type' => 'videos', 'posts_per_page' => 4 );
-				$loop = new WP_Query( $args );
-				while ( $loop->have_posts() ) : $loop->the_post(); 
-				the_content(); ?>
-				<p><?php the_date(); ?></p>
-				<p><?php the_title(); ?></p>
-				<?php endwhile; ?>
-			<?php wp_reset_postdata(); ?>
+			<h3 class="box-title color-white">Vídeos</h3>
+			<div class="owl-carousel video owl-theme">
+				<div>
+					<?php $args = array( 'post_type' => 'videos', 'posts_per_page' => 4 );
+					$loop = new WP_Query( $args );
+					while ( $loop->have_posts() ) : $loop->the_post();
+					the_content(); ?>
+					<p><?php the_date(); ?></p>
+					<p><?php the_title(); ?></p>
+					<?php endwhile; ?>
+					<?php wp_reset_postdata(); ?>
+				</div>
+			</div>
 		</div>
 	</div>
 </section>

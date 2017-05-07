@@ -9,7 +9,7 @@ body {
 }
 
 .container {
-    width: 84.5%;
+    width: 84%;
     margin: 0 auto;
 }
 
@@ -75,6 +75,13 @@ a {
     font-size: 1.8rem;
 }
 
+.lora-text {
+    color: $greyDark;
+    font-family: 'Lora';
+    font-size: 1.4rem;
+    line-height: 1.5;
+}
+
 .color-red {
     color: $red;
 }
@@ -85,6 +92,10 @@ a {
 
 .color-white {
     color: $white;
+}
+
+.color-black {
+    color: $black;
 }
 
 .title {
@@ -131,4 +142,19 @@ p {
             text-transform: uppercase;
         }
     }
+}
+
+.select-option {
+    width: 27.5rem;
+    height: 5rem;
+    margin-right: 2rem;
+    padding: 1rem;
+    border: 1px solid $greyLight100;
+    background: transparent;
+    color: $greyDark;
+    font-family: 'Montserrat';
+    font-size: 1.1rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    box-sizing: border-box;
 }

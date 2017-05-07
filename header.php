@@ -43,6 +43,13 @@
 					}
 				}
 			});
+
+			$(".owl-carousel.videos").owlCarousel({
+				loop:true,
+				nav:true,
+				items: 1,
+				video:true
+			});
 		});
 	</script>
 	<title><?php bloginfo('name'); ?> | <?php bloginfo('description'); ?></title>

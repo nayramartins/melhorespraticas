@@ -18,22 +18,6 @@
             @include display-flex;
             height: 5rem;
             margin: 0 0 6rem;
-
-            .select-option {
-                width: 27.5rem;
-                height: 5rem;
-                margin-right: 2rem;
-                padding: 1rem;
-                border: 1px solid $greyLight100;
-                background: transparent;
-                color: $greyDark;
-                font-family: 'Montserrat';
-                font-size: 1.1rem;
-                font-weight: 400;
-                text-transform: uppercase;
-                box-sizing: border-box;
-            }
-
         }
     }
 
@@ -313,4 +297,18 @@
 
 .capaHide {
     display: none;
+}
+
+.materia-capa {
+    width: 55%;
+}
+
+.cover_video {
+    .container {
+        display: flex;
+    }
+
+    .videos-home {
+        background-color: $greyDark;
+    }
 }
