@@ -421,7 +421,7 @@ add_action('init', 'type_post_agenda');
             'has_archive' => true,
             'hierarchical' => false,
             'menu_position' => null,     
-            'supports' => array('title','editor','thumbnail', 'revisions', 'comments' )
+            'supports' => array('title')
           );
  
 register_post_type( 'agenda' , $args );
