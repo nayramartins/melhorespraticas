@@ -194,8 +194,42 @@
     &.bg-grey {
         background-color: $greyDarker;
 
+        h3 {
+            margin: 0;
+        }
+
+        p {
+            color: $greyLight;
+        }
+
         .container {
             @include display-flex($justify: space-between);
+        }
+    }
+
+    .mc4wp-form-fields {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+
+        input {
+            &[type='email'] {
+                width: 40rem;
+                height: 5.7rem;
+                margin-bottom: 4rem;
+                border: 1px solid $greyDark;
+                background: transparent;
+                color: $greyDark;
+                text-align: center;
+                text-transform: uppercase;
+            }
+
+            &[type='submit'] {
+                border: none;
+                cursor: pointer;
+            }
         }
     }
 }
