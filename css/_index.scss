@@ -118,8 +118,11 @@
     margin-top: 9rem;
     background: $grey;
 
-    .subtitle {
+    .subtitle,
+    p {
         color: $white;
+        font-family: Montserrat;
+        text-transform: uppercase;
     }
 
     a {
@@ -268,4 +271,13 @@
 
 .space {
     flex-grow: 1;
+}
+
+
+.capaActive {
+    display: block;
+}
+
+.capaHide {
+    display: none;
 }

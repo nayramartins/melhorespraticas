@@ -161,7 +161,48 @@ get_header(); ?>
 	</div>
 </section>
 
-<section class="cover_video"></section>
+<section class="cover_video">
+	<div class="container">
+		<div class="materia-capa">
+			<?php $args = array('posts_per_page' => 5, 'cat' => '1');
+				$posts_query = new WP_Query( $args );  ?>
+				<select class="select-capa" name="select" onchange="selectCapa(this.value)">
+					<option value="" selected disabled>Matérias de Capa</option>
+					<?php while($posts_query->have_posts()) : $posts_query->the_post(); ?>
+						<option value="<?php echo $post->ID?>"><?php the_title(); ?></option>
+					<?php endwhile; ?>
+					<?php wp_reset_postdata(); ?>
+				</select>
+				<?php $args = array('posts_per_page' => 5, 'cat' => '1');
+					$posts_query = new WP_Query( $args );
+					$i = 0;
+					while($posts_query->have_posts()) : $posts_query->the_post(); 
+					$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' ); ?>
+					<div class="container-capa <?php echo $i == 0 ? 'capaActive' : 'capaHide'?>" id="<?php echo $post->ID; ?>">
+						<img src="<?php echo $image[0]; ?>" width="60" height="60" alt="" class="image" />
+						<div class="content-capa">
+							<h3><?php the_title(); ?></h3>
+							<p><?php the_excerpt(); ?></p>
+						</div>
+					</div>
+					<?php 
+					$i++;
+					endwhile; ?>
+					<?php wp_reset_postdata(); ?>
+		</div>
+		<div class="videos-home">
+			<h3>Vídeos</h3>
+			<?php $args = array( 'post_type' => 'videos', 'posts_per_page' => 4 );
+				$loop = new WP_Query( $args );
+				while ( $loop->have_posts() ) : $loop->the_post(); 
+				the_content(); ?>
+				<p><?php the_date(); ?></p>
+				<p><?php the_title(); ?></p>
+				<?php endwhile; ?>
+			<?php wp_reset_postdata(); ?>
+		</div>
+	</div>
+</section>
 
 <script>
 var selectChange = function(value) {
@@ -171,6 +212,14 @@ var selectChange = function(value) {
 	active.classList.add('newsHide');
 	selected.classList.remove('newsHide');
 	selected.classList.add('newsActive');
+}
+var selectCapa = function(value) {
+	var selected = document.getElementById(value);
+	var active = document.getElementsByClassName('capaActive')[0];
+	active.classList.remove('capaActive');
+	active.classList.add('capaHide');
+	selected.classList.remove('capaHide');
+	selected.classList.add('capaActive');
 }
 </script>
 <?php get_footer(); ?>
