@@ -118,7 +118,7 @@ get_header(); ?>
 	?>
 	<div class="container">
 		<h2 class="box-title edition_carousel--title">Últimas Edições</h2>
-		<div class="owl-carousel owl-theme">
+		<div class="owl-carousel edition owl-theme">
 			<?php foreach ($terms as $term): ?>
 			<div class="slide">
 				<a href="<?php bloginfo('url'); ?>/edicoes/<?php echo $term->slug; ?>">
@@ -133,7 +133,7 @@ get_header(); ?>
 	</div>
 </section>
 
-<section class="full_banner" style="background-image: url('<?php bloginfo('url'); ?>/wp-content/themes/melhorespraticas/images/index_full-banner.jpg')">
+<section class="full_banner" style="background-size: cover; background-image: url('<?php bloginfo('url'); ?>/wp-content/themes/melhorespraticas/images/index_full-banner.jpg')">
 	<div class="container">
 		<h3 class="full_banner--text lora-title">Seja um assinante e tenha acesso aos nossos conteúdos exclusivos.</h3>
 		<a href="#" class="cta">assine já</a>
@@ -165,7 +165,8 @@ get_header(); ?>
 <section class="cover_video">
 	<div class="container">
 		<div class="materia-capa">
-			<?php $args = array('posts_per_page' => 5, 'cat' => '1');
+			<div class="top-content">
+				<?php $args = array('posts_per_page' => 5, 'cat' => '1');
 				$posts_query = new WP_Query( $args );  ?>
 				<select class="select-option" name="select" onchange="selectCapa(this.value)">
 					<option value="" selected disabled>Matérias de Capa</option>
@@ -174,6 +175,8 @@ get_header(); ?>
 					<?php endwhile; ?>
 					<?php wp_reset_postdata(); ?>
 				</select>
+			</div>
+			<div class="materia-content">
 				<?php $args = array('posts_per_page' => 5, 'cat' => '1');
 					$posts_query = new WP_Query( $args );
 					$i = 0;
@@ -182,28 +185,30 @@ get_header(); ?>
 					<div class="container-capa <?php echo $i == 0 ? 'capaActive' : 'capaHide'?>" id="<?php echo $post->ID; ?>">
 						<img src="<?php echo $image[0]; ?>" width="60" height="60" alt="" class="image" />
 						<div class="content-capa">
-							<h3><?php the_title(); ?></h3>
+							<h3 class="lora-title"><?php the_title(); ?></h3>
 							<p><?php the_excerpt(); ?></p>
+							<a href="<?php the_permalink(); ?>" class="subtitle">Leia mais</a>
 						</div>
 					</div>
 					<?php
 					$i++;
 					endwhile; ?>
-					<?php wp_reset_postdata(); ?>
+				<?php wp_reset_postdata(); ?>
+			</div>
 		</div>
 		<div class="videos-home">
 			<h3 class="box-title color-white">Vídeos</h3>
-			<div class="owl-carousel video owl-theme">
-				<div>
+			<div class="owl-carousel videos owl-theme">
 					<?php $args = array( 'post_type' => 'videos', 'posts_per_page' => 4 );
 					$loop = new WP_Query( $args );
-					while ( $loop->have_posts() ) : $loop->the_post();
-					the_content(); ?>
-					<p><?php the_date(); ?></p>
-					<p><?php the_title(); ?></p>
+					while ( $loop->have_posts() ) : $loop->the_post(); ?>
+					<div class="slide">
+					<?php the_content(); ?>
+					<p class="color-grey subtitle"><?php the_date(); ?></p>
+					<p class="color-white mont-title"><?php the_title(); ?></p>
+					</div>
 					<?php endwhile; ?>
 					<?php wp_reset_postdata(); ?>
-				</div>
 			</div>
 		</div>
 	</div>

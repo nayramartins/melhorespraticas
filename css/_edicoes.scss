@@ -72,6 +72,12 @@
 .edicoes-list {
     margin-top: 6rem;
 
+    &_top {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 5rem;
+    }
+
     p {
         display: flex;
         align-items: center;

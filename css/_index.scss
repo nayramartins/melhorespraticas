@@ -292,7 +292,7 @@
 
 
 .capaActive {
-    display: block;
+    display: flex;
 }
 
 .capaHide {
@@ -300,15 +300,77 @@
 }
 
 .materia-capa {
-    width: 55%;
+    width: calc(100% - 3rem - 32%);
+    margin-right: 3rem;
+
+    .top-content {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 1rem;
+
+        select {
+            margin: 0;
+        }
+    }
+
+    .container-capa {
+        img {
+            max-width: 25rem;
+            margin-top: -2.3rem;
+        }
+
+        .content-capa {
+            height: 28.5rem;
+            padding: 7rem 5.5rem 0;
+            background: $greyLight;
+            box-sizing: border-box;
+
+            .lora-title {
+                margin-bottom: 2rem;
+            }
+
+            .subtitle {
+                display: block;
+                margin-top: 3rem;
+            }
+        }
+    }
 }
 
 .cover_video {
+    margin-bottom: 9rem;
+
     .container {
         display: flex;
     }
 
     .videos-home {
+        width: 32%;
+        height: 45.5rem;
+        padding: 4.5rem 5rem 3rem;
         background-color: $greyDark;
+        box-sizing: border-box;
+
+        .box-title {
+            margin-bottom: 3rem;
+        }
+
+        .slide {
+            width: 100%;
+            text-align: center;
+
+            iframe {
+                height: 20rem;
+            }
+
+            .subtitle {
+                margin: 1rem 0;
+            }
+
+            .mont-title {
+                font-family: 'Montserrat';
+                font-size: 1.5rem;
+            }
+        }
     }
 }
