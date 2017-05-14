@@ -8,23 +8,66 @@ if (have_posts()):
 
         <section class="materia">
             <div class="container">
-                <h4><?php echo $terms[0]->name; ?></h4>
-                <h1><?php the_title(); ?></h1>
-                <h3><?php the_field('autor') ?></h3>
-                <h2><?php the_field('call') ?></h2>
-                <?php the_content(); ?>
-                <h3>Referências</h3>
-                <div><?php the_field('referencias')?></div>
-                <div class="page-content">
-                    <?php $tags = wp_get_post_tags( $post->ID ); ?>
-                    <h3>Tags</h3>
-                    <ul>
-                        <?php foreach($tags as $tag): ?>
-                            <li><a href="<?php bloginfo('url'); ?>/tags/<?php echo $tag->slug ?>" class="color-red"><?php echo $tag->name ?></a></li>
-                        <?php endforeach; ?>
-                    </ul>
+                <div class="materia__container">
+                    <h4 class="taxonomy__title"><?php echo $terms[0]->name; ?></h4>
+                    <h1 class="post__title"><?php the_title(); ?></h1>
+                    <h3 class="post__author"><?php the_field('autor') ?></h3>
+                    <hr>
+                    <h2 class="post__call"><?php echo the_field('call') ?></h2>
+                    <section class="merchandising_1 container">
+                        <?php $postAnuncio = get_post( 224 ); 
+                            $image = wp_get_attachment_image_src( get_post_thumbnail_id( $postAnuncio->ID ), 'full' );
+                            if($image): 
+                            $a = '<a href="' . get_field('link', $postAnuncio->ID) . '"><img src="' .  $image[0] . '" width="60" height="60" alt="" class="image" /></a>';
+                            else:
+                            $a = '<a href="' . get_site_url() . '/anuncie"><p class="subtitle">' .$postAnuncio->post_content . '</p></a>';
+                            endif; 
+                            echo $a;
+                        ?>
+                    </section>
+                    <?php the_content(); ?>
+                    <h3>Referências</h3>
+                    <div><?php the_field('referencias')?></div>
+                    <div class="page-content">
+                        <?php $tags = wp_get_post_tags( $post->ID ); ?>
+                        <h3>Tags</h3>
+                        <ul>
+                            <?php foreach($tags as $tag): ?>
+                                <li><a href="<?php bloginfo('url'); ?>/tags/<?php echo $tag->slug ?>" class="color-red"><?php echo $tag->name ?></a></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
                 </div>
-                <?php echo do_shortcode('[wpdevart_facebook_comment curent_url="<?php blogbloginfo("url"); ?>" order_type="social" width="100%" bg_color="#d4d4d4" animation_effect="random" count_of_comments="3" ]'); ?>
+                <?php get_sidebar(); ?>
+            </div>
+            <div class="container post__footer">
+                <div class="post__comments">
+                    <?php echo do_shortcode('[wpdevart_facebook_comment curent_url="<?php blogbloginfo("url"); ?>" order_type="social" width="100%" bg_color="#d4d4d4" animation_effect="random" count_of_comments="3" ]'); ?>
+                </div>
+                <div class="post__navigation">
+                    <?php
+                    $prev_post = get_previous_post();
+                    if (!empty( $prev_post )): ?>
+                        <div class="post__navigation__item">
+                            <a href="<?php echo $prev_post->guid ?>">
+                                <h4>Matéria Anterior</h4>
+                                <h4><?php echo $prev_post->post_title ?></h4>
+                                <p><?php echo get_field('call', $next_post->ID); ?></p>
+                            </a>
+                        </div>
+                    <?php endif ?>
+                    <?php
+                    $next_post = get_next_post();
+                    if (!empty( $next_post )): ?>
+                        <div class="post__navigation__item">
+                            <a href="<?php echo $next_post->guid ?>">
+                                <h4>Próxima Matéria</h4>
+                                <h4><?php echo $next_post->post_title ?></h4>
+                                <p><?php echo get_field('call', $next_post->ID); ?></p>
+                            </a>
+                        </div>
+                    <?php endif ?>
+                </div>
             </div>
         </section>
 

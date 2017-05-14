@@ -52,7 +52,7 @@ get_header(); $terms = wp_get_post_terms($post->ID, 'edicoes');?>
                 </div>
                 <?php endwhile;  endif;?>
             </div>
-        <?php get_sidebar(); ?>
+            <?php get_sidebar(); ?>
         </div>
     </section>
 
