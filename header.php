@@ -14,7 +14,7 @@
 	<script src="<?php bloginfo('url'); ?>/wp-content/themes/melhorespraticas/js/owlcarousel/owl.carousel.min.js"></script>
 	<script>
 		$(document).ready(function(){
-			$(".slider-edicoes").owlCarousel({
+			$(".owl-carousel.edition").owlCarousel({
 				loop:true,
 				margin:10,
 				nav:true,
@@ -50,24 +50,25 @@
 				nav:true,
 				navText: ["<img src='<?php bloginfo('url'); ?>/wp-content/themes/melhorespraticas/images/arrow_next.png'>",
 					"<img src='<?php bloginfo('url'); ?>/wp-content/themes/melhorespraticas/images/arrow_prev.png'>"],
-				items: 5,
+				items: 1,
 				margin:10,
+				video: true,
 				responsive:{
 					0:{
 						items:1,
 						nav:true
 					},
 					600:{
-						items:3,
+						items:1,
 						nav:false
 					},
 					1000:{
-						items:5,
+						items:1,
 						nav:true,
 						loop:false
 					},
 					1400:{
-						items:6,
+						items:1,
 						nav:true,
 						loop:false
 					}

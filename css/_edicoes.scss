@@ -52,7 +52,7 @@
             position: absolute;
             top: calc(50% - 0.3rem);
             left: -5.5rem;
-            width: 6%;
+            width: 4rem;
             height: 0.3rem;
             background: $red;
             content: '';
@@ -71,6 +71,12 @@
 
 .edicoes-list {
     margin-top: 6rem;
+
+    &_top {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 5rem;
+    }
 
     p {
         display: flex;
@@ -128,5 +134,29 @@
         &-image {
             width: 42%;
         }
+    }
+}
+
+
+// TERMS
+
+.edicoes {
+    .container {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 7rem;
+    }
+
+    .edicoes__container {
+        width: 70%;
+        margin-top: 5rem;
+    }
+
+    .cta {
+        margin-top: 1rem;
+    }
+
+    .subtitle {
+        margin-bottom: 1rem;
     }
 }

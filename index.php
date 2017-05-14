@@ -115,30 +115,28 @@ get_header(); ?>
 		'hide_empty' => false,
 		'order' => 'DESC'
 		]);
-		?>
-		<div class="container">
-			<h2 class="box-title edition_carousel--title">Últimas Edições</h2>
-			<div class="owl-carousel slider-edicoes owl-theme">
-				<?php foreach ($terms as $term): ?>
-					<div class="slide">
-						<a href="<?php bloginfo('url'); ?>/edicoes/<?php echo $term->slug; ?>">
-							<div class="slide-content">
-								<div class="slide-content_media"><img src="<?php the_field('capa', 'edicoes_' . $term->term_id); ?>" /></div>
-								<p class="slide-content_text color-grey subtitle"><?php echo $term->name ?></p>
-							</div>
-						</a>
+	?>
+	<div class="container">
+		<h2 class="box-title edition_carousel--title">Últimas Edições</h2>
+		<div class="owl-carousel edition owl-theme">
+			<?php foreach ($terms as $term): ?>
+			<div class="slide">
+				<a href="<?php bloginfo('url'); ?>/edicoes/<?php echo $term->slug; ?>">
+					<div class="slide-content">
+						<div class="slide-content_media"><img src="<?php the_field('capa', 'edicoes_' . $term->term_id); ?>" /></div>
+						<p class="slide-content_text color-grey subtitle"><?php echo $term->name ?></p>
 					</div>
 				<?php endforeach; ?>
 			</div>
 		</div>
 	</section>
 
-	<section class="full_banner" style="background-image: url('<?php bloginfo('url'); ?>/wp-content/themes/melhorespraticas/images/index_full-banner.jpg')">
-		<div class="container">
-			<h3 class="full_banner--text lora-title">Seja um assinante e tenha acesso aos nossos conteúdos exclusivos.</h3>
-			<a href="#" class="cta">assine já</a>
-		</div>
-	</section>
+<section class="full_banner" style="background-size: cover; background-image: url('<?php bloginfo('url'); ?>/wp-content/themes/melhorespraticas/images/index_full-banner.jpg')">
+	<div class="container">
+		<h3 class="full_banner--text lora-title">Seja um assinante e tenha acesso aos nossos conteúdos exclusivos.</h3>
+		<a href="#" class="cta">assine já</a>
+	</div>
+</section>
 
 	<section class="featured_news">
 		<div class="container">
@@ -165,45 +163,51 @@ get_header(); ?>
 <section class="cover_video">
 	<div class="container">
 		<div class="materia-capa">
-			<?php $args = array('posts_per_page' => 5, 'cat' => '1');
-			$posts_query = new WP_Query( $args );  ?>
-			<select class="select-option" name="select" onchange="selectCapa(this.value)">
-				<option value="" selected disabled>Matérias de Capa</option>
-				<?php while($posts_query->have_posts()) : $posts_query->the_post(); ?>
-					<option value="<?php echo $post->ID?>"><?php the_title(); ?></option>
-				<?php endwhile; ?>
-				<?php wp_reset_postdata(); ?>
-			</select>
-			<?php $args = array('posts_per_page' => 5, 'cat' => '1');
-			$posts_query = new WP_Query( $args );
-			$i = 0;
-			while($posts_query->have_posts()) : $posts_query->the_post();
-			$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' ); ?>
-			<div class="container-capa <?php echo $i == 0 ? 'capaActive' : 'capaHide'?>" id="<?php echo $post->ID; ?>">
-				<img src="<?php echo $image[0]; ?>" width="60" height="60" alt="" class="image" />
-				<div class="content-capa">
-					<h3><?php the_title(); ?></h3>
-					<p><?php the_excerpt(); ?></p>
-				</div>
+			<div class="top-content">
+				<?php $args = array('posts_per_page' => 5, 'cat' => '1');
+				$posts_query = new WP_Query( $args );  ?>
+				<select class="select-option" name="select" onchange="selectCapa(this.value)">
+					<option value="" selected disabled>Matérias de Capa</option>
+					<?php while($posts_query->have_posts()) : $posts_query->the_post(); ?>
+						<option value="<?php echo $post->ID?>"><?php the_title(); ?></option>
+					<?php endwhile; ?>
+					<?php wp_reset_postdata(); ?>
+				</select>
 			</div>
-			<?php
-			$i++;
-			endwhile; ?>
-			<?php wp_reset_postdata(); ?>
+			<div class="materia-content">
+				<?php $args = array('posts_per_page' => 5, 'cat' => '1');
+					$posts_query = new WP_Query( $args );
+					$i = 0;
+					while($posts_query->have_posts()) : $posts_query->the_post();
+					$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' ); ?>
+					<div class="container-capa <?php echo $i == 0 ? 'capaActive' : 'capaHide'?>" id="<?php echo $post->ID; ?>">
+						<img src="<?php echo $image[0]; ?>" width="60" height="60" alt="" class="image" />
+						<div class="content-capa">
+							<h3 class="lora-title"><?php the_title(); ?></h3>
+							<p><?php the_excerpt(); ?></p>
+							<a href="<?php the_permalink(); ?>" class="subtitle">Leia mais</a>
+						</div>
+					</div>
+					<?php
+					$i++;
+					endwhile; ?>
+				<?php wp_reset_postdata(); ?>
+			</div>
 		</div>
 		<div class="videos-home">
 			<h3 class="box-title color-white">Vídeos</h3>
-			<div class="owl-carousel slider-edicoes owl-theme">
+			<div class="owl-carousel videos owl-theme">
 					<?php $args = array( 'post_type' => 'videos', 'posts_per_page' => 4 );
 					$loop = new WP_Query( $args );
 					while ( $loop->have_posts() ) : $loop->the_post(); ?>
-				<div class="slide">
+					<div class="slide">
 					<?php the_content(); ?>
-					<p><?php the_date(); ?></p>
-					<p><?php the_title(); ?></p>
-				</div>
-				<?php endwhile; ?>
-				<?php wp_reset_postdata(); ?>
+					<p class="color-grey subtitle"><?php the_date(); ?></p>
+					<p class="color-white mont-title"><?php the_title(); ?></p>
+					</div>
+					<?php endwhile; ?>
+					<?php wp_reset_postdata(); ?>
+			</div>
 		</div>
 	</div>
 </section>

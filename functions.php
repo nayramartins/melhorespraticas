@@ -421,7 +421,7 @@ add_action('init', 'type_post_agenda');
             'has_archive' => true,
             'hierarchical' => false,
             'menu_position' => null,     
-            'supports' => array('title','editor','thumbnail', 'revisions', 'comments' )
+            'supports' => array('title')
           );
  
 register_post_type( 'agenda' , $args );
@@ -448,17 +448,15 @@ function create_edicoes_hierarchical_taxonomy() {
   ); 	
 
   register_taxonomy('edicoes',array('post'), array(
-    'hierarchical' => true,
+    'hierarchical' => false,
     'labels' => $labels,
     'show_ui' => true,
     'show_admin_column' => true,
     'query_var' => true,
-    'has_archive' =>  'edicoes',
     'rewrite' => array( 
       'slug' => 'edicoes',
-      'with_front' => true ),
+      'with_front' => false ),
   ));
-  flush_rewrite_rules();
 }
 
 
@@ -467,3 +465,112 @@ function custom_excerpt_length( $length ) {
 	return 25;
 }
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+
+// Format button to tiny editor
+
+// 'styleselect' into the $buttons array
+function new_mce_buttons_2( $buttons ) {
+	array_unshift( $buttons, 'styleselect' );
+	return $buttons;
+}
+add_filter( 'mce_buttons_2', 'new_mce_buttons_2' );
+
+function new_mce_before_init_insert_formats( $init_array ) {
+
+	$style_formats = array(
+		// Each array child is a format with it's own settings
+		array(
+			'title' => 'Autor',
+			'block' => 'span',
+			'classes' => 'citacao-autor',
+			'wrapper' => true,
+
+		),
+		array(
+			'title' => 'Info Autor',
+			'block' => 'span',
+			'classes' => 'citacao-info-autor',
+			'wrapper' => true,
+		),
+		array(
+			'title' => 'Display images',
+			'block' => 'div',
+			'classes' => 'post-images',
+			'wrapper' => true,
+		),
+		array(
+			'title' => 'Bloco Destaque',
+			'block' => 'div',
+			'classes' => 'red-block',
+			'wrapper' => true,
+		),
+	);
+	// Insert the array, JSON ENCODED, into 'style_formats'
+	$init_array['style_formats'] = json_encode( $style_formats );
+
+	return $init_array;
+
+}
+
+// Attach callback to 'tiny_mce_before_init'
+add_filter( 'tiny_mce_before_init', 'new_mce_before_init_insert_formats' );
+
+
+
+// Connect the WordPress post editor to your custom stylesheet
+function my_theme_add_editor_styles() {
+  add_editor_style( 'style-wpadmin.css' );
+}
+
+add_action( 'admin_init', 'my_theme_add_editor_styles' );
+
+ 
+//Insert ads after second paragraph of single post content.
+
+add_filter( 'the_content', 'prefix_insert_post_ads' );
+
+function  getAnuncio(){
+    $post = get_post( 205 ); 
+    setup_postdata($post);
+    $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
+    if($image): 
+      $a = '<section class="merchandising_1 container"><a href="' . get_field('link') . '"><img src="' .  $image[0] . '" width="60" height="60" alt="" class="image" /></a></section>';
+    else:
+      $a = '<section class="merchandising_1 container"><a href="' . get_site_url() . '/anuncie"><p class="subtitle">' . get_the_content() . '</p></a></section>';
+    endif;
+    wp_reset_postdata();
+    return $a;
+}
+
+function prefix_insert_post_ads( $content ) {
+   $ad_code = getAnuncio();
+   global $post;
+
+	if ( is_single() && ! is_admin() && $post->post_type == 'post') {
+		return prefix_insert_after_paragraph( $ad_code, 1, $content );
+	}
+	
+	return $content;
+}
+ 
+// Parent Function that makes the magic happen
+ 
+function prefix_insert_after_paragraph( $insertion, $paragraph_id, $content ) {
+	$closing_p = '</p>';
+	$paragraphs = explode( $closing_p, $content );
+	foreach ($paragraphs as $index => $paragraph) {
+
+		if ( trim( $paragraph ) ) {
+			$paragraphs[$index] .= $closing_p;
+		}
+
+		if ( $paragraph_id == $index / 4 ) {
+			$paragraphs[$index] .= $insertion;
+		}
+	}
+	
+	return implode( '', $paragraphs );
+}
+
+
+
