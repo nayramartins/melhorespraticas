@@ -460,6 +460,40 @@ function create_edicoes_hierarchical_taxonomy() {
 }
 
 
+add_action( 'init', 'create_tag_taxonomies', 0 );
+
+//create two taxonomies, genres and tags for the post type "tag"
+function create_tag_taxonomies() 
+{
+  // Add new taxonomy, NOT hierarchical (like tags)
+  $labels = array(
+    'name' => _x( 'Tags', 'taxonomy general name' ),
+    'singular_name' => _x( 'Tag', 'taxonomy singular name' ),
+    'search_items' =>  __( 'Search Tags' ),
+    'popular_items' => __( 'Popular Tags' ),
+    'all_items' => __( 'All Tags' ),
+    'parent_item' => null,
+    'parent_item_colon' => null,
+    'edit_item' => __( 'Edit Tag' ), 
+    'update_item' => __( 'Update Tag' ),
+    'add_new_item' => __( 'Add New Tag' ),
+    'new_item_name' => __( 'New Tag Name' ),
+    'separate_items_with_commas' => __( 'Separate tags with commas' ),
+    'add_or_remove_items' => __( 'Add or remove tags' ),
+    'choose_from_most_used' => __( 'Choose from the most used tags' ),
+    'menu_name' => __( 'Tags' ),
+  ); 
+
+  register_taxonomy('tag','radar',array(
+    'hierarchical' => false,
+    'labels' => $labels,
+    'show_ui' => true,
+    'update_count_callback' => '_update_post_term_count',
+    'query_var' => true,
+    'rewrite' => array( 'slug' => 'tag' ),
+  ));
+}
+
 
 function custom_excerpt_length( $length ) {
 	return 25;
@@ -557,9 +591,14 @@ function prefix_insert_post_ads( $content ) {
    $ad_code = getAnuncio();
    global $post;
 
-	if ( is_single() && ! is_admin() && $post->post_type == 'post') {
-		return prefix_insert_after_paragraph( $ad_code, 1, $content );
-	}
+	if ( is_single() && ! is_admin()):
+    if ($post->post_type == 'post'):
+		  return prefix_insert_after_paragraph( $ad_code, 1, $content );
+    endif;
+    if ($post->post_type == 'radar'):
+		  return prefix_insert_after_paragraph_radar( $ad_code, 1, $content );
+    endif;
+	endif;
 
 	return $content;
 }
@@ -576,6 +615,22 @@ function prefix_insert_after_paragraph( $insertion, $paragraph_id, $content ) {
 		}
 
 		if ( $paragraph_id == $index / 4 ) {
+			$paragraphs[$index] .= $insertion;
+		}
+	}
+
+	return implode( '', $paragraphs );
+}
+function prefix_insert_after_paragraph_radar( $insertion, $paragraph_id, $content ) {
+	$closing_p = '</p>';
+	$paragraphs = explode( $closing_p, $content );
+	foreach ($paragraphs as $index => $paragraph) {
+
+		if ( trim( $paragraph ) ) {
+			$paragraphs[$index] .= $closing_p;
+		}
+
+		if ( $paragraph_id == $index / 8 ) {
 			$paragraphs[$index] .= $insertion;
 		}
 	}
@@ -691,3 +746,9 @@ function wp_custom_breadcrumbs() {
   }
 } // end wp_custom_breadcrumbs()
 
+function filter_ptags_on_blockquotes($content) {
+    $content = preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
+    return preg_replace('/<p>\s*(<span .*>*.<\/span>)\s*<\/p>/iU', '\1', $content);
+}
+
+add_filter('the_content', 'filter_ptags_on_blockquotes');

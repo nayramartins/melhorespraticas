@@ -132,8 +132,9 @@
             }
 
             .citacao-autor {
-                position: absolute;
-                margin: -6rem 0 0 4rem;
+                display: block;
+                position: relative;
+                margin: 4rem 0 0 10rem;
                 color: $black;
                 font-family: Montserrat;
                 font-size: 1.5rem;
@@ -152,8 +153,9 @@
             }
 
             .citacao-info-autor {
-                position: absolute;
-                margin: -4rem 0 0 4rem;
+                display: block;
+                position: relative;
+                margin: 1rem 0 0 6rem;
                 color:  $grey;
                 font-family: Montserrat;
                 font-size: 1.5rem;

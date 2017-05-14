@@ -139,23 +139,23 @@ get_header(); ?>
 	</div>
 </section>
 
-	<section class="featured_news">
-		<div class="container">
-			<h2 class="box-title edition_carousel--title">Radar</h2>
+<section class="featured_news">
+	<div class="container">
+		<h2 class="box-title edition_carousel--title">Radar</h2>
 
-			<ul class="featured_news--content">
-				<?php $args = array( 'post_type' => 'radar', 'posts_per_page' => 4 );
-				$loop = new WP_Query( $args );
-				while ( $loop->have_posts() ) : $loop->the_post();
-				$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' ); ?>
-				<li>
-					<span class="featured_news--content_image">
-						<a href="<?php the_permalink(); ?>"><img src="<?php echo $image[0]; ?>" width="60" height="60" alt="" class="image" /></a>
-					</span>
-					<a href="<?php the_permalink(); ?>" class="color-red subtitle"><?php the_date(); ?></a>
-					<a href="<?php the_permalink(); ?>"<h3 class="title"><?php the_title(); ?></h3></a>
-					<a href="<?php the_permalink(); ?>"<p class="text-content"><?php the_excerpt(); ?></p></a>
-				</li>
+		<ul class="featured_news--content">
+			<?php $args = array( 'post_type' => 'radar', 'posts_per_page' => 4 );
+			$loop = new WP_Query( $args );
+			while ( $loop->have_posts() ) : $loop->the_post();
+			$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' ); ?>
+			<li>
+				<span class="featured_news--content_image">
+					<a href="<?php the_permalink(); ?>"><img src="<?php echo $image[0]; ?>" width="60" height="60" alt="" class="image" /></a>
+				</span>
+				<a href="<?php the_permalink(); ?>" class="color-red subtitle"><?php the_date(); ?></a>
+				<a href="<?php the_permalink(); ?>"<h3 class="title"><?php the_title(); ?></h3></a>
+				<a href="<?php the_permalink(); ?>"<p class="text-content"><?php the_excerpt(); ?></p></a>
+			</li>
 			<?php endwhile; ?>
 			<?php wp_reset_postdata(); ?>
 		</ul>
