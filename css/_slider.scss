@@ -66,29 +66,31 @@
     }
 }
 
-.owl-dots {
-    display: none;
-}
-
 .owl-carousel {
-    position: relative;
+    &.edition {
+        position: relative;
 
-    .owl-nav {
-        position: absolute;
-        top: calc(50% - 43px);
-        width: 100%;
+        .owl-dots {
+            display: none;
+        }
 
-        .owl-prev,
-        .owl-next {
+        .owl-nav {
             position: absolute;
-        }
+            top: calc(50% - 43px);
+            width: 100%;
 
-        .owl-prev {
-            left: -6rem;
-        }
+            .owl-prev,
+            .owl-next {
+                position: absolute;
+            }
 
-        .owl-next {
-            right: -6rem;
+            .owl-prev {
+                left: -6rem;
+            }
+
+            .owl-next {
+                right: -6rem;
+            }
         }
     }
 }

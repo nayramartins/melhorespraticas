@@ -1,0 +1,20 @@
+.politica-content {
+    position: relative;
+    top: -6rem;
+    width: 80%;
+    margin: auto;
+    padding: 4rem 0 0;
+    background: $white;
+    box-sizing: border-box;
+
+    h2 {
+        @extend .lora-title;
+        width: 80%;
+        margin: 0 auto 5.3rem;
+        text-align: center;
+    }
+
+    p {
+        @extend .color-grey;
+    }
+}

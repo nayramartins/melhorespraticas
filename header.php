@@ -44,7 +44,7 @@
 				}
 			});
 
-			$(".owl-carousel.videos").owlCarousel({
+			$(".slider-videos").owlCarousel({
 				loop:true,
 				margin:10,
 				nav:true,
@@ -74,6 +74,8 @@
 					}
 				}
 			});
+
+
 		});
 	</script>
 	<title><?php bloginfo('name'); ?> | <?php bloginfo('description'); ?></title>
