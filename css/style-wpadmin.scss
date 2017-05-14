@@ -17,4 +17,57 @@ Text Domain: rmp
 
 @import '_helpers';
 
+blockquote {
+    position: relative;
+    margin: 1rem 0 1rem 5rem;
 
+    p {
+        position: relative;
+        margin: 8rem 0 0 3rem;
+        color: $greyDarker;
+        font-size: 1.4rem;
+        font-weight: 400;
+        line-height: 2rem;
+    }
+
+    &::before {
+        display: block;
+        position: absolute;
+        top: -4.5rem;
+        left: 0;
+        width: 2.8rem;
+        height: 1.6rem;
+        background: url('images/quote.png')no-repeat center center;
+        background-size: contain;
+        content: '';
+    }
+
+    .citacao-autor {
+        position: absolute;
+        margin: -6rem 0 0 4rem;
+        color: $black;
+        font-family: Montserrat;
+        font-size: 1rem;
+        font-weight: 400;
+
+        &::before {
+            display: block;
+            position: absolute;
+            top: 1rem;
+            left: -4rem;
+            width: 2.9rem;
+            height: 0.3rem;
+            background: $red;
+            content: '';
+        }
+    }
+
+    .citacao-info-autor {
+        position: absolute;
+        margin: -4rem 0 0 4rem;
+        color:  $grey;
+        font-family: Montserrat;
+        font-size: 1rem;
+        font-weight: 100;
+    }
+}

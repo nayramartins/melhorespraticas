@@ -14,7 +14,7 @@ if (have_posts()):
                     <h3 class="post__author"><?php the_field('autor') ?></h3>
                     <hr>
                     <h2 class="post__call"><?php echo the_field('call') ?></h2>
-                    <section class="merchandising_1 container">
+                    <section class="merchandising_1">
                         <?php $postAnuncio = get_post( 224 ); 
                             $image = wp_get_attachment_image_src( get_post_thumbnail_id( $postAnuncio->ID ), 'full' );
                             if($image): 
@@ -25,10 +25,14 @@ if (have_posts()):
                             echo $a;
                         ?>
                     </section>
-                    <?php the_content(); ?>
-                    <h3>Referências</h3>
-                    <div><?php the_field('referencias')?></div>
-                    <div class="page-content">
+                    <div class="post__content">
+                        <?php the_content(); ?>
+                    </div>
+                    <div class="post__referencias">
+                        <h3>Referências</h3>
+                        <p><?php the_field('referencias')?></p>
+                    </div>
+                    <div class="post__tags">
                         <?php $tags = wp_get_post_tags( $post->ID ); ?>
                         <h3>Tags</h3>
                         <ul>
@@ -42,28 +46,28 @@ if (have_posts()):
             </div>
             <div class="container post__footer">
                 <div class="post__comments">
-                    <?php echo do_shortcode('[wpdevart_facebook_comment curent_url="<?php blogbloginfo("url"); ?>" order_type="social" width="100%" bg_color="#d4d4d4" animation_effect="random" count_of_comments="3" ]'); ?>
+                    <?php echo do_shortcode('[wpdevart_facebook_comment curent_url="<?php blogbloginfo("url"); ?>" order_type="social" width="100%" bg_color="#d4d4d4" animation_effect="random" count_of_comments="3" title_text=""]'); ?>
                 </div>
                 <div class="post__navigation">
                     <?php
                     $prev_post = get_previous_post();
                     if (!empty( $prev_post )): ?>
-                        <div class="post__navigation__item">
+                        <div class="post__navigation__item left">
                             <a href="<?php echo $prev_post->guid ?>">
-                                <h4>Matéria Anterior</h4>
-                                <h4><?php echo $prev_post->post_title ?></h4>
-                                <p><?php echo get_field('call', $next_post->ID); ?></p>
+                                <h4 class="color-red subtitle">Matéria Anterior</h4>
+                                <h4 class="color-black navigation__title"><?php echo $prev_post->post_title ?></h4>
+                                <p class="color-grey"><?php echo get_field('call', $next_post->ID); ?></p>
                             </a>
                         </div>
                     <?php endif ?>
                     <?php
                     $next_post = get_next_post();
                     if (!empty( $next_post )): ?>
-                        <div class="post__navigation__item">
+                        <div class="post__navigation__item right">
                             <a href="<?php echo $next_post->guid ?>">
-                                <h4>Próxima Matéria</h4>
-                                <h4><?php echo $next_post->post_title ?></h4>
-                                <p><?php echo get_field('call', $next_post->ID); ?></p>
+                                <h4 class="color-red subtitle">Próxima Matéria</h4>
+                                <h4 class="color-black navigation__title"><?php echo $next_post->post_title ?></h4>
+                                <p class="color-grey"><?php echo get_field('call', $next_post->ID); ?></p>
                             </a>
                         </div>
                     <?php endif ?>

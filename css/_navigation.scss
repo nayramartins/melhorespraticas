@@ -1,0 +1,49 @@
+.post__navigation {
+    margin-top: 4rem;
+
+    .navigation__title {
+        margin: 1rem 0;
+        font-size: 2.2rem;
+    }
+
+    p {
+        font-size: 1.6rem;
+    }
+
+    &__item {
+        position: relative;
+
+        &::before {
+            display: block;
+            width: 3.3rem;
+            height: 2.3rem;
+            content: '';
+        }
+
+        &.right {
+            margin-right: 7rem;
+            text-align: right;
+
+            &::before {
+                position: absolute;
+                top: 4rem;
+                right: -7rem;
+                background: url('images/next.png') no-repeat center center;
+                background-size: contain;
+            }
+        }
+
+        &.left {
+            margin-left: 7rem;
+
+            &::before {
+                position: absolute;
+                top: 4rem;
+                left: -7rem;
+                background: url('images/prev.png') no-repeat center center;
+                background-size: contain;
+            }
+        }
+    }
+}
+
