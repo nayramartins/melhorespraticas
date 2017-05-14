@@ -3,9 +3,9 @@
 get_header(); ?>
 
 <section class="slider">
-<?php
-    echo do_shortcode("[metaslider id=29]");
-?>
+	<?php
+	echo do_shortcode("[metaslider id=29]");
+	?>
 </section>
 
 <div class="container">
@@ -28,18 +28,18 @@ get_header(); ?>
 			<?php
 			foreach ($assuntos as $assunto):
 				$args = array('posts_per_page' => 3, 'cat' => $assunto->cat_ID);
-				$posts_query = new WP_Query( $args ); ?>
-				<div class="<?php echo $assunto->cat_ID != '28' ? newsHide: 'newsActive'; ?>" id="<?php echo $assunto->cat_ID?>">
+			$posts_query = new WP_Query( $args ); ?>
+			<div class="<?php echo $assunto->cat_ID != '28' ? newsHide: 'newsActive'; ?>" id="<?php echo $assunto->cat_ID?>">
 				<?php if ($posts_query->have_posts()):
-					while($posts_query->have_posts()) : $posts_query->the_post();
-						$categories = get_the_category();
-						if ( ! empty( $categories ) ):
-							foreach( $categories as $category ):
-								if($category->slug != 'escolha-do-editor'):
-									$cat_slug = $category->slug;
-									$cat = $category->name;
-								endif;
-							endforeach;
+				while($posts_query->have_posts()) : $posts_query->the_post();
+				$categories = get_the_category();
+				if ( ! empty( $categories ) ):
+					foreach( $categories as $category ):
+						if($category->slug != 'escolha-do-editor'):
+							$cat_slug = $category->slug;
+						$cat = $category->name;
+						endif;
+						endforeach;
 						endif;
 						?>
 						<div class="top_content--news" >
@@ -55,97 +55,97 @@ get_header(); ?>
 							</div>
 						</div>
 					<?php endwhile;
-				endif; ?>
+					endif; ?>
 				</div>
 				<?php wp_reset_postdata();
-			endforeach;
-			?>
+				endforeach;
+				?>
 
-		</section>
-		<section class="top_content-right">
-			<div class="top_content-right--header">
-				<h2 class="box-title">Entrevistas</h2>
-				<a href="#" class="see-more color-grey">Ver todos</a>
-			</div>
-			<?php $args = array( 'post_type' => 'entrevistas', 'posts_per_page' => 3 );
+			</section>
+			<section class="top_content-right">
+				<div class="top_content-right--header">
+					<h2 class="box-title">Entrevistas</h2>
+					<a href="#" class="see-more color-grey">Ver todos</a>
+				</div>
+				<?php $args = array( 'post_type' => 'entrevistas', 'posts_per_page' => 3 );
 				$loop = new WP_Query( $args );
 				while ( $loop->have_posts() ) : $loop->the_post();
-			?>
-			<div class="top_content-right--content">
-				<div class="box-title">
-					<div class="image-box">
-						<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' ); ?>
-						<img src="<?php echo $image[0]; ?>" width="60" height="60" alt="" class="image" />
+				?>
+				<div class="top_content-right--content">
+					<div class="box-title">
+						<div class="image-box">
+							<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' ); ?>
+							<img src="<?php echo $image[0]; ?>" width="60" height="60" alt="" class="image" />
+						</div>
+						<div class="text-box">
+							<a href="<?php the_permalink(); ?>"> <div class="lora-title"><?php echo the_field('entrevistado'); ?></div>
+								<p class="color-grey subtitle"><?php echo the_field('subtitulo_entrevistado'); ?></p>
+							</div>
+						</div>
+						<div class="title"><?php the_title(); ?></div>
+						<div class="color-red subtitle"><?php the_date(); ?></div></a>
 					</div>
-					<div class="text-box">
-						<a href="<?php the_permalink(); ?>"> <div class="lora-title"><?php echo the_field('entrevistado'); ?></div>
-						<p class="color-grey subtitle"><?php echo the_field('subtitulo_entrevistado'); ?></p>
-					</div>
-				</div>
-				<div class="title"><?php the_title(); ?></div>
-				<div class="color-red subtitle"><?php the_date(); ?></div></a>
+				<?php endwhile;
+				wp_reset_postdata(); ?>
 			</div>
-		<?php endwhile;
-		wp_reset_postdata(); ?>
-		</div>
-	</section>
-	<section class="merchandising_1 container">
-		<?php
+		</section>
+		<section class="merchandising_1 container">
+			<?php
 			$my_query = query_posts('post_type=anuncios');
 			foreach ($my_query as $post):
 				if($post->ID == '112'):
 					setup_postdata($post);
-					$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
-					if($image): ?>
-						<a href="<?php the_field('link'); ?>"><img src="<?php echo $image[0]; ?>" width="60" height="60" alt="" class="image" /></a>
-					<?php else:  ?>
-						<a href="<?php bloginfo('url'); ?>/anuncie"><p class="subtitle"><?php the_content(); ?></p></a>
-					<?php endif;
-				endif;
+				$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
+				if($image): ?>
+				<a href="<?php the_field('link'); ?>"><img src="<?php echo $image[0]; ?>" width="60" height="60" alt="" class="image" /></a>
+			<?php else:  ?>
+				<a href="<?php bloginfo('url'); ?>/anuncie"><p class="subtitle"><?php the_content(); ?></p></a>
+			<?php endif;
+			endif;
 			endforeach;
 			wp_reset_postdata(); ?>
-	</section>
-</div>
+		</section>
+	</div>
 </div>
 <section class="edition_carousel">
 	<?php
-		$taxonomy = 'edicoes';
-		$terms = get_terms([
-			'taxonomy' => $taxonomy,
-			'hide_empty' => false,
-			'order' => 'DESC'
+	$taxonomy = 'edicoes';
+	$terms = get_terms([
+		'taxonomy' => $taxonomy,
+		'hide_empty' => false,
+		'order' => 'DESC'
 		]);
-	?>
-	<div class="container">
-		<h2 class="box-title edition_carousel--title">Últimas Edições</h2>
-		<div class="owl-carousel owl-theme">
-			<?php foreach ($terms as $term): ?>
-			<div class="slide">
-				<a href="<?php bloginfo('url'); ?>/edicoes/<?php echo $term->slug; ?>">
-					<div class="slide-content">
-						<div class="slide-content_media"><img src="<?php the_field('capa', 'edicoes_' . $term->term_id); ?>" /></div>
-						<p class="slide-content_text color-grey subtitle"><?php echo $term->name ?></p>
+		?>
+		<div class="container">
+			<h2 class="box-title edition_carousel--title">Últimas Edições</h2>
+			<div class="owl-carousel slider-edicoes owl-theme">
+				<?php foreach ($terms as $term): ?>
+					<div class="slide">
+						<a href="<?php bloginfo('url'); ?>/edicoes/<?php echo $term->slug; ?>">
+							<div class="slide-content">
+								<div class="slide-content_media"><img src="<?php the_field('capa', 'edicoes_' . $term->term_id); ?>" /></div>
+								<p class="slide-content_text color-grey subtitle"><?php echo $term->name ?></p>
+							</div>
+						</a>
 					</div>
-				</a>
-			 </div>
-			 <?php endforeach; ?>
+				<?php endforeach; ?>
+			</div>
 		</div>
-	</div>
-</section>
+	</section>
 
-<section class="full_banner" style="background-image: url('<?php bloginfo('url'); ?>/wp-content/themes/melhorespraticas/images/index_full-banner.jpg')">
-	<div class="container">
-		<h3 class="full_banner--text lora-title">Seja um assinante e tenha acesso aos nossos conteúdos exclusivos.</h3>
-		<a href="#" class="cta">assine já</a>
-	</div>
-</section>
+	<section class="full_banner" style="background-image: url('<?php bloginfo('url'); ?>/wp-content/themes/melhorespraticas/images/index_full-banner.jpg')">
+		<div class="container">
+			<h3 class="full_banner--text lora-title">Seja um assinante e tenha acesso aos nossos conteúdos exclusivos.</h3>
+			<a href="#" class="cta">assine já</a>
+		</div>
+	</section>
 
-<section class="featured_news">
-	<div class="container">
-		<h2 class="box-title edition_carousel--title">Radar</h2>
+	<section class="featured_news">
+		<div class="container">
+			<h2 class="box-title edition_carousel--title">Radar</h2>
 
-		<ul class="featured_news--content">
-			<?php $args = array( 'post_type' => 'radar', 'posts_per_page' => 4 );
+			<ul class="featured_news--content">
+				<?php $args = array( 'post_type' => 'radar', 'posts_per_page' => 4 );
 				$loop = new WP_Query( $args );
 				while ( $loop->have_posts() ) : $loop->the_post();
 				$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' ); ?>
@@ -157,7 +157,7 @@ get_header(); ?>
 					<a href="<?php the_permalink(); ?>"<h3 class="title"><?php the_title(); ?></h3></a>
 					<a href="<?php the_permalink(); ?>"<p class="text-content"><?php the_excerpt(); ?></p></a>
 				</li>
-				<?php endwhile; ?>
+			<?php endwhile; ?>
 		</ul>
 	</div>
 </section>
@@ -166,65 +166,64 @@ get_header(); ?>
 	<div class="container">
 		<div class="materia-capa">
 			<?php $args = array('posts_per_page' => 5, 'cat' => '1');
-				$posts_query = new WP_Query( $args );  ?>
-				<select class="select-option" name="select" onchange="selectCapa(this.value)">
-					<option value="" selected disabled>Matérias de Capa</option>
-					<?php while($posts_query->have_posts()) : $posts_query->the_post(); ?>
-						<option value="<?php echo $post->ID?>"><?php the_title(); ?></option>
-					<?php endwhile; ?>
-					<?php wp_reset_postdata(); ?>
-				</select>
-				<?php $args = array('posts_per_page' => 5, 'cat' => '1');
-					$posts_query = new WP_Query( $args );
-					$i = 0;
-					while($posts_query->have_posts()) : $posts_query->the_post();
-					$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' ); ?>
-					<div class="container-capa <?php echo $i == 0 ? 'capaActive' : 'capaHide'?>" id="<?php echo $post->ID; ?>">
-						<img src="<?php echo $image[0]; ?>" width="60" height="60" alt="" class="image" />
-						<div class="content-capa">
-							<h3><?php the_title(); ?></h3>
-							<p><?php the_excerpt(); ?></p>
-						</div>
-					</div>
-					<?php
-					$i++;
-					endwhile; ?>
-					<?php wp_reset_postdata(); ?>
+			$posts_query = new WP_Query( $args );  ?>
+			<select class="select-option" name="select" onchange="selectCapa(this.value)">
+				<option value="" selected disabled>Matérias de Capa</option>
+				<?php while($posts_query->have_posts()) : $posts_query->the_post(); ?>
+					<option value="<?php echo $post->ID?>"><?php the_title(); ?></option>
+				<?php endwhile; ?>
+				<?php wp_reset_postdata(); ?>
+			</select>
+			<?php $args = array('posts_per_page' => 5, 'cat' => '1');
+			$posts_query = new WP_Query( $args );
+			$i = 0;
+			while($posts_query->have_posts()) : $posts_query->the_post();
+			$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' ); ?>
+			<div class="container-capa <?php echo $i == 0 ? 'capaActive' : 'capaHide'?>" id="<?php echo $post->ID; ?>">
+				<img src="<?php echo $image[0]; ?>" width="60" height="60" alt="" class="image" />
+				<div class="content-capa">
+					<h3><?php the_title(); ?></h3>
+					<p><?php the_excerpt(); ?></p>
+				</div>
+			</div>
+			<?php
+			$i++;
+			endwhile; ?>
+			<?php wp_reset_postdata(); ?>
 		</div>
 		<div class="videos-home">
 			<h3 class="box-title color-white">Vídeos</h3>
-			<div class="owl-carousel video owl-theme">
-				<div>
+			<div class="owl-carousel slider-edicoes owl-theme">
 					<?php $args = array( 'post_type' => 'videos', 'posts_per_page' => 4 );
 					$loop = new WP_Query( $args );
-					while ( $loop->have_posts() ) : $loop->the_post();
-					the_content(); ?>
+					while ( $loop->have_posts() ) : $loop->the_post(); ?>
+				<div class="slide">
+					<?php the_content(); ?>
 					<p><?php the_date(); ?></p>
 					<p><?php the_title(); ?></p>
-					<?php endwhile; ?>
-					<?php wp_reset_postdata(); ?>
 				</div>
-			</div>
+				<?php endwhile; ?>
+				<?php wp_reset_postdata(); ?>
 		</div>
 	</div>
 </section>
 
 <script>
-var selectChange = function(value) {
-	var selected = document.getElementById(value);
-	var active = document.getElementsByClassName('newsActive')[0];
-	active.classList.remove('newsActive');
-	active.classList.add('newsHide');
-	selected.classList.remove('newsHide');
-	selected.classList.add('newsActive');
-}
-var selectCapa = function(value) {
-	var selected = document.getElementById(value);
-	var active = document.getElementsByClassName('capaActive')[0];
-	active.classList.remove('capaActive');
-	active.classList.add('capaHide');
-	selected.classList.remove('capaHide');
-	selected.classList.add('capaActive');
-}
+	var selectChange = function(value) {
+		var selected = document.getElementById(value);
+		var active = document.getElementsByClassName('newsActive')[0];
+		active.classList.remove('newsActive');
+		active.classList.add('newsHide');
+		selected.classList.remove('newsHide');
+		selected.classList.add('newsActive');
+	}
+	var selectCapa = function(value) {
+		var selected = document.getElementById(value);
+		var active = document.getElementsByClassName('capaActive')[0];
+		active.classList.remove('capaActive');
+		active.classList.add('capaHide');
+		selected.classList.remove('capaHide');
+		selected.classList.add('capaActive');
+	}
 </script>
 <?php get_footer(); ?>

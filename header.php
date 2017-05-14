@@ -14,7 +14,7 @@
 	<script src="<?php bloginfo('url'); ?>/wp-content/themes/melhorespraticas/js/owlcarousel/owl.carousel.min.js"></script>
 	<script>
 		$(document).ready(function(){
-			$(".owl-carousel").owlCarousel({
+			$(".slider-edicoes").owlCarousel({
 				loop:true,
 				margin:10,
 				nav:true,
@@ -44,12 +44,37 @@
 				}
 			});
 
-			$(".owl-carousel.videos").owlCarousel({
+			$(".slider-videos").owlCarousel({
 				loop:true,
+				margin:10,
 				nav:true,
-				items: 1,
-				video:true
+				navText: ["<img src='<?php bloginfo('url'); ?>/wp-content/themes/melhorespraticas/images/arrow_next.png'>",
+					"<img src='<?php bloginfo('url'); ?>/wp-content/themes/melhorespraticas/images/arrow_prev.png'>"],
+				items: 5,
+				margin:10,
+				responsive:{
+					0:{
+						items:1,
+						nav:true
+					},
+					600:{
+						items:3,
+						nav:false
+					},
+					1000:{
+						items:5,
+						nav:true,
+						loop:false
+					},
+					1400:{
+						items:6,
+						nav:true,
+						loop:false
+					}
+				}
 			});
+
+
 		});
 	</script>
 	<title><?php bloginfo('name'); ?> | <?php bloginfo('description'); ?></title>
