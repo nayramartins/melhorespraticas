@@ -65,6 +65,10 @@
     .merchandising_1 {
         margin: 4rem 0;
 
+        a {
+            text-decoration: none;
+        }
+
         .subtitle {
             color: $white;
             font-size: 1rem;
@@ -73,6 +77,12 @@
 
     .post__content {
         font-family: Lora;
+
+        .merchandising_1 {
+            a {
+                text-decoration: none;
+            }
+        }
 
         &::first-letter {
             color: $red;

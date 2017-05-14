@@ -126,8 +126,9 @@ get_header(); ?>
 						<div class="slide-content_media"><img src="<?php the_field('capa', 'edicoes_' . $term->term_id); ?>" /></div>
 						<p class="slide-content_text color-grey subtitle"><?php echo $term->name ?></p>
 					</div>
-				<?php endforeach; ?>
+				</a>
 			</div>
+			<?php endforeach; ?>
 		</div>
 	</section>
 
@@ -156,6 +157,7 @@ get_header(); ?>
 					<a href="<?php the_permalink(); ?>"<p class="text-content"><?php the_excerpt(); ?></p></a>
 				</li>
 			<?php endwhile; ?>
+			<?php wp_reset_postdata(); ?>
 		</ul>
 	</div>
 </section>
@@ -196,15 +198,18 @@ get_header(); ?>
 		</div>
 		<div class="videos-home">
 			<h3 class="box-title color-white">Vídeos</h3>
-			<div class="owl-carousel videos owl-theme">
+			<div class="owl-carousel slider-videos owl-theme">
 					<?php $args = array( 'post_type' => 'videos', 'posts_per_page' => 4 );
 					$loop = new WP_Query( $args );
 					while ( $loop->have_posts() ) : $loop->the_post(); ?>
-					<div class="slide">
-					<?php the_content(); ?>
-					<p class="color-grey subtitle"><?php the_date(); ?></p>
-					<p class="color-white mont-title"><?php the_title(); ?></p>
-					</div>
+						<div class="slide">							
+							<?php 
+							$postContent = $post; ?>
+							<?php setup_postdata($post); ?>
+							<?php the_content(); ?>
+							<p class="color-grey subtitle"><?php echo get_the_date(); ?></p>
+							<p class="color-white mont-title"><?php the_title(); ?></p>
+							</div>
 					<?php endwhile; ?>
 					<?php wp_reset_postdata(); ?>
 			</div>

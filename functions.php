@@ -546,12 +546,11 @@ function  getAnuncio(){
     setup_postdata($post);
     $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
     if($image):
-      $a = '<section class="merchandising_1 container"><a href="' . get_field('link') . '"><img src="' .  $image[0] . '" width="60" height="60" alt="" class="image" /></a></section>';
+      return '<section class="merchandising_1 container"><a href="' . get_field('link') . '"><img src="' .  $image[0] . '" width="60" height="60" alt="" class="image" /></a></section>';
     else:
-      $a = '<section class="merchandising_1 container"><a href="' . get_site_url() . '/anuncie"><p class="subtitle">' . get_the_content() . '</p></a></section>';
+      return '<section class="merchandising_1 container"><a href="' . get_site_url() . '/anuncie"><p class="subtitle">' . get_the_content() . '</p></a></section>';
     endif;
     wp_reset_postdata();
-    return $a;
 }
 
 function prefix_insert_post_ads( $content ) {

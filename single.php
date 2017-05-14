@@ -15,7 +15,7 @@ if (have_posts()):
                     <hr>
                     <h2 class="post__call"><?php echo the_field('call') ?></h2>
                     <section class="merchandising_1">
-                        <?php $postAnuncio = get_post( 224 ); 
+                        <?php $postAnuncio = get_post(224); 
                             $image = wp_get_attachment_image_src( get_post_thumbnail_id( $postAnuncio->ID ), 'full' );
                             if($image): 
                             $a = '<a href="' . get_field('link', $postAnuncio->ID) . '"><img src="' .  $image[0] . '" width="60" height="60" alt="" class="image" /></a>';
@@ -23,7 +23,7 @@ if (have_posts()):
                             $a = '<a href="' . get_site_url() . '/anuncie"><p class="subtitle">' .$postAnuncio->post_content . '</p></a>';
                             endif; 
                             echo $a;
-                        ?>
+                            wp_reset_postdata(); ?>
                     </section>
                     <div class="post__content">
                         <?php the_content(); ?>
