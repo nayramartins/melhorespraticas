@@ -499,6 +499,18 @@ function new_mce_before_init_insert_formats( $init_array ) {
 			'wrapper' => true,
 		),
 		array(
+			'title' => 'Bloco images',
+			'block' => 'div',
+			'classes' => 'post-images-item',
+			'wrapper' => true,
+		),
+		array(
+			'title' => 'Item lista',
+			'block' => 'span',
+			'classes' => 'list-item',
+			'wrapper' => true,
+		),
+		array(
 			'title' => 'Bloco Destaque',
 			'block' => 'div',
 			'classes' => 'red-block',
