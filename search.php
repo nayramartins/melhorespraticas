@@ -11,7 +11,7 @@ get_header(); ?>
                 <div class="screen-title">
                     <div class="container">
                         <div class="title-content">
-                            <h3>Resultados para: <span>medicina</span></h3>
+                            <h3>Resultados para: <span><?php echo $_GET['s']; ?></span></h3>
                         </div>
                     </div>
                 </div>
