@@ -10,7 +10,11 @@ get_header(); ?>
                 </div>
             </div>
         </div>
-
+        <div class="breadcrumb">
+            <div class="container">
+                <?php wp_custom_breadcrumbs(); ?>
+            </div>
+        </div>
         <div class="container">
             <div class="radar__container">
                 <ul class="featured_news--content">
@@ -37,7 +41,7 @@ get_header(); ?>
         </div>
     </section>
 
-    
+
 </div>
 
 <?php get_footer(); ?>

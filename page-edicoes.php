@@ -10,6 +10,11 @@ get_header(); ?>
                 </div>
             </div>
         </div>
+        <div class="breadcrumb">
+            <div class="container">
+                <?php wp_custom_breadcrumbs(); ?>
+            </div>
+        </div>
         <div class="edicoes-featured">
             <div class="container">
                 <?php

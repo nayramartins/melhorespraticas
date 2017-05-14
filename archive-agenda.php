@@ -10,14 +10,18 @@ get_header(); ?>
                 </div>
             </div>
         </div>
-
+        <div class="breadcrumb">
+            <div class="container">
+                <?php wp_custom_breadcrumbs(); ?>
+            </div>
+        </div>
         <div class="container">
             <div class="agenda__container">
                 <ul class="agenda__content">
                     <?php $args = array( 'post_type' => 'agenda', 'posts_per_page' => 6 );
                     $loop = new WP_Query( $args );
                     while ( $loop->have_posts() ) : $loop->the_post();
-                        $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' ); 
+                        $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
                         $date = strtotime(get_field('data'));
                         $dateformatstring1 = 'd.m';
                         $dateformatstring2 = 'Y';
@@ -45,7 +49,7 @@ get_header(); ?>
         </div>
     </section>
 
-    
+
 </div>
 
 <?php get_footer(); ?>
