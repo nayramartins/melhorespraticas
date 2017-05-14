@@ -100,4 +100,18 @@
             }
         }
     }
+
+    .post__content {
+        &::first-letter {
+            color: $red;
+            font-size: 5rem;
+            font-weight: 400;
+            line-height: 2.5rem;
+        }
+    }
+
+
+    .merchandising_1 {
+        margin: 4rem 0;
+    }
 }
