@@ -8,6 +8,11 @@
         </div>
     </div>
 </div>
+<div class="breadcrumb">
+    <div class="container">
+        <?php wp_custom_breadcrumbs(); ?>
+    </div>
+</div>
 <div class="container">
     <div class="container">
         <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' ); ?>

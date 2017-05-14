@@ -10,7 +10,11 @@ get_header(); ?>
                 </div>
             </div>
         </div>
-
+        <div class="breadcrumb">
+            <div class="container">
+                <?php wp_custom_breadcrumbs(); ?>
+            </div>
+        </div>
         <div class="container">
             <div class="entrevistas__container">
                 <?php $args = array( 'post_type' => 'entrevistas', 'posts_per_page' => 12 );
@@ -38,7 +42,7 @@ get_header(); ?>
         </div>
     </section>
 
-    
+
 </div>
 
 <?php get_footer(); ?>
