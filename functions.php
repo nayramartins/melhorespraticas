@@ -484,13 +484,40 @@ function create_tag_taxonomies()
     'menu_name' => __( 'Tags' ),
   ); 
 
-  register_taxonomy('tag','radar',array(
+  register_taxonomy('tag-radar','radar',array(
     'hierarchical' => false,
     'labels' => $labels,
     'show_ui' => true,
     'update_count_callback' => '_update_post_term_count',
     'query_var' => true,
-    'rewrite' => array( 'slug' => 'tag' ),
+    'rewrite' => array( 'slug' => 'tag-radar' ),
+  ));
+  // Add new taxonomy, NOT hierarchical (like tags)
+  $labels = array(
+    'name' => _x( 'Tags', 'taxonomy general name' ),
+    'singular_name' => _x( 'Tag', 'taxonomy singular name' ),
+    'search_items' =>  __( 'Search Tags' ),
+    'popular_items' => __( 'Popular Tags' ),
+    'all_items' => __( 'All Tags' ),
+    'parent_item' => null,
+    'parent_item_colon' => null,
+    'edit_item' => __( 'Edit Tag' ), 
+    'update_item' => __( 'Update Tag' ),
+    'add_new_item' => __( 'Add New Tag' ),
+    'new_item_name' => __( 'New Tag Name' ),
+    'separate_items_with_commas' => __( 'Separate tags with commas' ),
+    'add_or_remove_items' => __( 'Add or remove tags' ),
+    'choose_from_most_used' => __( 'Choose from the most used tags' ),
+    'menu_name' => __( 'Tags' ),
+  ); 
+
+  register_taxonomy('tag-entrevista','entrevistas',array(
+    'hierarchical' => false,
+    'labels' => $labels,
+    'show_ui' => true,
+    'update_count_callback' => '_update_post_term_count',
+    'query_var' => true,
+    'rewrite' => array( 'slug' => 'tag-entrevista' ),
   ));
 }
 
@@ -524,6 +551,12 @@ function new_mce_before_init_insert_formats( $init_array ) {
 			'title' => 'Info Autor',
 			'block' => 'span',
 			'classes' => 'citacao-info-autor',
+			'wrapper' => true,
+		),
+		array(
+			'title' => 'Entrevistado',
+			'block' => 'span',
+			'classes' => 'entrevistado',
 			'wrapper' => true,
 		),
 		array(

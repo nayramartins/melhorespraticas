@@ -28,7 +28,7 @@ if (have_posts()):
                         <?php the_content(); ?>
                 </div>
                 <div class="post__tags">
-                    <?php $taxonomy = 'tag';
+                    <?php $taxonomy = 'tag-radar';
                         $tags = get_terms([
                             'taxonomy' => $taxonomy,
                             'hide_empty' => false,
