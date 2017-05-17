@@ -1,0 +1,87 @@
+.anuncie {
+    .container {
+        text-align: center;
+
+        h2 {
+            margin-bottom: 2rem;
+            color: $black;
+            font-family: Montserrat;
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        p {
+            width: 65.5rem;
+            margin: auto;
+            color: $greyDark;
+            font-family: Lora;
+            font-size: 1.4rem;
+            font-weight: 400;
+        }
+
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            width: 60%;
+            margin: 6rem auto 7rem;
+
+            p {
+                font-family: Montserrat;
+                text-align: left;
+
+                &:first-of-type,
+                &:nth-of-type(2),
+                &:nth-of-type(3),
+                &:nth-of-type(4) {
+                    width: calc((100% - 4rem) / 2);
+                    margin-bottom: 4rem;
+                }
+
+                &:nth-of-type(5) {
+                    width: 100%;
+                    margin-bottom: 4rem;
+                }
+
+                &:nth-of-type(6) {
+                    display: flex;
+                    width: 100%;
+                }
+            }
+
+            input,
+            textarea {
+                width: 100%;
+                height: 6rem;
+                border: 1px solid $greyBorder;
+                background-color: $white;
+                box-sizing: border-box;
+            }
+
+            input {
+                &[type='submit'] {
+                    width: 14rem;
+                    height: 6rem;
+                    margin: auto;
+                    background: $greyDarker;
+                    color: $white;
+                    font-family: Montserrat;
+                    font-size: 1.2rem;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                }
+            }
+
+            label {
+                color: $black;
+                font-size: 1.2rem;
+                font-weight: 700;
+                text-transform: uppercase;
+            }
+
+            .wpcf7-response-output {
+                margin: 4rem auto 0;
+            }
+        }
+    }
+}

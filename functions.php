@@ -814,3 +814,13 @@ function filter_ptags_on_blockquotes($content) {
 }
 
 add_filter('the_content', 'filter_ptags_on_blockquotes');
+
+
+// ENABLE API KEY TO GOOGLE MAPS
+
+function my_acf_init() {
+	
+	acf_update_setting('google_api_key', 'AIzaSyBD_q4OSfvJTaB8uiqiffCpL0sGnT2de74');
+}
+
+add_action('acf/init', 'my_acf_init');

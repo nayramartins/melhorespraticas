@@ -42,6 +42,7 @@ a {
 }
 
 .cta {
+    display: block;
     width: 14rem;
     padding: 2rem 0;
     transition: 0.5s;
@@ -89,6 +90,11 @@ a {
 
 .color-grey {
     color: $grey;
+}
+
+
+.color-greyDark {
+    color: $greyDark;
 }
 
 .color-white {
