@@ -11,28 +11,28 @@
         margin: auto;
 
         &__info {
+            @extend .color-grey;
             margin-top: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
         }
 
         li {
-            display: flex;
+            @include display-flex(flex-start, center);
             flex-wrap: wrap;
-            justify-content: center;
             width: calc((100% - 8rem)/3);
             height: 36rem;
             margin-right: 4rem;
             margin-bottom: 3rem;
-            padding: 1rem;
+            padding: 2.5rem;
             transition: 0.3s;
             background: $greyLight100;
             cursor: pointer;
             box-sizing: border-box;
 
             a {
-                display: flex;
+                @include display-flex(flex-start, center);
                 flex-wrap: wrap;
-                align-items: center;
-                justify-content: center;
             }
 
             &:hover {
@@ -52,17 +52,16 @@
         }
 
         &_text {
-            display: flex;
+            @include display-flex(center, space-between);
             flex-direction: column;
             flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
             width: 100%;
+            height: 14.5rem;
+            margin-top: 4rem;
             text-align: center;
         }
 
         .date1 {
-            width: 100%;
             color: $greyDarker;
             font-family: Montserrat;
             font-size: 3rem;
@@ -72,7 +71,6 @@
         .date2 {
             display: block;
             max-width: 5rem;
-            margin: 0.5rem auto 3rem;
             padding: 0 0 1rem;
             border-bottom: 2px solid $red;
             color: $grey;
@@ -93,4 +91,14 @@
             text-decoration: underline;
         }
     }
+}
+
+.agenda-content_title {
+    @include display-flex(center, center);
+    flex-direction: column;
+
+    img {
+        margin-bottom: 2rem;
+    }
+
 }

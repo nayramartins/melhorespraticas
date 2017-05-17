@@ -30,13 +30,16 @@ get_header(); ?>
                         ?>
                         <li>
                             <a href="<?php the_field('link'); ?>">
-                                <span class="agenda__content_icon">
-                                <img src="" alt="" class="icon" width="20" height="20"/>
-                                </span>
-                                <div class="agenda__content_text">
+                                <div class="agenda-content_title">
+                                    <img src="<?php bloginfo('url'); ?>/wp-content/themes/melhorespraticas/images/icon-agenda.png" alt="" class="icon" width="20" height="20"/>
                                     <span class="date1"><?php echo $date1; ?></span><br/>
                                     <span class="date2"><?php echo $date2; ?></span>
-                                    <h3><?php the_title(); ?></h3>
+                                </div>
+                                <div class="agenda__content_text">
+                                    <div class="agenda-content_title">
+                                        <h3><?php the_title(); ?></h3>
+                                    </div>
+                                    <div class="space"></div>
                                     <p class="agenda__content__info"><?php the_field('info'); ?></p>
                                     <div class="color-red"><?php the_field('responsavel'); ?></div>
                                 </div>
