@@ -55,9 +55,26 @@
 </body>
 </html>
 <script>
-var showCart = function() {
-    var cart = document.getElementsByClassName('modal-carrinho');
-    cart[0].classList.toggle('hideCart');
-}
+    var showCart = function() {
+        var cart = document.getElementsByClassName('modal-carrinho');
+        cart[0].classList.toggle('hideCart');
+    };
+
+/* global wc_add_to_cart_params */
+/*!
+ * WooCommerce Add to Cart JS
+ */
+jQuery( function( $ ) {
+
+	// On "added_to_cart"
+	$( document.body ).on( 'added_to_cart', function( event, fragments, cart_hash, $button ) {
+        var viewCart = document.querySelector('.added_to_cart');
+        viewCart.addEventListener('click', function(e) {
+            e.preventDefault();
+            showCart();
+        });
+	});
+
+});
 </script>
 
