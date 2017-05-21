@@ -1,7 +1,3 @@
 <?php if ( have_posts() ) :
-
-
-woocommerce_content();
-
-
-<?php endif; ?>?>
+     woocommerce_content();
+endif; ?>

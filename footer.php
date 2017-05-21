@@ -44,5 +44,19 @@
         </div>
     </footer>
  </div><!-- div.main -->
+<section class="modal-carrinho hideCart">
+    <div class="carrinho-content">
+        <h2>Carrinho de Compras</h2>
+        <p class="color-grey subtitle">Confirme os itens adquiridos e conclua sua compra</p>
+        <?php echo do_shortcode("[woocommerce_cart]"); ?>
+    </div>
+</section>
 </body>
 </html>
+<script>
+var showCart = function() {
+    var cart = document.getElementsByClassName('modal-carrinho');
+    cart[0].classList.toggle('hideCart');
+}
+</script>
+
