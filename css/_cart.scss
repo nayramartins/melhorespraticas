@@ -12,12 +12,107 @@
         display: none;
     }
 
+    .modal-close {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        width: 1.3rem;
+        height: 1.3rem;
+        background: url('images/icon-close.png') no-repeat center center;
+        background-size: contain;
+        cursor: pointer;
+    }
+
     .carrinho-content {
+        position: relative;
         width: 50%;
         margin: 15% auto;
         padding: 4.2rem 10rem;
         border-top: 3px solid $red;
         background: $white;
         box-sizing: border-box;
+
+        h2 {
+            margin-bottom: 1rem;
+            color: $black;
+            font-family: Lora;
+            font-size: 1.8rem;
+            font-weight: 700;
+            line-height: 2.5rem;
+            text-align: center;
+        }
+
+        .subtitle {
+            margin-bottom: 5rem;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        th {
+            color: $black;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+        }
+
+        td {
+            color: $greyDark;
+            font-family: Montserrat;
+            font-size: 1.3rem;
+        }
+
+        .cart_totals {
+            width: 100%;
+        }
+
+        .order-total {
+            display: flex;
+            justify-content: flex-end;
+
+            h3,
+            p {
+                margin-right: 0.5rem;
+                color: $black;
+                font-family: Montserrat;
+                font-size: 2rem;
+                font-weight: 700;
+                line-height: 2.5rem;
+                text-align: center;
+            }
+        }
+
+        .wc-proceed-to-checkout {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 2.5rem;
+
+            .cta {
+                padding: 1.5rem 1rem;
+
+                &.bg-black {
+                    background: $black;
+                }
+
+                &.bg-green {
+                    background: $green;
+                }
+            }
+        }
+    }
+
+    .woocommerce {
+        table {
+            &.shop_table {
+                border: none;
+                border-bottom: 1px solid $greyTransparent;
+                border-radius: 0;
+            }
+        }
+
+        a {
+            &.remove {
+                font-size: 2.5rem;
+            }
+        }
     }
 }

@@ -46,6 +46,7 @@
  </div><!-- div.main -->
 <section class="modal-carrinho hideCart">
     <div class="carrinho-content">
+        <span class="modal-close" onClick="showCart()"></span>
         <h2>Carrinho de Compras</h2>
         <p class="color-grey subtitle">Confirme os itens adquiridos e conclua sua compra</p>
         <?php echo do_shortcode("[woocommerce_cart]"); ?>
