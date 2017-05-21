@@ -3,14 +3,14 @@
 ?>
 <?php include_once "banner-footer.php" ?>
 
- <?php wp_footer(); 
+ <?php wp_footer();
  $logo = get_theme_mod('logo_footer');
  $endereco1 = get_theme_mod('endereco1');
  $endereco2 = get_theme_mod('endereco2');
  $telefone = get_theme_mod('telefone');
  $email = get_theme_mod('email');
  ?>
- 
+
     <footer class="footer">
         <?php dynamic_sidebar('footer'); ?>
         <div class="container">
@@ -77,4 +77,3 @@ jQuery( function( $ ) {
 
 });
 </script>
-

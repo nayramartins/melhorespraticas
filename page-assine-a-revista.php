@@ -14,32 +14,40 @@ get_header(); ?>
         </div>
     </div>
 
-    <section class="product container">
+    <section class="product container assine">
         <div class="container">
 
             <?php if ( have_posts() ) : while ( have_posts() ) : the_post();
                 the_content();
-            endwhile; endif; 
+            endwhile; endif;
             $preco = str_replace('.', ',', get_field('preco_anteriores')); ?>
 
-            <ul>
-                <li>
-                    <img src="<?php bloginfo('url'); ?>/wp-content/themes/melhorespraticas/images/icon-anuncie.png" alt="" class="icon" width="20" height="20"/>
-                    <?php echo 'R$' . $preco; ?>
-                    <h3>Edições Anteriores</h3>
-                    <p>Versão impressa</p>
-                    <p><?php the_field('conteudo_anteriores'); ?></p>
-                    <a href="<?php bloginfo('url'); ?>/contato">Contato</a>
-                </li>
-                <li>
-                    <img src="<?php bloginfo('url'); ?>/wp-content/themes/melhorespraticas/images/icon-anuncie.png" alt="" class="icon" width="20" height="20"/>
-                    <h2>Assinatura para grupo de pessoas</h2>
-                    <p>Preço sob consulta</p>
-                    <p>Condições especiais</p>
-                    <p><?php the_field('conteudo_grupo'); ?></p>
-                    <a href="<?php bloginfo('url'); ?>/contato">Contato</a>
-                </li>
-            </ul>
+            <div class="woocommerce">
+                <ul class="products">
+                    <li class="product">
+                        <img src="<?php bloginfo('url'); ?>/wp-content/themes/melhorespraticas/images/icon-anuncie.png" alt="" class="icon" width="20" height="20"/>
+                        <p class="price">
+                            <span class="woocommerce-Price-amount amount"><?php echo 'R$' . $preco; ?></span>
+                        </p>
+                        <h2 class="woocommerce-loop-product__title">Edições Anteriores</h2>
+                        <div class="product-info">
+                            <h2 class="color-grey subtitle">Versão impressa</h2>
+                            <p><?php the_field('conteudo_anteriores'); ?></p>
+                        </div>
+                        <a href="<?php bloginfo('url'); ?>/contato" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Contato</a>
+                    </li>
+                    <li class="product">
+                        <img src="<?php bloginfo('url'); ?>/wp-content/themes/melhorespraticas/images/icon-anuncie.png" alt="" class="icon" width="20" height="20"/>
+                        <h2 class="small-title">Assinatura para grupo de pessoas</h2>
+                        <p class="woocommerce-loop-product__title">Preço sob consulta</p>
+                        <div class="product-info">
+                            <h2 class="color-grey subtitle">Condições especiais</h2>
+                            <p><?php the_field('conteudo_grupo'); ?></p>
+                        </div>
+                        <a href="<?php bloginfo('url'); ?>/contato" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Contato</a>
+                    </li>
+                </ul>
+            </div>
         </div>
 
     </section>
