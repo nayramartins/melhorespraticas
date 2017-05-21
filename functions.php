@@ -463,7 +463,7 @@ function create_edicoes_hierarchical_taxonomy() {
 add_action( 'init', 'create_tag_taxonomies', 0 );
 
 //create two taxonomies, genres and tags for the post type "tag"
-function create_tag_taxonomies() 
+function create_tag_taxonomies()
 {
   // Add new taxonomy, NOT hierarchical (like tags)
   $labels = array(
@@ -474,7 +474,7 @@ function create_tag_taxonomies()
     'all_items' => __( 'All Tags' ),
     'parent_item' => null,
     'parent_item_colon' => null,
-    'edit_item' => __( 'Edit Tag' ), 
+    'edit_item' => __( 'Edit Tag' ),
     'update_item' => __( 'Update Tag' ),
     'add_new_item' => __( 'Add New Tag' ),
     'new_item_name' => __( 'New Tag Name' ),
@@ -482,7 +482,7 @@ function create_tag_taxonomies()
     'add_or_remove_items' => __( 'Add or remove tags' ),
     'choose_from_most_used' => __( 'Choose from the most used tags' ),
     'menu_name' => __( 'Tags' ),
-  ); 
+  );
 
   register_taxonomy('tag-radar','radar',array(
     'hierarchical' => false,
@@ -502,7 +502,7 @@ function create_tag_taxonomies()
     'all_items' => __( 'All Tags' ),
     'parent_item' => null,
     'parent_item_colon' => null,
-    'edit_item' => __( 'Edit Tag' ), 
+    'edit_item' => __( 'Edit Tag' ),
     'update_item' => __( 'Update Tag' ),
     'add_new_item' => __( 'Add New Tag' ),
     'new_item_name' => __( 'New Tag Name' ),
@@ -510,7 +510,7 @@ function create_tag_taxonomies()
     'add_or_remove_items' => __( 'Add or remove tags' ),
     'choose_from_most_used' => __( 'Choose from the most used tags' ),
     'menu_name' => __( 'Tags' ),
-  ); 
+  );
 
   register_taxonomy('tag-entrevista','entrevistas',array(
     'hierarchical' => false,
@@ -530,7 +530,7 @@ function create_tag_taxonomies()
     'all_items' => __( 'All Tags' ),
     'parent_item' => null,
     'parent_item_colon' => null,
-    'edit_item' => __( 'Edit Tag' ), 
+    'edit_item' => __( 'Edit Tag' ),
     'update_item' => __( 'Update Tag' ),
     'add_new_item' => __( 'Add New Tag' ),
     'new_item_name' => __( 'New Tag Name' ),
@@ -538,7 +538,7 @@ function create_tag_taxonomies()
     'add_or_remove_items' => __( 'Add or remove tags' ),
     'choose_from_most_used' => __( 'Choose from the most used tags' ),
     'menu_name' => __( 'Tags' ),
-  ); 
+  );
 
   register_taxonomy('tag-video','videos',array(
     'hierarchical' => false,
@@ -819,10 +819,25 @@ add_filter('the_content', 'filter_ptags_on_blockquotes');
 // ENABLE API KEY TO GOOGLE MAPS
 
 function my_acf_init() {
-	
+
 	acf_update_setting('google_api_key', 'AIzaSyBD_q4OSfvJTaB8uiqiffCpL0sGnT2de74');
 }
 
 add_action('acf/init', 'my_acf_init');
 
+add_filter( 'woocommerce_add_cart_item_data', 'woo_custom_add_to_cart' );
 
+function woo_custom_add_to_cart( $cart_item_data ) {
+
+    global $woocommerce;
+    $woocommerce->cart->empty_cart();
+
+    // Do nothing with the data and return
+    return $cart_item_data;
+}
+
+// add_action('woocommerce_add_to_cart', 'custome_add_to_cart');
+// function custome_add_to_cart() {
+//     global $woocommerce;
+//     echo 'AAAAAA';
+// }

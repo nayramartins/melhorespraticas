@@ -1,0 +1,90 @@
+.assine {
+    h2 {
+        @extend .montserrat-title !optional;
+    }
+
+    p {
+        font-family: 'Lato', sans-serif;
+        font-size: 1.3rem;
+        text-align: center;
+    }
+
+    .woocommerce {
+        ul {
+            &.products {
+                display: flex;
+                justify-content: center;
+
+                li {
+                    width: calc((100% - 3rem) / 3);
+                    min-width: 20rem;
+                    height: 45.2rem;
+                    margin: 0;
+                    padding: 2.5rem 3rem 4rem;
+                    background: $greyLight;
+                    box-sizing: border-box;
+
+                    &.product {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        margin: 0;
+                        margin-right: 3rem;
+                        margin-bottom: 1.5rem;
+
+                        .price {
+                            @extend .montserrat-title !optional;
+                            color: $black;
+                        }
+
+                        .product-info {
+                            flex-grow: 1;
+                            text-align: center;
+
+                            h2 {
+                                @extend .subtitle;
+                                @extend .color-grey;
+                                margin-bottom: 3.5rem;
+                            }
+                        }
+
+                        .woocommerce-loop-product__title {
+                            @extend .subtitle;
+                            @extend .color-black;
+                            margin-bottom: 1.5rem;
+                        }
+
+                        .button {
+                            &.product_type_simple {
+                                &.add_to_cart_button {
+                                    &.ajax_add_to_cart {
+                                        @extend .subtitle;
+                                        @extend .color-white;
+                                        @include display-flex(center, center);
+                                        width: 62%;
+                                        height: 4rem;
+                                        border-radius: 0;
+                                        background: $black;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    img {
+                        margin-bottom: 2rem;
+                    }
+
+                    &:last-child {
+                        margin-right: 0 !important;
+                    }
+                }
+            }
+        }
+
+        .small-title {
+            margin-bottom: 3rem;
+            font-size: 2rem;
+        }
+    }
+}

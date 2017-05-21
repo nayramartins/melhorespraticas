@@ -113,7 +113,7 @@
 							<?php else: ?>
 								<li><a href="<?php echo wp_logout_url( $redirect ); ?>">logout</li>
 							<?php endif; ?>
-							<li><a href="#"><img src="<?php bloginfo('url'); ?>/wp-content/themes/melhorespraticas/images/melhores_praticas-cart.png" width="23" height="20" alt=""></a></li>
+							<li><a href="#" onClick="showCart()"><img src="<?php bloginfo('url'); ?>/wp-content/themes/melhorespraticas/images/melhores_praticas-cart.png" width="23" height="20" alt=""></a></li>
 							<li><a href="#" onclick="handleSearch()"><img src="<?php bloginfo('url'); ?>/wp-content/themes/melhorespraticas/images/melhores_praticas-search.png" width="23" height="20" alt=""></a></li>
 						</ul>
 					</div>
