@@ -44,5 +44,9 @@
         </div>
     </footer>
  </div><!-- div.main -->
+<section class="modal-carrinho">
+    <?php echo do_shortcode("[woocommerce_cart]"); ?>
+</section>
 </body>
 </html>
+

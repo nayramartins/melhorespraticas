@@ -108,7 +108,11 @@
 						<p class="header_top-message"> <?php bloginfo('description'); ?></p>
 
 						<ul class="header_top-login">
-							<li><a href="<?php echo esc_url( get_permalink( get_page_by_title('Login')));?>">login</li>
+							<?php if(!is_user_logged_in()): ?>
+								<li><a href="<?php echo esc_url( get_permalink( get_page_by_title('Login')));?>">login</li>
+							<?php else: ?>
+								<li><a href="<?php echo wp_logout_url( $redirect ); ?>">logout</li>
+							<?php endif; ?>
 							<li><a href="#"><img src="<?php bloginfo('url'); ?>/wp-content/themes/melhorespraticas/images/melhores_praticas-cart.png" width="23" height="20" alt=""></a></li>
 							<li><a href="#" onclick="handleSearch()"><img src="<?php bloginfo('url'); ?>/wp-content/themes/melhorespraticas/images/melhores_praticas-search.png" width="23" height="20" alt=""></a></li>
 						</ul>

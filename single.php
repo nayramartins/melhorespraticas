@@ -26,7 +26,20 @@ if (have_posts()):
                             wp_reset_postdata(); ?>
                     </section>
                     <div class="post__content">
-                        <?php the_content(); ?>
+                        <?php the_content(); 
+                        $is_purchased = false;
+                        $str_products_payperpost = get_post_meta( get_the_ID(), 'woocommerce_ppp_product_id', true ); var_dump($str_products_payperpost);
+                        $current_user = wp_get_current_user();
+                        $arr_ids_products = explode( ",", $str_products_payperpost );
+                        foreach ( $arr_ids_products as $id ):
+                            $purchased = wc_customer_bought_product( $current_user->user_email, $current_user->ID, $id );
+                            if ( $purchased || $id == '' ):
+                                $is_purchased = true;
+                            endif;
+                        endforeach;
+
+                        // var_dump($is_purchased);
+                        ?>
                     </div>
                     <div class="post__referencias">
                         <h3>Referências</h3>
