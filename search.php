@@ -21,11 +21,13 @@ get_header(); ?>
                             <li>
                                 <span class="featured_news--content_image">
                                     <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' ); ?>
-								    <img src="<?php echo $image[0]; ?>" width="50" height="50" alt="" class="image" />
+                                    <a href="<?php the_permalink(); ?>">
+                                        <img src="<?php echo $image[0]; ?>" width="50" height="50" alt="" class="image" />
+                                    </a>
                                 </span>
                                 <span class="search-text">
-                                    <a href="#" class="color-red subtitle"><?php the_date(); ?></a>
-                                    <p class="title"><?php the_title(); ?></p>
+                                    <a href="<?php the_permalink(); ?>" class="color-red subtitle"><?php the_date(); ?></a>
+                                    <a href="<?php the_permalink(); ?>"><p class="title"><?php the_title(); ?></p></a>
                                 </span>
                                 <!--<p class="text-content"><?php the_excerpt(); ?></p>-->
                             </li>

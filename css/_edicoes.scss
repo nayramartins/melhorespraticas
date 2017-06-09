@@ -147,6 +147,10 @@
         margin-bottom: 7rem;
     }
 
+    .top_content--news {
+        height: 24rem;
+    }
+
     .edicoes__container {
         width: 70%;
         margin-top: 5rem;
@@ -158,5 +162,43 @@
 
     .subtitle {
         margin-bottom: 1rem;
+    }
+
+    .box-image {
+        position: relative;
+
+        span {
+            display: flex;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 70%;
+            height: 3.7rem;
+            padding: 1.3rem;
+            background: $black;
+            color: $white;
+            text-transform: uppercase;
+            box-sizing: border-box;
+
+            img {
+                width: 1.2rem;
+                height: 1.5rem;
+                margin-top: -0.3rem;
+                margin-right: 1rem;
+            }
+        }
+    }
+
+    .conteudo-exclusivo {
+        display: flex;
+        align-items: baseline;
+        margin-top: 1rem;
+
+        .invert {
+            margin-left: 2rem;
+            border: 1px solid $red;
+            background: $white;
+            color: $red;
+        }
     }
 }
