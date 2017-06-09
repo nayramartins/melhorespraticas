@@ -37,15 +37,18 @@
     </div>
     <section class="merchandising_1 container">
         <?php
-
         if(get_post_type() == 'entrevistas'):
             $postid = '412';
         elseif(get_post_type() == 'post'):
             $postid = '414';
+        elseif(get_post_type() == 'radar'):
+            $postid = '420';
+        elseif(get_post_type() == 'videos'):
+            $postid = '422';
         elseif(is_search()):
             $postid = '418';
         else: 
-            $postid = '';
+            $postid = '412';
         endif;
         $post = get_post( $postid );
         setup_postdata($post);

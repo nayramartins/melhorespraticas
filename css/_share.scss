@@ -1,0 +1,109 @@
+.materia {
+    .post__content {
+        .addtoany_share_save_container {
+            a {
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.addtoany_list {
+    display: flex;
+
+    .a2a_button_print {
+        display: flex;
+        align-items: center;
+
+        &::after {
+            margin-left: 1rem;
+            color:  $grey;
+            font-family: Montserrat;
+            font-size: 1.1rem;
+            font-weight: 100;
+            text-align: left;
+            content: 'Imprimir';
+        }
+    }
+
+    .a2a_button_facebook {
+        display: flex;
+        align-items: center;
+
+        &::after {
+            margin-left: 1rem;
+            color:  $grey;
+            font-family: Montserrat;
+            font-size: 1.1rem;
+            font-weight: 100;
+            text-align: left;
+            content: 'Facebook';
+        }
+    }
+
+    .a2a_button_linkedin {
+        display: flex;
+        align-items: center;
+
+        &::after {
+            margin-left: 1rem;
+            color:  $grey;
+            font-family: Montserrat;
+            font-size: 1.1rem;
+            font-weight: 100;
+            text-align: left;
+            content: 'Linkedin';
+        }
+    }
+
+    .a2a_button_whatsapp {
+        display: flex;
+        align-items: center;
+
+        &::after {
+            margin-left: 1rem;
+            color:  $grey;
+            font-family: Montserrat;
+            font-size: 1.1rem;
+            font-weight: 100;
+            text-align: left;
+            content: 'Whatsapp';
+        }
+    }
+}
+
+
+.single-entrevistas,
+.single-radar,
+.single-videos {
+    .addtoany_content_top {
+        position: absolute;
+        left: -13%;
+        width: 4.2rem;
+
+        .addtoany_list {
+            display: flex;
+            flex-wrap: wrap;
+
+            a {
+                flex-wrap: wrap;
+                justify-content: center;
+
+                &::after {
+                    margin: 1rem 0;
+                }
+            }
+        }
+    }
+}
+
+.single-videos {
+    .container {
+        position: relative;
+    }
+
+    .addtoany_content_top {
+        top: 56rem;
+        left: 0;
+    }
+}
