@@ -2,8 +2,7 @@
 /**** The post template file ****/
  get_header();
 
-if (have_posts()):
-    while ( have_posts() ) : the_post();
+if (have_posts()): the_post();
         $terms = wp_get_post_terms($post->ID, 'edicoes'); ?>
 
         <section class="materia">
@@ -28,7 +27,7 @@ if (have_posts()):
                     <div class="post__content">
                         <?php the_content(); 
                         $is_purchased = false;
-                        $str_products_payperpost = get_post_meta( get_the_ID(), 'woocommerce_ppp_product_id', true ); var_dump($str_products_payperpost);
+                        $str_products_payperpost = get_post_meta( get_the_ID(), 'woocommerce_ppp_product_id', true );
                         $current_user = wp_get_current_user();
                         $arr_ids_products = explode( ",", $str_products_payperpost );
                         foreach ( $arr_ids_products as $id ):
@@ -38,7 +37,6 @@ if (have_posts()):
                             endif;
                         endforeach;
 
-                        // var_dump($is_purchased);
                         ?>
                     </div>
                     <div class="post__referencias">
@@ -88,7 +86,6 @@ if (have_posts()):
             </div>
         </section>
 
-    <?php endwhile;
-endif;
+    <?php endif;
 
 get_footer(); ?>
