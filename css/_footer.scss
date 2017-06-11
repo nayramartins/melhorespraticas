@@ -64,3 +64,33 @@
 .space {
     flex-grow: 1;
 }
+
+@media screen and (max-width: $tablet) {
+    .footer {
+        height: auto;
+
+        .container {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        &_contact {
+            align-items: center;
+            width: 90%;
+
+            &--address {
+                text-align: center;
+            }
+        }
+
+        &_sitemap {
+            width: 100%;
+
+            &--left {
+                &.out {
+                    margin: 0;
+                }
+            }
+        }
+    }
+}

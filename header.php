@@ -121,10 +121,43 @@
 			</div>
 			<div class="container">
 				<div class="header_content">
+					<button id="menu-mobile" onclick="menuClick()">
+						<span></span>
+						<span></span>
+						<span></span>
+					</button>
+
 					<div class="header_content-box box-1">
 						<a class="header_content-box-brand" href="<?php bloginfo('url'); ?>"><img src="<?php echo $logo; ?>" alt="" class="image"></a>
 					</div>
-					<?php if (function_exists(navigation_menu())) navigation_menu(); ?>
+					<div class="main-navigation" id="top-menu">
+						<div class="social-menu-mobile">
+							<div class="container">
+								<ul class="header_top-login-mobile">
+									<li><a href="#" onclick="handleSearch()"><img src="<?php bloginfo('url'); ?>/wp-content/themes/melhorespraticas/images/melhores_praticas-search-white.png" width="23" height="20" alt=""></a></li>
+									<li><a href="#" onClick="showCart()"><img src="<?php bloginfo('url'); ?>/wp-content/themes/melhorespraticas/images/melhores_praticas-cart-white.png" width="23" height="20" alt=""></a></li>
+								</ul>
+								<ul class="header_top-social-mobile">
+									<li>
+										<a href="<?php echo $facebook_url; ?>" id="facebook">
+											<img src="<?php bloginfo('url'); ?>/wp-content/themes/melhorespraticas/images/melhores_praticas-facebook-white.png" width="15" height="15" alt="">
+										</a>
+									</li>
+									<li>
+										<a href="<?php echo $linkedin_url; ?>" id="linkedin">
+											<img src="<?php bloginfo('url'); ?>/wp-content/themes/melhorespraticas/images/melhores_praticas-linkedin-white.png" width="15" height="15" alt="">
+										</a>
+									</li>
+								</ul>
+							</div>
+							</div>
+						<?php if (function_exists(navigation_menu())) navigation_menu(); ?>
+							<?php if(!is_user_logged_in()): ?>
+								<span class="login subtitle"><a href="<?php echo esc_url( get_permalink( get_page_by_title('Login')));?>">login</span>
+							<?php else: ?>
+								<span class="login subtitle"><a href="<?php echo wp_logout_url( $redirect ); ?>">logout</span>
+							<?php endif; ?>
+					</div>
 					<div class="header_content-box box-3">
 						<a href="#" class="cta">Assine</a>
 					</div>
@@ -136,6 +169,13 @@
 		</div>
 
 		<script>
+			var menuClick = function () {
+				var menuMobile = document.getElementById('menu-mobile');
+				var topMobile = document.getElementById('top-menu');
+				topMobile.classList.toggle('active');
+				menuMobile.classList.toggle('close-menu');
+			};
+
 			var handleSearch = function() {
 				var search = document.getElementsByClassName('busca')[0];
 				var input = document.getElementsByClassName('search-form-bottom_text')[0];

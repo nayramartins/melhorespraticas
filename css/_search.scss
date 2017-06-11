@@ -103,3 +103,16 @@
         background: $grey;
     }
 }
+
+@media screen and (max-width: $mobile) {
+    .search-form {
+        height: auto;
+        padding: 2rem 1.5rem;
+
+        &-bottom_text {
+            height: auto;
+            padding: 1.5rem 0 0;
+            font-size: 1.4rem;
+        }
+    }
+}

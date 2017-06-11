@@ -21,11 +21,11 @@
                 <p class="color-red subtitle">fale com a gente</p>
                 <p class="footer_contact--address color-grey"><?php echo $endereco1; ?> <br>
                     <?php echo $endereco2; ?></p>
-                <p class="footer_contact--telephone">
+                <p class="footer_contact--telephone subtitle color-black">
                     <span class="ico"></span>
                     <?php echo $telefone; ?>
                 </p>
-                <p class="footer_contact--email">
+                <p class="footer_contact--email subtitle color-black">
                     <span class="ico"></span>
                     <?php echo $email; ?>
                 </p>
