@@ -205,6 +205,8 @@
 
 @media screen and (max-width: $mobile) {
     .edicoes-featured {
+        padding: 5.5rem 0 5rem;
+
         .container {
             flex-direction: column;
         }

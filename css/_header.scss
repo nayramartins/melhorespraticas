@@ -105,6 +105,12 @@
         .social-menu-mobile {
             display: none;
         }
+
+        .main-navigation {
+            .login {
+                display: none;
+            }
+        }
     }
 }
 
