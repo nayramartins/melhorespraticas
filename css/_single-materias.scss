@@ -264,3 +264,93 @@
     }
 }
 
+
+@media screen and (max-width: $tablet) {
+    .materia {
+        .container {
+            flex-direction: column;
+        }
+
+        .materia__container {
+            width: 100%;
+        }
+
+        .taxonomy__title,
+        .post__title,
+        .post__author,
+        .post__call {
+            text-align: center;
+        }
+
+        hr {
+            margin: 2rem auto 4rem;
+        }
+
+        .merchandising_1 {
+            position: relative;
+            left: -5%;
+            width: 110%;
+        }
+
+        .addtoany_list {
+            a {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+
+                &::after {
+                    margin-left: 0;
+                }
+            }
+        }
+
+        .post__content {
+            blockquote {
+                margin: 1rem 0;
+
+                p {
+                    margin: 8rem 0 0;
+                }
+
+                .citacao-autor {
+                    margin: 4rem 0 0 4rem;
+                }
+
+                .citacao-info-autor {
+                    margin: 1rem 0 0 4rem;
+                }
+            }
+
+            ol {
+                margin-left: 0;
+
+                li {
+                    &::before {
+                        left: -1rem;
+                    }
+                }
+            }
+
+            .red-block {
+                position: relative;
+                left: -5%;
+                width: 110%;
+                box-sizing: border-box;
+            }
+         }
+
+        .post__tags {
+            text-align: center;
+        }
+
+        .post__navigation {
+            display: none;
+        }
+    }
+
+    .sidebar {
+        .merchandising_1 {
+            left: 0;
+        }
+    }
+}

@@ -75,3 +75,51 @@
         margin: 4rem 0;
     }
 }
+
+@media screen and (max-width: $tablet) {
+    .single-video {
+        .container {
+            .container {
+                width: 100%;
+            }
+
+            h3 {
+                margin: 2rem;
+            }
+        }
+
+        .capa_video {
+            display: flex;
+            flex-direction: column-reverse;
+            height: auto;
+
+            iframe {
+                position: relative;
+                left: -5%;
+                width: 110%;
+                max-width: 110%;
+                height: 57vw;
+            }
+        }
+
+        .politica-content {
+            width: 100%;
+        }
+
+        .merchandising_1 {
+            position: relative;
+            left: -5%;
+            width: 110%;
+        }
+
+        .post__tags {
+            text-align: center;
+        }
+
+        .featured_news {
+            .box-title {
+                text-align: center;
+            }
+        }
+    }
+}

@@ -259,3 +259,35 @@
         }
     }
 }
+
+@media screen and (max-width: $tablet) {
+    .edicoes {
+        .container {
+            flex-direction: column-reverse;
+            flex-wrap: wrap;
+        }
+
+        .edicoes__container {
+            width: 100%;
+        }
+
+        .top_content {
+            &--news {
+                height: auto;
+            }
+        }
+
+        .box-image {
+            span {
+                bottom: 0.3rem;
+                width: 100%;
+            }
+        }
+
+        .cta {
+            &.invert {
+                width: 8rem;
+            }
+        }
+    }
+}

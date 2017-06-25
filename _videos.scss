@@ -36,3 +36,26 @@
         }
     }
 }
+
+@media screen and (max-width: $tablet) {
+    .videos {
+        .container {
+            flex-direction: column-reverse;
+            flex-wrap: wrap;
+        }
+
+        &__container {
+            width: 100%;
+        }
+
+        .featured_news--content {
+            li {
+                flex-direction: column;
+            }
+        }
+
+        .featured_news--content_text {
+            margin-left: 0;
+        }
+    }
+}

@@ -45,3 +45,29 @@
         }
     }
 }
+
+@media screen and (max-width: $tablet) {
+    .entrevistas {
+        .container {
+            flex-direction: column-reverse;
+        }
+
+        .entrevistas__container {
+            width: 100%;
+            height: auto;
+        }
+
+        .entrevistas--content {
+            width: 100%;
+            padding: 2rem;
+        }
+
+        .box-title {
+            width: 100%;
+
+            .image-box {
+                flex-shrink: 0;
+            }
+        }
+    }
+}

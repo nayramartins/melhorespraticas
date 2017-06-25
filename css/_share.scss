@@ -78,6 +78,7 @@
 .single-videos {
     .addtoany_content_top {
         position: absolute;
+        top: 8rem;
         left: -13%;
         width: 4.2rem;
 
@@ -105,5 +106,35 @@
     .addtoany_content_top {
         top: 56rem;
         left: 0;
+    }
+}
+
+
+@media screen and (max-width: $tablet) {
+    .single-entrevistas,
+    .single-radar,
+    .single-videos {
+        .addtoany_content_top {
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100%;
+
+            .addtoany_list {
+                display: flex;
+                flex-wrap: nowrap;
+                justify-content: space-between;
+
+                a {
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    width: 5rem;
+
+                    &::after {
+                        margin: 1rem 0;
+                    }
+                }
+            }
+        }
     }
 }

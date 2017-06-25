@@ -88,3 +88,25 @@
         }
     }
 }
+
+@media screen and (max-width: $tablet) {
+    .assine {
+        .container {
+            width: 100%;
+        }
+
+        .woocommerce {
+            ul {
+                &.products {
+                    flex-direction: column;
+
+                    li {
+                        &.product {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

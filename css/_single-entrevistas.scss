@@ -209,3 +209,64 @@
         }
     }
 }
+
+@media screen and (max-width: $tablet) {
+    .single-entrevista {
+        .container {
+            .container {
+                width: 100%;
+            }
+        }
+
+        .capa_entrevista {
+            left: -5%;
+            width: 110%;
+
+            .capa_content {
+                left: 5%;
+                width: 88%;
+                padding-left: 2%;
+
+                p {
+                    width: 100%;
+                }
+            }
+        }
+
+        .politica-content {
+            width: 100%;
+        }
+
+        .entrevista-item-title {
+            margin: 2rem;
+        }
+
+        .post__entrevistado {
+            flex-direction: column;
+            text-align: center;
+
+            .image-box {
+                margin-right: 0;
+                margin-bottom: 2rem;
+            }
+        }
+
+        .post__tags {
+            text-align: center;
+        }
+
+        .entrevistas {
+            h4 {
+                line-height: 3rem;
+            }
+
+            .entrevistas__container {
+                flex-direction: column;
+            }
+
+            .entrevistas--content {
+                width: 100%;
+            }
+        }
+    }
+}

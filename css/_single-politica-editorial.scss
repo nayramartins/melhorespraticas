@@ -95,3 +95,64 @@
         }
     }
 }
+
+@media screen and (max-width: $tablet) {
+    .page_politica {
+        .politica-content {
+            top: 0;
+            width: 100%;
+        }
+
+        .container {
+            width: 100%;
+
+            .capa-politica {
+                position: relative;
+                left: -5%;
+                width: 110%;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            ol {
+                li {
+                    position: relative;
+                    left: 5%;
+                    width: 95%;
+
+                    .list-item {
+                        left: 1rem;
+                    }
+                }
+            }
+        }
+
+        .post-images {
+            flex-direction: column;
+
+            &.post-images-item {
+                img {
+                    width: 100%;
+                    margin: 0 0 1rem;
+                    object-fit: contain;
+                }
+            }
+
+            .post-images-item {
+                width: 100%;
+                margin: 2rem 0;
+                font-size: 1.5rem;
+
+                span {
+                    color: $grey;
+                    font-family: 'Montserrat', sans-serif;
+                    font-size: 1rem;
+                    letter-spacing: $kerning;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+}

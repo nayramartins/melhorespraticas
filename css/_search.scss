@@ -116,3 +116,10 @@
         }
     }
 }
+
+
+@media screen and (max-width: $tablet) {
+    .search-right {
+        margin-left: 0;
+    }
+}

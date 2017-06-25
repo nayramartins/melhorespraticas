@@ -267,3 +267,92 @@
         }
     }
 }
+
+.tml {
+    &.tml-lostpassword {
+        width: 84%;
+        margin: 0 auto;
+
+        .message {
+            margin: 5rem auto;
+            text-align: center;
+        }
+
+        form {
+            width: 50%;
+            margin: auto;
+            margin-bottom: 5rem;
+            padding: 4rem 6rem;
+            background: $greyLight;
+
+            input {
+                &[type='text'] {
+                    width: 100%;
+                    height: 6rem;
+                    margin-bottom: 2rem;
+                    padding: 0 2rem 0 5rem;
+                    border: 1px solid $greyBorder;
+                    background-color: $white;
+                    background-image: url('images/icon-email-black.png');
+                    background-repeat: no-repeat;
+                    background-position: 2rem;
+                    box-sizing: border-box;
+                }
+
+                &[type='submit'] {
+                    width: 16rem;
+                    height: 6rem;
+                    margin: auto;
+                    background: $greyDarker;
+                    color: $white;
+                    font-family: Montserrat;
+                    font-size: 1.2rem;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                }
+            }
+
+            .tml-submit-wrap {
+                display: flex;
+            }
+
+            label {
+                color: $black;
+                font-family: Montserrat;
+                font-size: 1.2rem;
+                font-weight: 700;
+                text-transform: uppercase;
+            }
+        }
+
+        .tml-action-links {
+            display: none;
+        }
+    }
+}
+
+@media screen and (max-width: $tablet) {
+    .login {
+        .container {
+            width: 100%;
+        }
+
+        form {
+            width: 100%;
+            padding: 4rem 2rem;
+            box-sizing: border-box;
+        }
+    }
+
+    .tml {
+        &.tml-lostpassword {
+            width: 92%;
+
+            form {
+                width: 100%;
+                padding: 4rem 2rem;
+                box-sizing: border-box;
+            }
+        }
+    }
+}

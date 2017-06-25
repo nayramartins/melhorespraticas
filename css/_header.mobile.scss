@@ -20,12 +20,18 @@
     }
 }
 
-@media screen and (max-width: $mobile) {
+@media screen and (max-width: $tablet) {
     .header {
         &_top {
             flex-direction: column;
             justify-content: center;
             text-align: center;
+
+            &-menu {
+                li {
+                    margin-right: 0;
+                }
+            }
         }
 
         &_content {
