@@ -28,7 +28,10 @@ if (have_posts()):
                         <div class="container post__content">
                              <?php the_field('info'); ?>
                             <section class="merchandising_1">
-                                <?php $postAnuncio = get_post(224); 
+                                <?php 
+                                    $single_merchan_id = get_field('anuncio_middle');
+                                    $merchandising_id =  $single_merchan_id ? $single_merchan_id : '422';
+                                    $postAnuncio = get_post($merchandising_id); 
                                     $image = wp_get_attachment_image_src( get_post_thumbnail_id( $postAnuncio->ID ), 'full' );
                                     if($image): 
                                     $a = '<a href="' . get_field('link', $postAnuncio->ID) . '"><img src="' .  $image[0] . '" width="60" height="60" alt="" class="image" /></a>';

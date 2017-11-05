@@ -1,10 +1,10 @@
 .entrevistas {
     &--content {
-        @include display-flex($align: flex-start);
+        @include display-flex($align: flex-start, $justify: space-around);
         flex-direction: column;
         flex-shrink: 0;
         width: calc(50% - 4rem);
-        height: 21.1rem;
+        min-height: 21.1rem;
         margin-right: 2rem;
         margin-bottom: 2.5rem;
         padding: 3rem;
@@ -22,15 +22,16 @@
         display: flex;
         flex-wrap: wrap;
         width: 70%;
-        height: 1rem;
         margin-top: 5rem;
     }
 
     .box-title {
         @include display-flex($justify: flex-start);
+        width: 100%;
 
         .image-box {
-            width: 8rem;
+            min-width: 8rem;
+            max-width: 8rem;
             height: 8rem;
             margin-right: 2rem;
             border-radius: 100%;
@@ -43,6 +44,10 @@
             flex-direction: column;
             width: 20rem;
         }
+    }
+
+    .title {
+        margin-top: 1rem;
     }
 }
 

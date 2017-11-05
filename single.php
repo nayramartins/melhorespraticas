@@ -8,13 +8,11 @@ if (have_posts()): the_post();
         <section class="materia">
             <div class="container">
                 <div class="materia__container">
-                    <h4 class="taxonomy__title"><?php echo $terms[0]->name; ?></h4>
-                    <h1 class="post__title"><?php the_title(); ?></h1>
-                    <h3 class="post__author"><?php the_field('autor') ?></h3>
-                    <hr>
-                    <h2 class="post__call"><?php echo the_field('call') ?></h2>
                     <section class="merchandising_1">
-                        <?php $postAnuncio = get_post(224); 
+                        <?php 
+                            $single_merchan_id = get_field('anuncio_top');
+                            $merchandising_id =  $single_merchan_id ? $single_merchan_id : '224';
+                            $postAnuncio = get_post($merchandising_id); 
                             $image = wp_get_attachment_image_src( get_post_thumbnail_id( $postAnuncio->ID ), 'full' );
                             if($image): 
                             $a = '<a href="' . get_field('link', $postAnuncio->ID) . '"><img src="' .  $image[0] . '" width="60" height="60" alt="" class="image" /></a>';
@@ -24,6 +22,12 @@ if (have_posts()): the_post();
                             echo $a;
                             wp_reset_postdata(); ?>
                     </section>
+                    <h4 class="taxonomy__title"><?php echo $terms[0]->name; ?></h4>
+                    <h1 class="post__title"><?php the_title(); ?></h1>
+                    <h3 class="post__author"><?php the_field('autor') ?></h3>
+                    <hr>
+                    <h2 class="post__call"><?php echo the_field('call') ?></h2>
+
                     <div class="post__content">
                         <?php the_content(); 
                         $is_purchased = false;

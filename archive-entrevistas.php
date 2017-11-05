@@ -33,7 +33,7 @@ get_header(); ?>
                         </div>
                     </div>
                     <div class="title"><?php the_title(); ?></div>
-                    <div class="color-red subtitle"><?php the_date(); ?></div></a>
+                    <div class="color-red subtitle"><?php echo get_the_date(); ?></div></a>
                 </div>
                 <?php endwhile;
                 wp_reset_postdata(); ?>

@@ -637,12 +637,14 @@ add_action( 'admin_init', 'my_theme_add_editor_styles' );
 
 add_filter( 'the_content', 'prefix_insert_post_ads' );
 
-function  getAnuncio(){
-    $post = get_post( 205 );
+function  getAnuncio($id){
+    $single_merchan_id = get_field('anuncio_middle', $id);
+    $merchandising_id =  $single_merchan_id ? $single_merchan_id : '205';
+    $post = get_post( $merchandising_id );
     setup_postdata($post);
     $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
     if($image):
-      return '<section class="merchandising_1 container"><a href="' . get_field('link') . '"><img src="' .  $image[0] . '" width="60" height="60" alt="" class="image" /></a></section>';
+      return '<section class="merchandising_1 container" id="' . $single_merchan_id . '"><a href="' . get_field('link') . '"><img src="' .  $image[0] . '" width="60" height="60" alt="" class="image" /></a></section>';
     else:
       return '<section class="merchandising_1 container"><a href="' . get_site_url() . '/anuncie"><p class="subtitle">' . get_the_content() . '</p></a></section>';
     endif;
@@ -650,8 +652,8 @@ function  getAnuncio(){
 }
 
 function prefix_insert_post_ads( $content ) {
-   $ad_code = getAnuncio();
-   global $post;
+  global $post;
+  $ad_code = getAnuncio($post->ID);
 
 	if ( is_single() && ! is_admin()):
     if ($post->post_type == 'post'):

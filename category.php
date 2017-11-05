@@ -7,7 +7,7 @@ get_header(); $terms = wp_get_post_terms($post->ID, 'edicoes');?>
         <div class="screen-title">
             <div class="container">
                 <div class="title-content">
-                    <h3><?php single_cat_title(); ?></h3>
+                    <!-- <h3><?php single_cat_title(); ?></h3> -->
                 </div>
             </div>
         </div>

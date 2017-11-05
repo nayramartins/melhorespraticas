@@ -27,7 +27,6 @@ get_header(); ?>
                                 <a href="<?php the_permalink(); ?>"><img src="<?php echo $image[0]; ?>" width="60" height="60" alt="" class="image" /></a>
                             </span>
                             <div class="featured_news--content_text">
-                                <a href="<?php the_permalink(); ?>" class="color-red subtitle"><?php the_date(); ?></a>
                                 <a href="<?php the_permalink(); ?>"<h3 class="title"><?php the_title(); ?></h3></a>
                                 <a href="<?php the_permalink(); ?>"<p class="text-content"><?php the_field('call'); ?></p></a>
                                 <a href="<?php the_permalink(); ?>"<p class="color-red subtitle">Assista</p></a>

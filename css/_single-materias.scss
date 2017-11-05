@@ -193,6 +193,21 @@
             }
         }
 
+        ul {
+            margin-left: 4rem;
+            padding: 0;
+            color:  $greyDark;
+            font-family: Lora;
+            font-size: 1.6rem;
+            font-weight: 400;
+            line-height: 2.5rem;
+            list-style: disc;
+
+            li {
+                display: list-item;
+            }
+        }
+
         strong {
             color: $black;
         }
@@ -230,8 +245,9 @@
 
         p {
             color:  $grey;
-            font-size: 2rem;
+            font-size: 1.6rem;
             font-weight: 400;
+            word-break: break-all;
         }
 
         a {

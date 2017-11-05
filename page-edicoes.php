@@ -82,7 +82,7 @@ get_header(); ?>
                 $i = 0;
                 foreach( $terms as $term):
                     if($i <= 3): ?>
-                        <a href="#" class="edicoes-list_item">
+                        <a href="<?php bloginfo('url'); ?>/edicoes/<?php echo $term->slug?>" class="edicoes-list_item">
                             <div class="edicoes-list_item-image">
                                 <img class="image-small" src="<?php the_field('capa', 'edicoes_' . $term->term_id); ?>" />
                             </div>

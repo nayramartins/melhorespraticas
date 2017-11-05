@@ -74,7 +74,28 @@
     .merchandising_1 {
         margin: 4rem 0;
     }
+
+    .addtoany_list {
+        flex-wrap: wrap;
+        width: 4rem;
+
+        a {
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .a2a_button_facebook,
+        .a2a_button_print,
+        .a2a_button_linkedin,
+        .a2a_button_whatsapp  {
+            &::after {
+                margin-left: 0;
+            }
+        }
+    }
 }
+
 
 @media screen and (max-width: $tablet) {
     .single-video {

@@ -73,7 +73,11 @@ get_header(); $terms = wp_get_post_terms($post->ID, 'edicoes');?>
                             <div class="modal-materia hideMateriaCart" id="<?php echo $product->id?>">
                                 <div class="modal-materia-content">
                                     <span class="modal-close" onClick="showMateriaCart($(this).data('id'))" data-id="<?php echo $product->id?>"></span>
-                                    <?php $available_variations = $product->get_available_variations(); ?>
+                                    <?php 
+                                    // $available_variations = $product->get_available_variations(); 
+                                    $variations = new WC_Product_Variable($product->id);
+                                    $available_variations = $variations->get_available_variations();
+                                    ?>
                                     <h3 class="lora-title"><?php echo $product->name; ?></h3>
                                     <p class="color-grey subtitle"><?php echo $product->attributes['edicao']['options'][0]; ?></p>
                                     <ul class="lista-produto">

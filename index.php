@@ -12,60 +12,36 @@ get_header(); ?>
 	<div class="top_content">
 		<section class="top_content-left">
 			<div class="top_content-left--header">
-				<h2 class="box-title">Escolha do Editor</h2>
-				<?php $assuntos = get_categories('orderby=name&child_of=23&order=desc');?>
-				<form action="" method="post">
-					<select class="select-option" name="select" onchange="selectChange(this.value)">
-						<option value="28" selected disabled>Buscar por assunto</option>
-						<?php foreach ($assuntos as $assunto): ?>
-							<option value="<?php echo $assunto->cat_ID?>"><?php echo $assunto->cat_name; ?></option>
-						<?php endforeach; ?>
-					</select>
-				</form>
-				<a href="#" class="see-more">Ver todos</a>
+				<h2 class="box-title">Radar</h2>
+
+				<a href="<?php bloginfo('url'); ?>/radar" class="see-more">Ver todos</a>
 			</div>
 
-			<?php
-			foreach ($assuntos as $assunto):
-				$args = array('posts_per_page' => 3, 'cat' => $assunto->cat_ID);
-			$posts_query = new WP_Query( $args ); ?>
-			<div class="<?php echo $assunto->cat_ID != '28' ? newsHide: 'newsActive'; ?>" id="<?php echo $assunto->cat_ID?>">
-				<?php if ($posts_query->have_posts()):
-				while($posts_query->have_posts()) : $posts_query->the_post();
-				$categories = get_the_category();
-				if ( ! empty( $categories ) ):
-					foreach( $categories as $category ):
-						if($category->slug != 'escolha-do-editor'):
-							$cat_slug = $category->slug;
-						$cat = $category->name;
-						endif;
-						endforeach;
-						endif;
-						?>
-						<div class="top_content--news" >
-							<div class="box-image">
-								<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' ); ?>
-								<img src="<?php echo $image[0]; ?>" width="50" height="50" alt="" class="image" />
-							</div>
-							<div class="box-content">
-								<a href="<?php bloginfo('url'); ?>/categorias/<?php echo $cat_slug ?>" class="subtitle color-red"><?php echo $cat; ?></a>
-								<a href="<?php the_permalink(); ?>" class="title"><?php the_title(); ?></a>
-								<p class="text-content"><?php echo the_field("call")?></p>
-								<a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>" class="color-grey subtitle">por: <?php the_author(); ?></a>
-							</div>
+			<div class="<?php echo 'newsActive'; ?>">
+			<?php $args = array( 'post_type' => 'radar', 'posts_per_page' => 3 );
+				$loop = new WP_Query( $args );
+				while ( $loop->have_posts() ) : $loop->the_post(); ?>
+					<div class="top_content--news" >
+						<div class="box-image">
+							<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' ); ?>
+							<img src="<?php echo $image[0]; ?>" width="50" height="50" alt="" class="image" />
 						</div>
-					<?php endwhile;
-					endif; ?>
-				</div>
-				<?php wp_reset_postdata();
-				endforeach;
-				?>
+						<div class="box-content">
+							<a href="<?php bloginfo('url'); ?>/categorias/<?php echo $cat_slug ?>" class="subtitle color-red"><?php echo $cat; ?></a>
+							<a href="<?php the_permalink(); ?>" class="title"><?php the_title(); ?></a>
+							<p class="text-content"><?php the_excerpt(); ?></p>
+							<a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>" class="color-grey subtitle">por: <?php the_author(); ?></a>
+						</div>
+					</div>
+				<?php endwhile; ?>
+			</div>
+			<?php wp_reset_postdata(); ?>
 
 			</section>
 			<section class="top_content-right">
 				<div class="top_content-right--header">
 					<h2 class="box-title">Entrevistas</h2>
-					<a href="#" class="see-more color-grey">Ver todos</a>
+					<a href="<?php bloginfo('url'); ?>/entrevistas" class="see-more color-grey">Ver todos</a>
 				</div>
 				<?php $args = array( 'post_type' => 'entrevistas', 'posts_per_page' => 3 );
 				$loop = new WP_Query( $args );
@@ -141,10 +117,10 @@ get_header(); ?>
 
 <section class="featured_news">
 	<div class="container">
-		<h2 class="box-title edition_carousel--title">Radar</h2>
+		<h2 class="box-title edition_carousel--title">Escolha do Editor</h2>
 
 		<ul class="featured_news--content">
-			<?php $args = array( 'post_type' => 'radar', 'posts_per_page' => 4 );
+		<?php $args = array('posts_per_page' => 4, 'cat' => '28');
 			$loop = new WP_Query( $args );
 			while ( $loop->have_posts() ) : $loop->the_post();
 			$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' ); ?>
@@ -152,7 +128,7 @@ get_header(); ?>
 				<span class="featured_news--content_image">
 					<a href="<?php the_permalink(); ?>"><img src="<?php echo $image[0]; ?>" width="60" height="60" alt="" class="image" /></a>
 				</span>
-				<a href="<?php the_permalink(); ?>" class="color-red subtitle"><?php the_date(); ?></a>
+				<!-- <a href="<?php the_permalink(); ?>" class="color-red subtitle"><?php the_date(); ?></a> -->
 				<a href="<?php the_permalink(); ?>"<h3 class="title"><?php the_title(); ?></h3></a>
 				<a href="<?php the_permalink(); ?>"<p class="text-content"><?php the_excerpt(); ?></p></a>
 			</li>
