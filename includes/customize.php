@@ -30,15 +30,30 @@ function melhorespraticas_customize_register( $wp_customize ) {
 	    'type'				=> 'theme_mod',
 	    'transport'			=> 'refresh',
 	    'sanitize_callback'	=> 'esc_url_raw'
-    ) );
+	) );
+	
 
 	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'urlfacebook', array(
         'label'    	=> __('Facebook url', 'melhorespraticas-theme'),
         'section'  	=> 'social',
         'settings' 	=> 'url_facebook',
 		'type'		=> 'text',
-		'priority'  => 12
-    ) ) );
+		'priority'  => 11
+	) ) );
+	
+	$wp_customize->add_setting( 'img_facebook' , array(
+	    'default'   		=> '',
+	    'type'				=> 'theme_mod',
+	    'transport'			=> 'refresh',
+	    'sanitize_callback'	=> 'esc_url_raw'
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'imgfacebook', array(
+		'label'      => __('Icone facebook', 'melhorespraticas'),
+		'section'    => 'social',
+		'settings'   => 'img_facebook',
+	    'priority'   => 12
+	) ) );
 
 	$wp_customize->add_setting( 'url_linkedin' , array(
 	    'default'   		=> '',
@@ -53,7 +68,21 @@ function melhorespraticas_customize_register( $wp_customize ) {
         'settings' 	=> 'url_linkedin',
 		'type'		=> 'text',
 		'priority'  => 13
-    ) ) );
+	) ) );
+	
+	$wp_customize->add_setting( 'img_linkedin' , array(
+	    'default'   		=> '',
+	    'type'				=> 'theme_mod',
+	    'transport'			=> 'refresh',
+	    'sanitize_callback'	=> 'esc_url_raw'
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'imglinkedin', array(
+		'label'      => __('Icone linkedin', 'melhorespraticas'),
+		'section'    => 'social',
+		'settings'   => 'img_linkedin',
+	    'priority'   => 14
+	) ) );
 
 	$wp_customize->add_section( 'footer' , array(
         'title'    => __( 'Footer', 'starter' ),
@@ -187,6 +216,20 @@ function melhorespraticas_customize_register( $wp_customize ) {
         'label'    	=> __('Radar', 'melhorespraticas-theme'),
         'section'  	=> 'sessoes',
         'settings' 	=> 'radar',
+		'type'		=> 'text',
+		'priority'  => 17
+    ) ) );
+
+	$wp_customize->add_setting( 'edicoes' , array(
+	    'default'   		=> '',
+	    'type'				=> 'theme_mod',
+	    'transport'			=> 'refresh'
+    ) );
+
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'edicoessessoes', array(
+        'label'    	=> __('Edicoes', 'melhorespraticas-theme'),
+        'section'  	=> 'sessoes',
+        'settings' 	=> 'edicoes',
 		'type'		=> 'text',
 		'priority'  => 17
     ) ) );

@@ -7,6 +7,10 @@
  $sobre = get_theme_mod('sobre');
  $telefone = get_theme_mod('telefone');
  $email = get_theme_mod('email');
+ $facebook_url = get_theme_mod('url_facebook');
+ $linkedin_url = get_theme_mod('url_linkedin');
+ $facebook_img = get_theme_mod('img_facebook');
+ $linkedin_img = get_theme_mod('img_linkedin');
  ?>
 
     <footer class="footer">
@@ -26,8 +30,32 @@
                     </div>
                 </div>
             </div>
+            <div class="newsletter">
+                <?php echo do_shortcode("[mc4wp_form id='148']"); ?>
+            </div>
             <div class="footer_image">
                 <img class="image-small" src="<?php echo $logo;?>" alt="">
+            </div>
+        </div>
+        <div class="footer_secondary">
+            <div class="container">
+                <div class="copyright">
+                    <p>Copyright@2017</p>
+                    <p>GPeS | Health Branding and Business</p>
+                </div>
+                <?php if (function_exists(submenu_footer())) submenu_footer(); ?>
+                <ul class="header_top-social col">
+                    <li>
+                        <a href="<?php echo $facebook_url; ?>" id="facebook">
+                            <img src="<?php echo $facebook_img; ?>" width="15" height="15" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?php echo $linkedin_url; ?>" id="linkedin">
+                            <img src="<?php echo $linkedin_img; ?>" width="15" height="15" alt="">
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
     </footer>

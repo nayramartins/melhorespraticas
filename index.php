@@ -6,6 +6,7 @@ get_header(); ?>
 	$entrevistas = get_theme_mod('entrevistas');
 	$radar = get_theme_mod('radar');
 	$videos = get_theme_mod('videos');
+	$edicoes = get_theme_mod('edicoes');
 ?>
 
 <section class="slider">
@@ -52,9 +53,10 @@ get_header(); ?>
 					</div>
 					<div class="box-content new-box_content">
 						<a href="<?php bloginfo('url'); ?>/categorias/<?php echo $cat_slug ?>" class="subtitle color-red"><?php echo $cat; ?></a>
-						<a href="<?php the_permalink(); ?>" class="title"><?php the_title(); ?></a>
+						<p class="date-new"><?php echo get_the_date('F'); ?></p>
+						<a href="<?php the_permalink(); ?>" class="title title-new"><?php the_title(); ?></a>
 						<p class="text-content"><?php the_excerpt(); ?></p>
-						<a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>" class="color-grey subtitle">por: <?php the_author(); ?></a>
+						<p class="tempo-leitura">Tempo de leitura: <?php the_field('tempo_de_leitura'); ?></p>
 					</div>
 				</div>
 			<?php endwhile; ?>
@@ -81,9 +83,9 @@ get_header(); ?>
 				</div>
 				<div class="box-title">
 					<div class="text-box">
-						<div class="color-red subtitle"><?php echo get_the_date(); ?></div></a>
-						<a href="<?php the_permalink(); ?>"> <div class="open-sans-title"><?php echo the_field('entrevistado'); ?></div></a>
-							<p class="color-grey subtitle"><?php echo the_field('subtitulo_entrevistado'); ?></p>
+						<p class="date-new"><?php echo get_the_date('F'); ?></p>
+						<a href="<?php the_permalink(); ?>"> <div class="title title-new"><?php echo the_field('entrevistado'); ?></div></a>
+							<p><?php echo the_field('subtitulo_entrevistado'); ?></p>
 						</div>
 					</div>
 				</div>
@@ -110,14 +112,35 @@ get_header(); ?>
 		</section>
 	</div>
 	<div class="videos-home container">
-		<div class="new-container_subtitle">
+		<div class="top_content-right--header new-container_subtitle">
 			<div class="new-subtitle_section">
 				<h2 class="box-title">Vídeos</h2>
 				<p><?php echo $videos; ?></p>
 			</div>
+			<a href="<?php bloginfo('url'); ?>/videos" class="see-more color-grey">Ver todos</a>
+		</div>
+		<div class="video-single">
+			<?php $args = array( 'post_type' => 'videos', 'posts_per_page' => 1 );
+			$loop = new WP_Query( $args );
+			while ( $loop->have_posts() ) : $loop->the_post(); ?>
+				<div class="video">
+					<?php
+					$postContent = $post; ?>
+					<?php setup_postdata($post); ?>
+					<?php the_content(); ?>
+					<div class="box-title box-title-video">
+						<div class="text-box">
+							<p class="date-new"><?php echo get_the_date('F'); ?></p>
+							<a href="<?php the_permalink(); ?>"> <div class="title title-new"><?php echo the_title(); ?></div></a>
+							<p class="info-new"><?php echo the_field('info'); ?></p>
+						</div>
+					</div>
+				</div>
+			<?php endwhile; ?>
+			<?php wp_reset_postdata(); ?>
 		</div>
 		<div class="owl-carousel slider-videos owl-theme">
-			<?php $args = array( 'post_type' => 'videos', 'posts_per_page' => 4 );
+			<?php $args = array( 'post_type' => 'videos' );
 			$loop = new WP_Query( $args );
 			while ( $loop->have_posts() ) : $loop->the_post(); ?>
 				<div class="slide">
@@ -125,8 +148,12 @@ get_header(); ?>
 					$postContent = $post; ?>
 					<?php setup_postdata($post); ?>
 					<?php the_content(); ?>
-					<p class="color-grey subtitle"><?php echo get_the_date(); ?></p>
-					<p class="color-white mont-title"><?php the_title(); ?></p>
+					<div class="box-title box-title-video">
+						<div class="text-box">
+							<a href="<?php the_permalink(); ?>"> <div class="title title-new"><?php echo the_title(); ?></div></a>
+							<p class="info-new"><?php echo custom_field_excerpt(); ?></p>
+						</div>
+					</div>
 				</div>
 			<?php endwhile; ?>
 			<?php wp_reset_postdata(); ?>
@@ -162,7 +189,13 @@ get_header(); ?>
 		]);
 	?>
 	<div class="container">
-		<h2 class="box-title edition_carousel--title">Últimas Edições</h2>
+		<div class="top_content-right--header new-container_subtitle edition_carousel--title">
+			<div class="new-subtitle_section">
+				<h2 class="box-title">Últimas Edições</h2>
+				<p><?php echo $edicoes; ?></p>
+			</div>
+			<a href="<?php bloginfo('url'); ?>/edicoes" class="see-more color-grey">Ver todos</a>
+		</div>
 		<div class="owl-carousel edition owl-theme">
 			<?php foreach ($terms as $term): ?>
 			<div class="slide">

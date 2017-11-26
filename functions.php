@@ -53,6 +53,12 @@ if (!function_exists('melhorespraticas_setup')):
     }
     add_action('init', 'register_conteudo_menu');
 
+    // Submenu footer
+    function register_submenu_footer() {
+      register_nav_menu('submenu-footer',__('Submenu Footer'));
+    }
+    add_action('init', 'register_submenu_footer');
+
 
     // Feature image
     add_theme_support('post-thumbnails');
@@ -227,6 +233,26 @@ function conteudo_menu() {
 
 		$menu_list = '<nav>' ."\n";
 		$menu_list .= "\t\t\t\t". '<ul class="footer_sitemap--right in">' ."\n";
+		foreach ((array) $menu_items as $key => $menu_item) {
+			$title = $menu_item->title;
+			$url = $menu_item->url;
+			$menu_list .= "\t\t\t\t\t". '<li><a href="'. $url .'" class="color-white subtitle">'. $title .'</a></li>' ."\n";
+		}
+		$menu_list .= "\t\t\t\t". '</ul>' ."\n";
+		$menu_list .= "\t\t\t". '</nav>' ."\n";
+	} else {
+	}
+	echo $menu_list;
+}
+
+function submenu_footer() {
+	$menu_name = 'submenu-footer';
+	if (($locations = get_nav_menu_locations()) && isset($locations[$menu_name])) {
+		$menu = wp_get_nav_menu_object($locations[$menu_name]);
+		$menu_items = wp_get_nav_menu_items($menu->term_id);
+
+		$menu_list = '<nav>' ."\n";
+		$menu_list .= "\t\t\t\t". '<ul class="submenu-footer">' ."\n";
 		foreach ((array) $menu_items as $key => $menu_item) {
 			$title = $menu_item->title;
 			$url = $menu_item->url;
@@ -838,3 +864,21 @@ function woo_custom_add_to_cart( $cart_item_data ) {
     return $cart_item_data;
 }
 
+
+
+
+
+// Custom Excerpt function for Advanced Custom Fields
+function custom_field_excerpt() {
+	global $post;
+	$text = get_field('info'); //Replace 'your_field_name'
+	if ( '' != $text ) {
+		$text = strip_shortcodes( $text );
+		$text = apply_filters('the_content', $text);
+		$text = str_replace(']]&gt;', ']]&gt;', $text);
+		$excerpt_length = 20; // 20 words
+		$excerpt_more = apply_filters('excerpt_more', ' ' . '[...]');
+		$text = wp_trim_words( $text, $excerpt_length, $excerpt_more );
+	}
+	return apply_filters('the_excerpt', $text);
+}

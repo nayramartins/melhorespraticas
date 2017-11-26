@@ -37,11 +37,11 @@
         }
 
         .box-content {
-            @include display-flex($align: flex-start);
+            @include display-flex($align: flex-start, $justify: flex-start);
             flex-direction: column;
             flex-grow: 1;
             height: 100%;
-            padding: 4.5rem 3rem;
+            padding: 0 3rem 3rem;
             background: $greyLight;
             box-sizing: border-box;
         }
@@ -430,4 +430,66 @@
 
 .videos-margin {
     margin-bottom: 5rem;
+}
+
+.date-new {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+.title-new {
+    margin: 1rem 0;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.tempo-leitura {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+.slider-videos {
+    margin-top: 1rem;
+
+    iframe {
+        height: 15rem;
+    }
+
+    .slide {
+        height: 36rem;
+        border-bottom: 0.5rem solid $grey;
+        overflow: hidden;
+    }
+
+    .owl-dots {
+        display: none;
+    }
+}
+
+.info-new {
+    text-transform: none;
+}
+
+.box-title-video {
+    margin: 1rem 0 0;
+
+    p {
+        text-transform: none;
+    }
+
+    .date-new {
+        text-transform: uppercase;
+    }
+}
+
+.video-single {
+    margin: 1rem 0 3rem;
+    padding: 0 0 3rem;
+    border-bottom: 0.5rem solid $grey;
+
+    iframe {
+        height: 40rem;
+    }
 }

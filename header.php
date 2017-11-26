@@ -32,12 +32,12 @@
 						nav:false
 					},
 					1000:{
-						items:5,
+						items:4,
 						nav:true,
 						loop:false
 					},
 					1400:{
-						items:6,
+						items:5,
 						nav:true,
 						loop:false
 					}
@@ -50,7 +50,7 @@
 				nav:true,
 				navText: ["<img src='<?php bloginfo('url'); ?>/wp-content/themes/melhorespraticas/images/arrow_next.png'>",
 					"<img src='<?php bloginfo('url'); ?>/wp-content/themes/melhorespraticas/images/arrow_prev.png'>"],
-				items: 1,
+				items: 3,
 				margin:10,
 				video: true,
 				responsive:{
@@ -59,16 +59,16 @@
 						nav:true
 					},
 					600:{
-						items:1,
+						items:2,
 						nav:false
 					},
 					1000:{
-						items:1,
+						items:3,
 						nav:true,
 						loop:false
 					},
 					1400:{
-						items:1,
+						items:3,
 						nav:true,
 						loop:false
 					}
@@ -83,6 +83,8 @@
 <?php wp_head(); ?>
 <?php $facebook_url = get_theme_mod('url_facebook'); ?>
 <?php $linkedin_url = get_theme_mod('url_linkedin'); ?>
+<?php $facebook_img = get_theme_mod('img_facebook'); ?>
+<?php $linkedin_img = get_theme_mod('img_linkedin'); ?>
 <?php $logo = get_theme_mod('melhorespraticas_logo'); ?>
 <body <?php body_class(); ?>>
 	<div class="main">
@@ -93,12 +95,12 @@
 						<ul class="header_top-social col">
 							<li>
 								<a href="<?php echo $facebook_url; ?>" id="facebook">
-									<img src="<?php bloginfo('url'); ?>/wp-content/themes/melhorespraticas/images/melhores_praticas-facebook.png" width="15" height="15" alt="">
+									<img src="<?php echo $facebook_img; ?>" width="15" height="15" alt="">
 								</a>
 							</li>
 							<li>
 								<a href="<?php echo $linkedin_url; ?>" id="linkedin">
-									<img src="<?php bloginfo('url'); ?>/wp-content/themes/melhorespraticas/images/melhores_praticas-linkedin.png" width="15" height="15" alt="">
+									<img src="<?php echo $linkedin_img; ?>" width="15" height="15" alt="">
 								</a>
 							</li>
 						</ul>
