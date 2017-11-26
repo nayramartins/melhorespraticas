@@ -67,7 +67,14 @@
     .subtitle {
         font-size: 1.3rem;
     }
+
+    .edicoes-content {
+        p {
+            margin: 1rem 0;
+        }
+    }
 }
+
 
 .edicoes-list {
     margin-top: 6rem;
@@ -92,7 +99,7 @@
             border: 1px solid $greyLight100;
             background: transparent;
             color: $greyDark;
-            font-family: 'Montserrat';
+            font-family: 'OpenSans';
             font-size: 1.1rem;
             font-weight: 400;
             text-transform: uppercase;
@@ -152,7 +159,7 @@
     }
 
     .edicoes__container {
-        width: 70%;
+        width: 100%;
         margin-top: 5rem;
     }
 
@@ -255,6 +262,38 @@
 
             .item-title {
                 font-size: 1.5rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $tablet) {
+    .edicoes {
+        .container {
+            flex-direction: column-reverse;
+            flex-wrap: wrap;
+        }
+
+        .edicoes__container {
+            width: 100%;
+        }
+
+        .top_content {
+            &--news {
+                height: auto;
+            }
+        }
+
+        .box-image {
+            span {
+                bottom: 0.3rem;
+                width: 100%;
+            }
+        }
+
+        .cta {
+            &.invert {
+                width: 8rem;
             }
         }
     }

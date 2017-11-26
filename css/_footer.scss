@@ -1,6 +1,7 @@
 .footer {
     height: 32rem;
     padding: 9rem 0;
+    background: $greyFooter;
     box-sizing: border-box;
 
     .container {
@@ -23,9 +24,9 @@
         }
 
         &--address {
-            &.color-grey {
-                font-family: 'Lato';
-                font-size: 1.4rem;
+            &.color-white {
+                font-family: 'OpenSans';
+                font-size: 1.2rem;
             }
         }
     }
@@ -57,8 +58,11 @@
     &.out {
         margin-right: 7%;
     }
+}
 
-
+.new-nav_container {
+    display: flex;
+    margin-top: 2rem;
 }
 
 .space {

@@ -45,7 +45,6 @@
             background: $greyLight;
             box-sizing: border-box;
         }
-
     }
 
     .newsHide {
@@ -105,7 +104,7 @@
     .subtitle,
     p {
         color: $white;
-        font-family: Montserrat;
+        font-family: OpenSans;
         text-transform: uppercase;
     }
 
@@ -276,7 +275,7 @@
             height: 7.5rem;
             border: none;
             outline: none;
-            font-family: 'Montserrat';
+            font-family: 'OpenSans';
             font-size: 4rem;
         }
 
@@ -325,7 +324,7 @@
             background: $greyLight;
             box-sizing: border-box;
 
-            .lora-title {
+            .open-sans-title {
                 margin-bottom: 2rem;
             }
 
@@ -368,9 +367,67 @@
             }
 
             .mont-title {
-                font-family: 'Montserrat';
+                font-family: 'OpenSans';
                 font-size: 1.5rem;
             }
         }
     }
+}
+
+.new-entrevistas {
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-bottom: 0;
+    padding: 3rem 0;
+    border: none;
+    border-bottom: 1px solid $greyLight;
+
+    a {
+        height: 100%;
+    }
+
+    .box-title {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        margin-left: 2rem;
+
+        .open-sans-title,
+        .color-red.subtitle {
+            text-align: left;
+        }
+
+        .text-box {
+            width: 100%;
+        }
+    }
+
+    .image-box {
+        min-width: 25rem;
+        max-width: 25rem;
+        height: 100%;
+        border-radius: 0
+    }
+
+    &:last-of-type {
+        border-bottom: none;
+    }
+}
+
+.new-box_content {
+    background: none !important;
+}
+
+.new-top_content {
+    margin-bottom: 0;
+    padding: 2.5rem 0;
+    border-bottom: 1px solid $greyLight;
+
+    &:last-of-type {
+        border-bottom: none;
+    }
+}
+
+.videos-margin {
+    margin-bottom: 5rem;
 }

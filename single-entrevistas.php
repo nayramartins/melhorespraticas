@@ -77,7 +77,7 @@ if (have_posts()):
                                 <img src="<?php echo $image[0]; ?>" width="60" height="60" alt="" class="image" />
                             </div>
                             <div class="text-box">
-                                <a href="<?php the_permalink(); ?>"> <div class="lora-title"><?php echo the_field('entrevistado'); ?></div>
+                                <a href="<?php the_permalink(); ?>"> <div class="open-sans-title"><?php echo the_field('entrevistado'); ?></div>
                                 <p class="color-grey subtitle"><?php echo the_field('subtitulo_entrevistado'); ?></p>
                             </div>
                         </div>

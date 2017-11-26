@@ -36,10 +36,10 @@ get_header(); ?>
                 </div>
                 <div class="edicoes-featured_right">
                     <h3 class="subtitle color-grey">Editorial</h3>
-                    <div class="edicoes-content lora-text">
+                    <div class="edicoes-content open-sans-text">
                         <?php echo $terms[0]->description; ?>
                     </div>
-                    <p class="author lora-title"><?php the_field('autor_editorial', 'edicoes_' . $terms[0]->term_id); ?></p>
+                    <p class="author open-sans-title"><?php the_field('autor_editorial', 'edicoes_' . $terms[0]->term_id); ?></p>
                     <p class="subtitle color-grey author-field"><?php the_field('subtitulo_autor_editorial', 'edicoes_' . $terms[0]->term_id); ?></p>
                 </div>
             </div>
@@ -82,7 +82,7 @@ get_header(); ?>
                 $i = 0;
                 foreach( $terms as $term):
                     if($i <= 3): ?>
-                        <a href="#" class="edicoes-list_item">
+                        <a href="<?php bloginfo('url'); ?>/edicoes/<?php echo $term->slug?>" class="edicoes-list_item">
                             <div class="edicoes-list_item-image">
                                 <img class="image-small" src="<?php the_field('capa', 'edicoes_' . $term->term_id); ?>" />
                             </div>

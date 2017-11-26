@@ -2,7 +2,7 @@
 
     .video-title {
         color:  $grey;
-        font-family: Montserrat;
+        font-family: OpenSans;
         font-size: 1.3rem;
         font-weight: 700;
         text-align: center;
@@ -12,8 +12,8 @@
     .video-item-title {
         margin: 2rem 18rem;
         color: $greyDarker;
-        font-family: Montserrat;
-        font-size: 3rem;
+        font-family: OpenSans;
+        font-size: 2.4rem;
         font-weight: 700;
         text-align: center;
     }
@@ -32,7 +32,7 @@
         h3 {
             margin: 0 0 2rem;
             color: $black;
-            font-family: Lora;
+            font-family: OpenSans;
             font-size: 1.8rem;
             font-weight: 700;
         }
@@ -40,7 +40,7 @@
         ul {
             li {
                 margin-right: 1rem;
-                font-family: Montserrat;
+                font-family: OpenSans;
                 text-transform: uppercase;
             }
         }
@@ -58,7 +58,7 @@
     .politica-content {
         top: 0;
         color: $grey;
-        font-family: Lora;
+        font-family: OpenSans;
         font-size: 1.6rem;
         font-weight: 400;
         line-height: 2.5rem;
@@ -73,5 +73,74 @@
 
     .merchandising_1 {
         margin: 4rem 0;
+    }
+
+    .addtoany_list {
+        flex-wrap: wrap;
+        width: 4rem;
+
+        a {
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .a2a_button_facebook,
+        .a2a_button_print,
+        .a2a_button_linkedin,
+        .a2a_button_whatsapp  {
+            &::after {
+                margin-left: 0;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: $tablet) {
+    .single-video {
+        .container {
+            .container {
+                width: 100%;
+            }
+
+            h3 {
+                margin: 2rem;
+            }
+        }
+
+        .capa_video {
+            display: flex;
+            flex-direction: column-reverse;
+            height: auto;
+
+            iframe {
+                position: relative;
+                left: -5%;
+                width: 110%;
+                max-width: 110%;
+                height: 57vw;
+            }
+        }
+
+        .politica-content {
+            width: 100%;
+        }
+
+        .merchandising_1 {
+            position: relative;
+            left: -5%;
+            width: 110%;
+        }
+
+        .post__tags {
+            text-align: center;
+        }
+
+        .featured_news {
+            .box-title {
+                text-align: center;
+            }
+        }
     }
 }

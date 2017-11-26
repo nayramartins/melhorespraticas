@@ -55,7 +55,7 @@
             position: relative;
             margin: 4rem 0 0 10rem;
             color: $black;
-            font-family: Montserrat;
+            font-family: OpenSans;
             font-size: 1.5rem;
             font-weight: 400;
 
@@ -76,7 +76,7 @@
             position: relative;
             margin: 1rem 0 0 6rem;
             color:  $grey;
-            font-family: Montserrat;
+            font-family: OpenSans;
             font-size: 1.5rem;
             font-weight: 100;
         }
@@ -84,7 +84,7 @@
 
     .entrevista-title {
         color:  $grey;
-        font-family: Montserrat;
+        font-family: OpenSans;
         font-size: 1.3rem;
         font-weight: 700;
         text-align: center;
@@ -94,8 +94,8 @@
     .entrevista-item-title {
         margin: 2rem 18rem;
         color: $greyDarker;
-        font-family: Montserrat;
-        font-size: 3rem;
+        font-family: OpenSans;
+        font-size: 2.4rem;
         font-weight: 700;
         text-align: center;
     }
@@ -114,7 +114,7 @@
         h3 {
             margin: 0 0 2rem;
             color: $black;
-            font-family: Lora;
+            font-family: OpenSans;
             font-size: 1.8rem;
             font-weight: 700;
         }
@@ -122,7 +122,7 @@
         ul {
             li {
                 margin-right: 1rem;
-                font-family: Montserrat;
+                font-family: OpenSans;
                 text-transform: uppercase;
             }
         }
@@ -202,10 +202,71 @@
 
         h4 {
             color: $black;
-            font-family: Lora;
+            font-family: OpenSans;
             font-size: 3.5rem;
             font-weight: 400;
             line-height: 2rem;
+        }
+    }
+}
+
+@media screen and (max-width: $tablet) {
+    .single-entrevista {
+        .container {
+            .container {
+                width: 100%;
+            }
+        }
+
+        .capa_entrevista {
+            left: -5%;
+            width: 110%;
+
+            .capa_content {
+                left: 5%;
+                width: 88%;
+                padding-left: 2%;
+
+                p {
+                    width: 100%;
+                }
+            }
+        }
+
+        .politica-content {
+            width: 100%;
+        }
+
+        .entrevista-item-title {
+            margin: 2rem;
+        }
+
+        .post__entrevistado {
+            flex-direction: column;
+            text-align: center;
+
+            .image-box {
+                margin-right: 0;
+                margin-bottom: 2rem;
+            }
+        }
+
+        .post__tags {
+            text-align: center;
+        }
+
+        .entrevistas {
+            h4 {
+                line-height: 3rem;
+            }
+
+            .entrevistas__container {
+                flex-direction: column;
+            }
+
+            .entrevistas--content {
+                width: 100%;
+            }
         }
     }
 }

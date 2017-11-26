@@ -33,9 +33,9 @@ rules:
   no-transition-all: 0
 
   # Nesting
-  force-attribute-nesting: 2
-  force-element-nesting: 2
-  force-pseudo-nesting: 2
+  # force-attribute-nesting: 2
+  # force-element-nesting: 2
+  # force-pseudo-nesting: 2
 
   # Name Formats
   class-name-format: 0

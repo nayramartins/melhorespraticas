@@ -7,7 +7,7 @@ get_header(); $terms = wp_get_post_terms($post->ID, 'edicoes');?>
         <div class="screen-title">
             <div class="container">
                 <div class="title-content">
-                    <h3><?php single_cat_title(); ?></h3>
+                    <!-- <h3><?php single_cat_title(); ?></h3> -->
                 </div>
             </div>
         </div>
@@ -64,7 +64,7 @@ get_header(); $terms = wp_get_post_terms($post->ID, 'edicoes');?>
                                     <div class="modal-materia-content">
                                         <span class="modal-close" onClick="showMateriaCart($(this).data('id'))" data-id="<?php echo $product->id?>"></span>
                                         <?php $available_variations = $product->get_available_variations(); ?>
-                                        <h3 class="lora-title"><?php echo $product->name; ?></h3>
+                                        <h3 class="open-sans-title"><?php echo $product->name; ?></h3>
                                         <p class="color-grey subtitle"><?php echo $product->attributes['edicao']['options'][0]; ?></p>
                                         <ul class="lista-produto">
                                             <li>

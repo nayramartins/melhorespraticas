@@ -46,7 +46,7 @@
 
         &-message {
             color: $grey;
-            font-family: 'Lora';
+            font-family: 'OpenSans';
             font-size: 1.1rem;
             text-transform: none;
         }
@@ -73,6 +73,7 @@
 
             &-brand {
                 width: 100%;
+                min-width: 13.5rem;
                 height: 100%;
             }
 

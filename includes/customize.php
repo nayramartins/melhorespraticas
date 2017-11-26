@@ -86,6 +86,20 @@ function melhorespraticas_customize_register( $wp_customize ) {
         'settings' 	=> 'endereco1',
 		'type'		=> 'text',
 		'priority'  => 15
+	) ) );
+	
+	$wp_customize->add_setting( 'sobre' , array(
+	    'default'   		=> '',
+	    'type'				=> 'theme_mod',
+	    'transport'			=> 'refresh'
+    ) );
+
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'sobrefooter', array(
+        'label'    	=> __('Sobre', 'melhorespraticas-theme'),
+        'section'  	=> 'footer',
+        'settings' 	=> 'sobre',
+		'type'		=> 'text',
+		'priority'  => 15
     ) ) );
 
 	$wp_customize->add_setting( 'endereco2' , array(
@@ -128,6 +142,54 @@ function melhorespraticas_customize_register( $wp_customize ) {
         'settings' 	=> 'email',
 		'type'		=> 'text',
 		'priority'  => 18
+	) ) );
+
+	$wp_customize->add_section( 'sessoes' , array(
+        'title'    => __( 'Sessões', 'starter' ),
+        'priority' => 400
+	) );
+
+	$wp_customize->add_setting( 'entrevistas' , array(
+	    'default'   		=> '',
+	    'type'				=> 'theme_mod',
+	    'transport'			=> 'refresh'
+    ) );
+
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'entrevistassessoes', array(
+        'label'    	=> __('Entrevistas', 'melhorespraticas-theme'),
+        'section'  	=> 'sessoes',
+        'settings' 	=> 'entrevistas',
+		'type'		=> 'text',
+		'priority'  => 17
     ) ) );
+
+	$wp_customize->add_setting( 'videos' , array(
+	    'default'   		=> '',
+	    'type'				=> 'theme_mod',
+	    'transport'			=> 'refresh'
+    ) );
+
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'videossessoes', array(
+        'label'    	=> __('Videos', 'melhorespraticas-theme'),
+        'section'  	=> 'sessoes',
+        'settings' 	=> 'videos',
+		'type'		=> 'text',
+		'priority'  => 17
+    ) ) );
+
+	$wp_customize->add_setting( 'radar' , array(
+	    'default'   		=> '',
+	    'type'				=> 'theme_mod',
+	    'transport'			=> 'refresh'
+    ) );
+
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'radarsessoes', array(
+        'label'    	=> __('Radar', 'melhorespraticas-theme'),
+        'section'  	=> 'sessoes',
+        'settings' 	=> 'radar',
+		'type'		=> 'text',
+		'priority'  => 17
+    ) ) );
+
 }
 add_action( 'customize_register', 'melhorespraticas_customize_register' );

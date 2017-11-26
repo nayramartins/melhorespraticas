@@ -20,7 +20,7 @@
                 margin: auto;
                 background: $greyDarker;
                 color: $white;
-                font-family: Montserrat;
+                font-family: OpenSans;
                 font-size: 1.2rem;
                 font-weight: 700;
                 text-transform: uppercase;
@@ -48,7 +48,7 @@
 
         label {
             color: $black;
-            font-family: Montserrat;
+            font-family: OpenSans;
             font-size: 1.2rem;
             font-weight: 700;
             text-transform: uppercase;
@@ -65,7 +65,7 @@
     .error {
         width: 100%;
         margin-bottom: 7rem;
-        font-family: lora;
+        font-family: OpenSans;
         text-align: center;
 
         a {
@@ -96,7 +96,7 @@
                 margin: auto;
                 background: $greyDarker;
                 color: $white;
-                font-family: Montserrat;
+                font-family: OpenSans;
                 font-size: 1.2rem;
                 font-weight: 700;
                 text-transform: uppercase;
@@ -158,7 +158,7 @@
         h2 {
             margin-bottom: 1rem;
             color: $black;
-            font-family: Lora;
+            font-family: OpenSans;
             font-size: 1.8rem;
             font-weight: 700;
             line-height: 2.5rem;
@@ -167,13 +167,13 @@
 
         h3 {
             margin-bottom: 2rem;
-            font-family: Lora;
+            font-family: OpenSans;
             font-size: 1.8rem;
             font-weight: bold;
         }
 
         p {
-            font-family: Lora;
+            font-family: OpenSans;
         }
 
         .subtitle {
@@ -190,7 +190,7 @@
 
         td {
             color: $greyDark;
-            font-family: Montserrat;
+            font-family: OpenSans;
             font-size: 1.3rem;
         }
     }
@@ -215,7 +215,7 @@
                 margin: auto;
                 background: $greyDarker;
                 color: $white;
-                font-family: Montserrat;
+                font-family: OpenSans;
                 font-size: 1.2rem;
                 font-weight: 700;
                 text-transform: uppercase;
@@ -243,7 +243,7 @@
 
         label {
             color: $black;
-            font-family: Montserrat;
+            font-family: OpenSans;
             font-size: 1.2rem;
             font-weight: 700;
             text-transform: uppercase;
@@ -259,11 +259,100 @@
     .message,
     .error {
         width: 100%;
-        font-family: lora;
+        font-family: OpenSans;
         text-align: center;
 
         a {
             font-size: 1.4rem;
+        }
+    }
+}
+
+.tml {
+    &.tml-lostpassword {
+        width: 84%;
+        margin: 0 auto;
+
+        .message {
+            margin: 5rem auto;
+            text-align: center;
+        }
+
+        form {
+            width: 50%;
+            margin: auto;
+            margin-bottom: 5rem;
+            padding: 4rem 6rem;
+            background: $greyLight;
+
+            input {
+                &[type='text'] {
+                    width: 100%;
+                    height: 6rem;
+                    margin-bottom: 2rem;
+                    padding: 0 2rem 0 5rem;
+                    border: 1px solid $greyBorder;
+                    background-color: $white;
+                    background-image: url('images/icon-email-black.png');
+                    background-repeat: no-repeat;
+                    background-position: 2rem;
+                    box-sizing: border-box;
+                }
+
+                &[type='submit'] {
+                    width: 16rem;
+                    height: 6rem;
+                    margin: auto;
+                    background: $greyDarker;
+                    color: $white;
+                    font-family: OpenSans;
+                    font-size: 1.2rem;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                }
+            }
+
+            .tml-submit-wrap {
+                display: flex;
+            }
+
+            label {
+                color: $black;
+                font-family: OpenSans;
+                font-size: 1.2rem;
+                font-weight: 700;
+                text-transform: uppercase;
+            }
+        }
+
+        .tml-action-links {
+            display: none;
+        }
+    }
+}
+
+@media screen and (max-width: $tablet) {
+    .login {
+        .container {
+            width: 100%;
+        }
+
+        form {
+            width: 100%;
+            padding: 4rem 2rem;
+            box-sizing: border-box;
+        }
+    }
+
+    .tml {
+        &.tml-lostpassword {
+            width: 92%;
+
+            form {
+                width: 100%;
+                padding: 4rem 2rem;
+                box-sizing: border-box;
+            }
         }
     }
 }

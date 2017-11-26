@@ -6,7 +6,7 @@
     }
 
     .materia__container {
-        width: 70%;
+        width: 100%;
         margin-top: 5rem;
     }
 
@@ -33,7 +33,7 @@
     .taxonomy__title,
     .post__author {
         color:  $grey;
-        font-family: Montserrat;
+        font-family: OpenSans;
         font-size: 1.3rem;
         font-weight: 700;
         text-transform: uppercase;
@@ -42,14 +42,14 @@
     .post__title {
         margin: 1rem 0;
         color:  $greyDarker;
-        font-family: Montserrat;
-        font-size: 3rem;
+        font-family: OpenSans;
+        font-size: 2.4rem;
         font-weight: 700;
     }
 
     .post__call {
         color: $grey;
-        font-family: Lora;
+        font-family: OpenSans;
         font-size: 2rem;
         font-weight: 400;
     }
@@ -76,7 +76,7 @@
     }
 
     .post__content {
-        font-family: Lora;
+        font-family: OpenSans;
 
         .merchandising_1 {
             a {
@@ -102,7 +102,7 @@
         h2 {
             margin: 4rem 0;
             color:  $black;
-            font-size: 3rem;
+            font-size: 2.4rem;
             font-weight: 700;
             line-height: 4rem;
         }
@@ -136,7 +136,7 @@
                 position: relative;
                 margin: 4rem 0 0 10rem;
                 color: $black;
-                font-family: Montserrat;
+                font-family: OpenSans;
                 font-size: 1.5rem;
                 font-weight: 400;
 
@@ -157,7 +157,7 @@
                 position: relative;
                 margin: 1rem 0 0 6rem;
                 color:  $grey;
-                font-family: Montserrat;
+                font-family: OpenSans;
                 font-size: 1.5rem;
                 font-weight: 100;
             }
@@ -167,7 +167,7 @@
             margin-left: 12rem;
             padding: 0;
             color:  $greyDark;
-            font-family: Lora;
+            font-family: OpenSans;
             font-size: 1.6rem;
             font-weight: 400;
             line-height: 2.5rem;
@@ -190,6 +190,21 @@
                     font-weight: bold;
                     content: counter(li) '.';
                 }
+            }
+        }
+
+        ul {
+            margin-left: 4rem;
+            padding: 0;
+            color:  $greyDark;
+            font-family: OpenSans;
+            font-size: 1.6rem;
+            font-weight: 400;
+            line-height: 2.5rem;
+            list-style: disc;
+
+            li {
+                display: list-item;
             }
         }
 
@@ -230,8 +245,9 @@
 
         p {
             color:  $grey;
-            font-size: 2rem;
+            font-size: 1.6rem;
             font-weight: 400;
+            word-break: break-all;
         }
 
         a {
@@ -249,7 +265,7 @@
         h3 {
             margin: 0 0 2rem;
             color: $black;
-            font-family: Lora;
+            font-family: OpenSans;
             font-size: 1.8rem;
             font-weight: 700;
         }
@@ -257,10 +273,100 @@
         ul {
             li {
                 margin-right: 1rem;
-                font-family: Montserrat;
+                font-family: OpenSans;
                 text-transform: uppercase;
             }
         }
     }
 }
 
+
+@media screen and (max-width: $tablet) {
+    .materia {
+        .container {
+            flex-direction: column;
+        }
+
+        .materia__container {
+            width: 100%;
+        }
+
+        .taxonomy__title,
+        .post__title,
+        .post__author,
+        .post__call {
+            text-align: center;
+        }
+
+        hr {
+            margin: 2rem auto 4rem;
+        }
+
+        .merchandising_1 {
+            position: relative;
+            left: -5%;
+            width: 110%;
+        }
+
+        .addtoany_list {
+            a {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+
+                &::after {
+                    margin-left: 0;
+                }
+            }
+        }
+
+        .post__content {
+            blockquote {
+                margin: 1rem 0;
+
+                p {
+                    margin: 8rem 0 0;
+                }
+
+                .citacao-autor {
+                    margin: 4rem 0 0 4rem;
+                }
+
+                .citacao-info-autor {
+                    margin: 1rem 0 0 4rem;
+                }
+            }
+
+            ol {
+                margin-left: 0;
+
+                li {
+                    &::before {
+                        left: -1rem;
+                    }
+                }
+            }
+
+            .red-block {
+                position: relative;
+                left: -5%;
+                width: 110%;
+                box-sizing: border-box;
+            }
+         }
+
+        .post__tags {
+            text-align: center;
+        }
+
+        .post__navigation {
+            display: none;
+        }
+    }
+
+    .sidebar {
+        .merchandising_1 {
+            left: 0;
+        }
+    }
+}

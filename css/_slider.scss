@@ -1,11 +1,11 @@
 .slider {
-    height: 37.4rem;
+    height: 74.8rem;
     background: $grey;
 
     .metaslider {
         .slides {
             img {
-                height: 37.4rem;
+                height: 74.8rem;
                 object-fit: cover;
             }
         }
@@ -13,7 +13,7 @@
 
     .caption {
         width: 50%;
-        margin: 5% 10%;
+        margin: auto auto auto 10%;
 
         span {
             font-size: 1rem;
@@ -24,7 +24,7 @@
         h2 {
             margin: 2rem 0;
             color: $white;
-            font-size: 3rem;
+            font-size: 2.4rem;
             line-height: 4rem;
         }
 
@@ -133,6 +133,15 @@
                     right: 0;
                 }
             }
+        }
+    }
+}
+
+.metaslider-29 {
+    .flexslider {
+        .caption-wrap {
+            display: flex;
+            height: 74.8rem;
         }
     }
 }

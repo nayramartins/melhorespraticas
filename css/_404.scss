@@ -40,7 +40,7 @@
                 &[type='text'] {
                     flex: 2;
                     margin-right: 1rem;
-                    font-family: Lora;
+                    font-family: OpenSans;
                     font-size: 1.4rem;
                 }
 
@@ -75,7 +75,7 @@
 
     h3 {
         margin: 0 0 2rem;
-        font-family: Lora;
+        font-family: OpenSans;
         font-size: 2rem;
         font-weight: bold;
     }
@@ -86,6 +86,36 @@
 
         &:first-child {
             margin-left: 0;
+        }
+    }
+}
+
+@media screen and (max-width: $tablet) {
+    .error-404 {
+        .page-content {
+            width: 100%;
+            height: auto;
+
+            form {
+                &#search-form {
+                    flex-direction: column;
+                    height: auto;
+                    margin-top: 2rem;
+                }
+
+                input {
+                    &[type='submit'] {
+                        margin-top: 2rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .tags {
+        .page-content {
+            margin: 2rem 0;
+            text-align: center;
         }
     }
 }

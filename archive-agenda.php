@@ -22,26 +22,28 @@ get_header(); ?>
                     $loop = new WP_Query( $args );
                     while ( $loop->have_posts() ) : $loop->the_post();
                         $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
-                        $date = strtotime(get_field('data'));
-                        $dateformatstring1 = 'd.m';
-                        $dateformatstring2 = 'Y';
-                        $date1 = date_i18n($dateformatstring1, $date);
-                        $date2 = date_i18n($dateformatstring2, $date);
+                        $date = get_field('data');
+                        $dateSplit = explode(".", $date); 
+                        $date1 = $dateSplit[0] . "." . $dateSplit[1];
                         ?>
                         <li>
-                            <a href="<?php the_field('link'); ?>">
+                            <a href="http://<?php the_field('link'); ?>" target="_blank">
                                 <div class="agenda-content_title">
-                                    <img src="<?php bloginfo('url'); ?>/wp-content/themes/melhorespraticas/images/icon-agenda.png" alt="" class="icon" width="20" height="20"/>
                                     <span class="date1"><?php echo $date1; ?></span><br/>
-                                    <span class="date2"><?php echo $date2; ?></span>
+                                    <!-- <span class="date2"><?php //echo $dateSplit[2]; ?></span> -->
                                 </div>
                                 <div class="agenda__content_text">
                                     <div class="agenda-content_title">
                                         <h3><?php the_title(); ?></h3>
                                     </div>
-                                    <div class="space"></div>
-                                    <p class="agenda__content__info"><?php the_field('info'); ?></p>
-                                    <div class="color-red"><?php the_field('responsavel'); ?></div>
+                                    <p class="agenda__content__info"><?php
+                                        the_field('info'); 
+                                    ?></p>
+                                    <!-- <div class="color-red">
+                                        <?php 
+                                        // the_field('responsavel'); 
+                                        ?>
+                                    </div> -->
                                 </div>
                             </a>
                         </li>

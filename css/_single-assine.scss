@@ -1,10 +1,10 @@
 .assine {
     h2 {
-        @extend .montserrat-title !optional;
+        @extend .open-sans-title !optional;
     }
 
     p {
-        font-family: 'Lato', sans-serif;
+        font-family: 'OpenSans', sans-serif;
         font-size: 1.3rem;
         text-align: center;
     }
@@ -33,7 +33,7 @@
                         margin-bottom: 1.5rem;
 
                         .price {
-                            @extend .montserrat-title !optional;
+                            @extend .open-sans-title !optional;
                             color: $black;
                         }
 
@@ -85,6 +85,28 @@
         .small-title {
             margin-bottom: 3rem;
             font-size: 2rem;
+        }
+    }
+}
+
+@media screen and (max-width: $tablet) {
+    .assine {
+        .container {
+            width: 100%;
+        }
+
+        .woocommerce {
+            ul {
+                &.products {
+                    flex-direction: column;
+
+                    li {
+                        &.product {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
         }
     }
 }

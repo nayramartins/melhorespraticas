@@ -5,11 +5,12 @@ html {
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Montserrat', Arial, sans-serif;
+    font-family: 'OpenSans', Arial, sans-serif;
+    overflow-x: hidden;
 }
 
 .container {
-    width: 84%;
+    width: 60%;
     margin: 0 auto;
 }
 
@@ -63,34 +64,36 @@ pre {
 }
 
 .box-title {
-    font-family: 'Lora';
-    font-size: 3.5rem;
+    font-family: 'OpenSans';
+    font-size: 2.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
 }
 
 .subtitle {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'OpenSans', sans-serif;
     font-size: 1rem;
     letter-spacing: $kerning;
     text-transform: uppercase;
 }
 
-.lora-title {
+.open-sans-title {
     margin-bottom: 0.5rem;
     color: $black;
-    font-family: 'Lora', serif;
+    font-family: 'OpenSans', sans-serif;
     font-size: 1.8rem;
 }
 
-.lora-text {
+.open-sans-text {
     color: $greyDark;
-    font-family: 'Lora';
+    font-family: 'OpenSans';
     font-size: 1.4rem;
     line-height: 1.5;
 }
 
-.montserrat-title {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 3rem;
+.open-sans-title {
+    font-family: 'OpenSans', sans-serif;
+    font-size: 2.4rem;
     text-align: center;
 }
 
@@ -124,7 +127,7 @@ pre {
 .text-content,
 p {
     color: $greyDark;
-    font-family: 'Lora', serif;
+    font-family: 'OpenSans', serif;
     font-size: 1.4rem;
 }
 
@@ -169,7 +172,7 @@ p {
     border: 1px solid $greyLight100;
     background: transparent;
     color: $greyDark;
-    font-family: 'Montserrat';
+    font-family: 'OpenSans';
     font-size: 1.1rem;
     font-weight: 400;
     text-transform: uppercase;
@@ -206,4 +209,29 @@ iframe {
 
 .space {
     flex-grow: 1;
+}
+
+.no-border {
+    border: none;
+}
+
+.new-container_subtitle {
+    flex-direction: column;
+    align-items: flex-start !important;
+    height: auto !important;
+    margin-bottom: 0 !important;
+
+    a {
+        align-self: flex-end;
+        margin-top: 1rem;
+    }
+}
+
+.new-subtitle_section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid $greyBorder;
 }

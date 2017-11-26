@@ -103,6 +103,10 @@
 							</li>
 						</ul>
 
+						<?php if (function_exists(main_menu())) main_menu(); ?>
+
+						<p class="header_top-message"> <?php bloginfo('description'); ?></p>
+
 						<ul class="header_top-login">
 							<?php if(!is_user_logged_in()): ?>
 								<li><a href="<?php echo esc_url( get_permalink( get_page_by_title('Login')));?>">login</li>

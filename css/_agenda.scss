@@ -6,82 +6,34 @@
     &__content {
         display: flex;
         flex-wrap: wrap;
-        justify-content: flex-start;
-        width: 80%;
-        margin: auto;
+        justify-content: space-between;
 
         &__info {
             @extend .color-grey;
             margin-top: 1rem;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'OpenSans', sans-serif;
             font-size: 1.1rem;
         }
 
         li {
-            @include display-flex(flex-start, center);
+            @include display-flex(flex-start, space-between);
             flex-wrap: wrap;
-            width: calc((100% - 8rem)/3);
-            height: 36rem;
-            margin-right: 4rem;
-            margin-bottom: 3rem;
+            width: 40%;
             padding: 2.5rem;
             transition: 0.3s;
-            background: $greyLight100;
+            border-bottom: 1px solid $greyBorder;
             cursor: pointer;
             box-sizing: border-box;
 
             a {
-                @include display-flex(flex-start, center);
-                flex-wrap: wrap;
+                width: 100%
             }
-
-            &:hover {
-                background: $greyDark;
-
-                .date1,
-                .date2,
-                .agenda__content__info,
-                h3 {
-                    color: $white;
-                }
-            }
-
-            &:nth-child(3n) {
-                margin-right: 0;
-            }
-        }
-
-        &_text {
-            @include display-flex(center, space-between);
-            flex-direction: column;
-            flex-wrap: wrap;
-            width: 100%;
-            height: 14.5rem;
-            margin-top: 4rem;
-            text-align: center;
-        }
-
-        .date1 {
-            color: $greyDarker;
-            font-family: Montserrat;
-            font-size: 3rem;
-            font-weight: 700;
-        }
-
-        .date2 {
-            display: block;
-            max-width: 5rem;
-            padding: 0 0 1rem;
-            border-bottom: 2px solid $red;
-            color: $grey;
-            font-family: Montserrat;
-            font-size: 13px;
         }
 
         h3 {
             width: 100%;
             color: $black;
-            font-family: Lora;
+            font-family: OpenSans;
             font-size: 18px;
             font-weight: bold;
         }
@@ -93,15 +45,6 @@
     }
 }
 
-.agenda-content_title {
-    @include display-flex(center, center);
-    flex-direction: column;
-
-    img {
-        margin-bottom: 2rem;
-    }
-
-}
 
 @media screen and (max-width: $mobile) {
     .agenda__container {
